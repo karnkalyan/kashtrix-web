@@ -1,0 +1,100 @@
+"use client";
+
+import React, { useState } from "react";
+import { Globe, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import { GlobalNetworkGlobe } from "@/components/visual/GlobalNetworkGlobe";
+import { ScrollNetworkAccent } from "@/components/visual/ScrollNetworkAccent";
+
+export const GlobalReady: React.FC = () => {
+  const [activeRegion, setActiveRegion] = useState("North America");
+
+  const regionSpecs: Record<string, { circuits: string; ping: string; sla: string; hubs: string[] }> = {
+    "North America": { circuits: "124,000 active circuits", ping: "4.2ms avg intra-region", sla: "99.999% SLA", hubs: ["New York (US-East)", "Ashburn (US-East-2)", "San Jose (US-West)"] },
+    "Europe": { circuits: "214,500 active circuits", ping: "5.1ms avg intra-region", sla: "99.999% SLA", hubs: ["London (EU-West)", "Frankfurt (EU-Central)", "Amsterdam (EU-West-2)"] },
+    "Asia Pacific": { circuits: "282,000 active circuits", ping: "6.4ms avg intra-region", sla: "99.999% SLA", hubs: ["Tokyo (AP-East)", "Singapore (AP-South)", "Sydney (AP-Southeast)"] },
+    "Middle East": { circuits: "41,000 active circuits", ping: "8.1ms avg intra-region", sla: "99.998% SLA", hubs: ["Dubai (ME-Central)", "Riyadh (ME-East)"] },
+    "South America": { circuits: "64,000 active circuits", ping: "11.2ms avg intra-region", sla: "99.997% SLA", hubs: ["São Paulo (SA-East)", "Bogotá (SA-North)"] },
+    "Australia": { circuits: "52,000 active circuits", ping: "7.8ms avg intra-region", sla: "99.999% SLA", hubs: ["Sydney (AP-Southeast)", "Melbourne (AP-South)"] },
+    "Africa": { circuits: "29,000 active circuits", ping: "14.5ms avg intra-region", sla: "99.996% SLA", hubs: ["Cape Town (AF-South)", "Johannesburg (AF-Central)"] },
+  };
+
+  const currentSpecs = regionSpecs[activeRegion] || regionSpecs["North America"];
+
+  return (
+    <section className="w-full py-20 md:py-28 bg-[#F8F7FA] border-t border-[#E8DFF0] text-[#1B1024] relative overflow-hidden">
+      <ScrollNetworkAccent side="left" className="top-auto bottom-8 opacity-80" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Global Operations Specs */}
+          <div className="lg:col-span-5 space-y-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+              <Globe className="w-3.5 h-3.5" /> Worldwide Multi-Tenant Core
+            </span>
+
+            <h2 className="section-heading text-[#2B0D3A]">
+              Orchestrating telecom traffic globally.
+            </h2>
+
+            <p className="text-sm md:text-base text-[#6F6078] leading-relaxed">
+              Kashtrix operates across 9 global peering regions with automated geo-redundancy. If an optical terminal controller or BNG pool experiences hardware degradation, subscriber sessions instantly fail over to adjacent availability zones without session drop.
+            </p>
+
+            {/* Active Region Highlights Box */}
+            <div className="p-5 rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-md space-y-3">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E8DFF0]">
+                <span className="text-sm font-bold font-sora text-[#2B0D3A] flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#E11D72] animate-pulse" />
+                  {activeRegion} Operations Hub
+                </span>
+                <span className="text-xs font-bold text-[#4A1B7A] bg-[#F4EEFF] px-2.5 py-0.5 rounded-full">
+                  {currentSpecs.sla}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div>
+                  <span className="text-[#6F6078] block">Active Circuits:</span>
+                  <strong className="text-[#2B0D3A] text-sm">{currentSpecs.circuits}</strong>
+                </div>
+                <div>
+                  <span className="text-[#6F6078] block">Average Latency:</span>
+                  <strong className="text-[#2B0D3A] text-sm">{currentSpecs.ping}</strong>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <span className="text-[10px] font-bold uppercase text-[#6F6078] block mb-1">
+                  Active Regional Peering Hubs:
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {currentSpecs.hubs.map((hub) => (
+                    <span
+                      key={hub}
+                      className="px-2 py-1 rounded bg-[#F8F7FA] text-[11px] font-semibold text-[#1B1024] border border-[#E8DFF0]"
+                    >
+                      {hub}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 text-xs font-bold text-[#2B0D3A]">
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#4A1B7A]" /> ISO 27001 Data Centers
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#E11D72]" /> Anycast DNS Resolution
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: 3D Global Network Globe */}
+          <div className="lg:col-span-7">
+            <GlobalNetworkGlobe onNodeClick={(region) => setActiveRegion(region)} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
