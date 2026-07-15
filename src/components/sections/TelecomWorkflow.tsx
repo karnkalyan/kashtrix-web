@@ -31,29 +31,29 @@ export const TelecomWorkflow: React.FC = () => {
   }, [isPlaying]);
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#FFFFFF] border-t border-[#E8DFF0] text-[#1B1024]">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-1)] border-t border-[var(--border-default)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
             End-to-End Orchestration
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             Built for real telecom workflows.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Watch how Kashtrix connects customer tickets directly to Radius session tables, optical attenuation meters, and automated GPS field dispatching in under 4 seconds.
           </p>
         </div>
 
         {/* Workflow Progression Container */}
-        <div className="rounded-2xl bg-[#F8F7FA] border border-[#E8DFF0] shadow-xl p-6 md:p-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E8DFF0]">
+        <div className="rounded-2xl bg-[var(--surface-2)] border border-[var(--border-default)] shadow-xl p-6 md:p-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[var(--border-default)]">
             <div>
-              <h3 className="text-base font-bold font-sora text-[#2B0D3A] flex items-center gap-2">
-                <Activity className="w-4 h-4 text-[#4A1B7A]" /> 10-Step Automated Troubleshooting &amp; Dispatch Sequence
+              <h3 className="text-base font-bold font-sora text-[var(--text-primary)] flex items-center gap-2">
+                <Activity className="w-4 h-4 text-[var(--text-link)]" /> 10-Step Automated Troubleshooting &amp; Dispatch Sequence
               </h3>
-              <p className="text-xs text-[#6F6078] mt-0.5">
+              <p className="text-xs text-[var(--text-secondary)] mt-0.5">
                 Progress: Stage {activeIdx + 1} of 10 — {(activeIdx + 1) * 10}% Complete
               </p>
             </div>
@@ -71,7 +71,7 @@ export const TelecomWorkflow: React.FC = () => {
                   setActiveIdx(0);
                   setIsPlaying(true);
                 }}
-                className="p-1.5 rounded-xl bg-[#FFFFFF] border border-[#E8DFF0] text-[#6F6078] hover:text-[#2B0D3A]"
+                className="p-1.5 rounded-xl bg-[var(--surface-1)] border border-[var(--border-default)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
@@ -79,7 +79,7 @@ export const TelecomWorkflow: React.FC = () => {
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full h-2 bg-[#E8DFF0] rounded-full overflow-hidden mb-8">
+          <div className="w-full h-2 bg-[var(--surface-4)] rounded-full overflow-hidden mb-8">
             <motion.div
               className="h-full bg-gradient-to-r from-[#2B0D3A] via-[#4A1B7A] to-[#E11D72]"
               animate={{ width: `${((activeIdx + 1) / WORKFLOW_STEPS.length) * 100}%` }}
@@ -103,10 +103,10 @@ export const TelecomWorkflow: React.FC = () => {
                   className={cn(
                     "p-2.5 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[85px] relative",
                     isCurr
-                      ? "bg-[#FFFFFF] border-[#E11D72] shadow-md scale-105 z-10"
+                      ? "bg-[var(--surface-1)] border-[#E11D72] shadow-md scale-105 z-10"
                       : isDone
-                      ? "bg-[#FFFFFF] border-[#4A1B7A]/40 text-[#1B1024]"
-                      : "bg-[#FFFFFF]/60 border-[#E8DFF0] text-[#6F6078] opacity-60 hover:opacity-100"
+                      ? "bg-[var(--surface-1)] border-[var(--border-brand)]/40 text-[var(--text-primary)]"
+                      : "bg-[var(--surface-1)]/60 border-[var(--border-default)] text-[var(--text-secondary)] opacity-60 hover:opacity-100"
                   )}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -117,7 +117,7 @@ export const TelecomWorkflow: React.FC = () => {
                           ? "bg-[#E11D72] text-white animate-pulse"
                           : isDone
                           ? "bg-[#2B0D3A] text-white"
-                          : "bg-[#F4EEFF] text-[#4A1B7A]"
+                          : "bg-[var(--surface-purple)] text-[var(--text-link)]"
                       )}
                     >
                       {isDone ? <CheckCircle2 className="w-3 h-3" /> : step.id}
@@ -127,7 +127,7 @@ export const TelecomWorkflow: React.FC = () => {
                   <span
                     className={cn(
                       "text-[11px] font-bold font-sora leading-tight line-clamp-2",
-                      isCurr ? "text-[#E11D72]" : "text-[#2B0D3A]"
+                      isCurr ? "text-[var(--text-accent)]" : "text-[var(--text-primary)]"
                     )}
                   >
                     {step.title}
@@ -145,18 +145,18 @@ export const TelecomWorkflow: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.3 }}
-              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+              className="p-6 rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
             >
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-[#F4EEFF] text-[#4A1B7A]">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-[var(--surface-purple)] text-[var(--text-link)]">
                     Step {activeIdx + 1} of 10
                   </span>
-                  <h4 className="text-base md:text-lg font-bold font-sora text-[#2B0D3A]">
+                  <h4 className="text-base md:text-lg font-bold font-sora text-[var(--text-primary)]">
                     {WORKFLOW_STEPS[activeIdx].title}
                   </h4>
                 </div>
-                <p className="text-sm text-[#6F6078] leading-relaxed max-w-2xl">
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-2xl">
                   {WORKFLOW_STEPS[activeIdx].desc}
                 </p>
               </div>

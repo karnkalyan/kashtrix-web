@@ -30,7 +30,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo }) => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-bold text-[#FCE7F3] uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5 text-[#E11D72]" /> Replace Disconnected Systems Today
+          <Sparkles className="w-3.5 h-3.5 text-[var(--text-accent)]" /> Replace Disconnected Systems Today
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold font-sora leading-tight tracking-tight">
@@ -44,7 +44,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <button
             onClick={onRequestDemo}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#FFFFFF] text-[#2B0D3A] font-sora font-bold text-sm hover:bg-[#F4EEFF] transition-all shadow-2xl flex items-center justify-center gap-2.5 group"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-[#2B0F3D] font-sora font-bold text-sm hover:bg-[#F7F2FB] transition-all shadow-2xl flex items-center justify-center gap-2.5 group"
           >
             <span>Request Custom Sandbox Demo</span>
             <ArrowRight className="w-4 h-4 text-[#4A1B7A] transition-transform group-hover:translate-x-1" />
@@ -54,21 +54,21 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo }) => {
             href="mailto:info@kashtrix.com"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#4A1B7A]/60 border border-white/30 text-white font-sora font-bold text-sm hover:bg-[#4A1B7A] transition-all flex items-center justify-center gap-2"
           >
-            <Mail className="w-4 h-4 text-[#E11D72]" /> Email info@kashtrix.com
+            <Mail className="w-4 h-4 text-[var(--text-accent)]" /> Email info@kashtrix.com
           </a>
         </div>
 
         <div className="pt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-[#E8DFF0]/90">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#E11D72]" />
+            <CheckCircle2 className="w-4 h-4 text-[var(--text-accent)]" />
             <span>60-Day Risk-Free Migration Blueprint</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#E11D72]" />
+            <CheckCircle2 className="w-4 h-4 text-[var(--text-accent)]" />
             <span>Zero Subscriber Downtime Guarantee</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-[#E11D72]" />
+            <CheckCircle2 className="w-4 h-4 text-[var(--text-accent)]" />
             <span>Dedicated Tier-1 Architect Assigned</span>
           </div>
         </div>

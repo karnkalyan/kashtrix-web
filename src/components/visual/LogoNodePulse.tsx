@@ -30,7 +30,7 @@ export const LogoNodePulse: React.FC<LogoNodePulseProps> = ({
 
   const ringColorClasses = {
     magenta: "border-[#E11D72]/40",
-    purple: "border-[#4A1B7A]/40",
+    purple: "border-[var(--border-brand)]/40",
     plum: "border-[#2B0D3A]/40",
   };
 

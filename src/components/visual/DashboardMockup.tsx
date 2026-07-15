@@ -75,50 +75,50 @@ export const DashboardMockup: React.FC = () => {
   const ViewIcon = view.icon;
 
   return (
-    <motion.div initial={{ opacity: 0, scale: 0.97, y: 14 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65 }} className="relative w-full overflow-hidden rounded-2xl border border-[#E1D7E8] bg-white font-inter text-[#1B1024] shadow-[0_28px_70px_-30px_rgba(43,13,58,0.32)]">
-      <div className="flex items-center justify-between border-b border-[#E8DFF0] bg-[#F8F7FA] px-4 py-3">
-        <div className="flex items-center gap-2"><i className="h-3 w-3 rounded-full bg-[#E11D72]/80" /><i className="h-3 w-3 rounded-full bg-[#4A1B7A]/40" /><i className="h-3 w-3 rounded-full bg-[#2B0D3A]/30" /><span className="ml-2 hidden text-[11px] font-medium text-[#2B0D3A] sm:block">Kashtrix OSS/BSS Unified Core — [ASR-9000-Core-01 Live]</span></div>
-        <span className="hidden items-center gap-1.5 rounded-full border border-[#E8DFF0] bg-[#F4EEFF] px-2.5 py-0.5 text-[11px] font-medium text-[#4A1B7A] md:inline-flex"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#E11D72]" />AI Autonomous Mode: Active</span>
+    <motion.div initial={{ opacity: 0, scale: 0.97, y: 14 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65 }} className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-strong)] bg-white font-inter text-[var(--text-primary)] shadow-[0_28px_70px_-30px_rgba(43,13,58,0.32)]">
+      <div className="flex items-center justify-between border-b border-[var(--border-default)] bg-[var(--surface-2)] px-4 py-3">
+        <div className="flex items-center gap-2"><i className="h-3 w-3 rounded-full bg-[#E11D72]/80" /><i className="h-3 w-3 rounded-full bg-[#4A1B7A]/40" /><i className="h-3 w-3 rounded-full bg-[#2B0D3A]/30" /><span className="ml-2 hidden text-[11px] font-medium text-[var(--text-primary)] sm:block">Kashtrix OSS/BSS Unified Core — [ASR-9000-Core-01 Live]</span></div>
+        <span className="hidden items-center gap-1.5 rounded-full border border-[var(--border-default)] bg-[var(--surface-purple)] px-2.5 py-0.5 text-[11px] font-medium text-[var(--text-link)] md:inline-flex"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#E11D72]" />AI Autonomous Mode: Active</span>
       </div>
 
       <div className="grid min-h-[520px] grid-cols-1 md:grid-cols-12">
-        <aside className="hidden flex-col justify-between border-r border-[#E8DFF0] bg-[#F8F7FA]/60 p-4 md:col-span-3 md:flex">
+        <aside className="hidden flex-col justify-between border-r border-[var(--border-default)] bg-[var(--surface-2)]/60 p-4 md:col-span-3 md:flex">
           <div className="space-y-1">
-            <p className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-[#6F6078]">Operations Center</p>
+            <p className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]">Operations Center</p>
             {Object.entries(VIEWS).map(([id, item]) => { const ItemIcon = item.icon; const active = id === activeId; return (
-              <button key={id} onClick={() => setActiveId(id)} aria-pressed={active} className={cn("flex w-full items-center justify-between rounded-lg px-3 py-2 font-inter text-xs font-medium transition-all", active ? "bg-[#2B0D3A] text-white shadow-sm" : "text-[#1B1024] hover:translate-x-1 hover:bg-[#F4EEFF]")}>
-                <span className="flex items-center gap-2.5"><ItemIcon className={cn("h-4 w-4", active ? "text-[#FCE7F3]" : item.accent ? "text-[#E11D72]" : "text-[#4A1B7A]")} />{item.label}</span>
+              <button key={id} onClick={() => setActiveId(id)} aria-pressed={active} className={cn("flex w-full items-center justify-between rounded-lg px-3 py-2 font-inter text-xs font-medium transition-all", active ? "bg-[#2B0D3A] text-white shadow-sm" : "text-[var(--text-primary)] hover:translate-x-1 hover:bg-[var(--surface-purple)]")}>
+                <span className="flex items-center gap-2.5"><ItemIcon className={cn("h-4 w-4", active ? "text-[#FCE7F3]" : item.accent ? "text-[var(--text-accent)]" : "text-[var(--text-link)]")} />{item.label}</span>
                 {item.accent && !active && <i className="h-1.5 w-1.5 rounded-full bg-[#E11D72]" />}
               </button> ); })}
           </div>
-          <div className="space-y-2 rounded-xl border border-[#E8DFF0] bg-white p-3 shadow-sm">
-            <div className="flex items-center justify-between text-xs font-semibold text-[#2B0D3A]"><span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-[#4A1B7A]" />{view.health}</span><span className="rounded bg-[#F4EEFF] px-1.5 py-0.5 text-[10px] text-[#4A1B7A]">{view.healthState}</span></div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-[#F8F7FA]"><div className="h-full w-[98%] bg-gradient-to-r from-[#2B0D3A] to-[#4A1B7A]" /></div>
-            <p className="text-[10px] leading-relaxed text-[#6F6078]">{view.healthDetail}</p>
+          <div className="space-y-2 rounded-xl border border-[var(--border-default)] bg-white p-3 shadow-sm">
+            <div className="flex items-center justify-between text-xs font-semibold text-[var(--text-primary)]"><span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-[var(--text-link)]" />{view.health}</span><span className="rounded bg-[var(--surface-purple)] px-1.5 py-0.5 text-[10px] text-[var(--text-link)]">{view.healthState}</span></div>
+            <div className="h-1.5 overflow-hidden rounded-full bg-[var(--surface-2)]"><div className="h-full w-[98%] bg-gradient-to-r from-[#2B0D3A] to-[#4A1B7A]" /></div>
+            <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">{view.healthDetail}</p>
           </div>
         </aside>
 
         <main className="col-span-1 flex flex-col justify-between space-y-5 p-5 md:col-span-9">
           <AnimatePresence mode="wait">
             <motion.div key={activeId} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22 }} className="space-y-5">
-              <div className="flex items-center gap-2"><ViewIcon className="h-4 w-4 text-[#4A1B7A]" /><div className="font-inter text-sm font-semibold text-[#2B0D3A]">{view.label}</div></div>
+              <div className="flex items-center gap-2"><ViewIcon className="h-4 w-4 text-[var(--text-link)]" /><div className="font-inter text-sm font-semibold text-[var(--text-primary)]">{view.label}</div></div>
               <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
                 {view.metrics.map((metric) => { const MetricIcon = metric.icon; return (
-                  <div key={metric.label} className="rounded-xl border border-[#E8DFF0] bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-[#4A1B7A] hover:shadow-md">
-                    <div className="mb-2 flex items-center justify-between"><span className="font-inter text-xs font-medium text-[#6F6078]">{metric.label}</span><span className="rounded-lg bg-[#F4EEFF] p-1.5"><MetricIcon className="h-4 w-4 text-[#4A1B7A]" /></span></div>
-                    <div className="type-kpi text-[clamp(1.2rem,2vw,1.7rem)] leading-none tracking-[-0.04em] text-[#2B0D3A]">{metric.value}</div>
-                    <div className="mt-1 flex items-center gap-1 font-inter text-[11px] font-medium text-[#4A1B7A]"><TrendingUp className="h-3 w-3" />{metric.change}</div>
+                  <div key={metric.label} className="rounded-xl border border-[var(--border-default)] bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-[var(--border-brand)] hover:shadow-md">
+                    <div className="mb-2 flex items-center justify-between"><span className="font-inter text-xs font-medium text-[var(--text-secondary)]">{metric.label}</span><span className="rounded-lg bg-[var(--surface-purple)] p-1.5"><MetricIcon className="h-4 w-4 text-[var(--text-link)]" /></span></div>
+                    <div className="type-kpi text-[clamp(1.2rem,2vw,1.7rem)] leading-none tracking-[-0.04em] text-[var(--text-primary)]">{metric.value}</div>
+                    <div className="mt-1 flex items-center gap-1 font-inter text-[11px] font-medium text-[var(--text-link)]"><TrendingUp className="h-3 w-3" />{metric.change}</div>
                   </div> ); })}
               </div>
 
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-                <div className="flex flex-col justify-between rounded-xl border border-[#E8DFF0] bg-[#F8F7FA]/40 p-4 lg:col-span-7">
-                  <div className="mb-4 flex items-start justify-between gap-3"><div><div className="font-inter text-xs font-semibold text-[#2B0D3A]">{view.chartTitle}</div><p className="font-inter text-[11px] text-[#6F6078]">{view.chartDetail}</p></div><span className="type-kpi shrink-0 text-xl tracking-[-0.04em] text-[#2B0D3A]">{view.chartValue}</span></div>
+                <div className="flex flex-col justify-between rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)]/40 p-4 lg:col-span-7">
+                  <div className="mb-4 flex items-start justify-between gap-3"><div><div className="font-inter text-xs font-semibold text-[var(--text-primary)]">{view.chartTitle}</div><p className="font-inter text-[11px] text-[var(--text-secondary)]">{view.chartDetail}</p></div><span className="type-kpi shrink-0 text-xl tracking-[-0.04em] text-[var(--text-primary)]">{view.chartValue}</span></div>
                   <div className="h-28"><svg viewBox="0 0 400 110" className="h-full w-full"><defs><linearGradient id={`chart-${activeId}`} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#4A1B7A" stopOpacity=".24" /><stop offset="100%" stopColor="#4A1B7A" stopOpacity="0" /></linearGradient></defs><path d="M0 87 Q40 68 80 77 T160 48 T240 58 T320 20 T400 42 L400 110 L0 110Z" fill={`url(#chart-${activeId})`} /><path d="M0 87 Q40 68 80 77 T160 48 T240 58 T320 20 T400 42" fill="none" stroke="#2B0D3A" strokeWidth="2.5" strokeLinecap="round" /><circle cx="320" cy="20" r="4.5" fill="#E11D72" /></svg></div>
-                  <div className="flex items-center justify-between border-t border-[#E8DFF0] pt-2 font-inter text-[10px] text-[#6F6078]"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><strong className="font-semibold text-[#E11D72]">Now</strong></div>
+                  <div className="flex items-center justify-between border-t border-[var(--border-default)] pt-2 font-inter text-[10px] text-[var(--text-secondary)]"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><strong className="font-semibold text-[var(--text-accent)]">Now</strong></div>
                 </div>
                 <div className="relative flex flex-col justify-between overflow-hidden rounded-xl bg-gradient-to-br from-[#2B0D3A] to-[#4A1B7A] p-4 text-white shadow-lg lg:col-span-5">
-                  <div><span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2 py-0.5 font-inter text-[10px] font-semibold uppercase tracking-wider text-[#FCE7F3]"><Sparkles className="h-3 w-3 text-[#E11D72]" />{view.insightLabel}</span><div className="mb-1 font-inter text-sm font-semibold">{view.insightTitle}</div><p className="mb-4 font-inter text-xs leading-relaxed text-[#E8DFF0]">{view.insightBody}</p></div>
+                  <div><span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2 py-0.5 font-inter text-[10px] font-semibold uppercase tracking-wider text-[#FCE7F3]"><Sparkles className="h-3 w-3 text-[var(--text-accent)]" />{view.insightLabel}</span><div className="mb-1 font-inter text-sm font-semibold">{view.insightTitle}</div><p className="mb-4 font-inter text-xs leading-relaxed text-[#E8DFF0]">{view.insightBody}</p></div>
                   <div className="flex items-center justify-between border-t border-white/15 pt-3 font-inter text-[11px]"><span className="text-[#FCE7F3]/80">{view.insightStatus}</span><button className="flex items-center gap-1 font-semibold hover:underline">View Log <ArrowUpRight className="h-3.5 w-3.5" /></button></div>
                 </div>
               </div>

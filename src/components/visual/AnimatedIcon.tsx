@@ -28,7 +28,7 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({
         strokeWidth={1.75}
         className={cn(
           "transition-colors duration-200",
-          selected ? "text-[#2B0D3A]" : "text-[#4A1B7A]"
+          selected ? "text-[var(--text-primary)]" : "text-[var(--text-link)]"
         )}
       />
       {aiAccent && (

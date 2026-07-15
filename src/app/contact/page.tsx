@@ -52,16 +52,16 @@ export default function ContactPage() {
 
   return (
     <SiteShell>
-      <div className="pt-16 pb-20 bg-[#FFFFFF]">
+      <div className="pt-16 pb-20 bg-[var(--surface-1)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
               Connect With Our Team
             </span>
-            <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[#2B0D3A] tracking-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
               Talk to Our Experts.
             </h1>
-            <p className="text-sm sm:text-base text-[#6F6078]">
+            <p className="text-sm sm:text-base text-[var(--text-secondary)]">
               Reach out to our global team of telecom solutions architects, NOC engineers, and executive advisors.
             </p>
           </div>
@@ -69,27 +69,27 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
             {/* Column 1: Contact Information */}
             <div className="lg:col-span-4 space-y-6">
-              <div className="p-6 rounded-2xl bg-[#F8F7FA] border border-[#E8DFF0] space-y-4">
-                <h3 className="text-base font-bold font-sora text-[#2B0D3A]">Direct Engineering Lines</h3>
-                <div className="space-y-3 text-xs text-[#1B1024]">
+              <div className="p-6 rounded-2xl bg-[var(--surface-2)] border border-[var(--border-default)] space-y-4">
+                <h3 className="text-base font-bold font-sora text-[var(--text-primary)]">Direct Engineering Lines</h3>
+                <div className="space-y-3 text-xs text-[var(--text-primary)]">
                   <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#E11D72] shrink-0 mt-0.5" />
+                    <Mail className="w-4 h-4 text-[var(--text-accent)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[#2B0D3A]">Business &amp; Product Inquiries:</strong>
+                      <strong className="block text-[var(--text-primary)]">Business &amp; Product Inquiries:</strong>
                       <a href="mailto:info@kashtrix.com">info@kashtrix.com</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#4A1B7A] shrink-0 mt-0.5" />
+                    <Mail className="w-4 h-4 text-[var(--text-link)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[#2B0D3A]">Global Presence:</strong>
+                      <strong className="block text-[var(--text-primary)]">Global Presence:</strong>
                       <span>Dubai · Singapore · Dallas · Kathmandu</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Globe className="w-4 h-4 text-[#4A1B7A] shrink-0 mt-0.5" />
+                    <Globe className="w-4 h-4 text-[var(--text-link)] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-[#2B0D3A]">NOC Escalation Support:</strong>
+                      <strong className="block text-[var(--text-primary)]">NOC Escalation Support:</strong>
                       <span>24/7/365 High-Availability Center</span>
                     </div>
                   </div>
@@ -98,12 +98,12 @@ export default function ContactPage() {
             </div>
 
             {/* Column 2: Form */}
-            <div className="lg:col-span-8 p-8 rounded-3xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-xl">
+            <div className="lg:col-span-8 p-8 rounded-3xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-xl">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
-                  <CheckCircle2 className="w-16 h-16 text-[#E11D72] mx-auto" />
-                  <h3 className="text-2xl font-bold font-sora text-[#2B0D3A]">Inquiry Logged to Database!</h3>
-                  <p className="text-sm text-[#6F6078] max-w-md mx-auto">
+                  <CheckCircle2 className="w-16 h-16 text-[var(--text-accent)] mx-auto" />
+                  <h3 className="text-2xl font-bold font-sora text-[var(--text-primary)]">Inquiry Logged to Database!</h3>
+                  <p className="text-sm text-[var(--text-secondary)] max-w-md mx-auto">
                     Thank you for reaching out. A Senior Telecom Solutions Architect will review your inquiry and respond to your email within 2 hours.
                   </p>
                   <button
@@ -117,39 +117,39 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Full Name *</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Full Name *</label>
                       <input
                         {...register("fullName")}
                         placeholder="Alex Rivera"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
-                      {errors.fullName && <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.fullName.message}</span>}
+                      {errors.fullName && <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.fullName.message}</span>}
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Work Email *</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Work Email *</label>
                       <input
                         {...register("email")}
                         placeholder="alex@telecomisp.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
-                      {errors.email && <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.email.message}</span>}
+                      {errors.email && <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.email.message}</span>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Company / ISP Name</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Company / ISP Name</label>
                       <input
                         {...register("company")}
                         placeholder="Acme Fiber Networks"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Inquiry Department</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Inquiry Department</label>
                       <select
                         {...register("department")}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFF0] bg-[#F8F7FA] text-xs font-semibold"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] text-xs font-semibold"
                       >
                         <option>Technical Sales &amp; Architecture</option>
                         <option>Partner &amp; Hardware Vendor Program</option>
@@ -160,14 +160,14 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-[#2B0D3A] block mb-1">How can our architects assist? *</label>
+                    <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">How can our architects assist? *</label>
                     <textarea
                       {...register("message")}
                       rows={4}
                       placeholder="Please describe your active subscriber circuits, network vendor hardware, or current billing pain points..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                     />
-                    {errors.message && <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.message.message}</span>}
+                    {errors.message && <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.message.message}</span>}
                   </div>
 
                   <div className="pt-2">
@@ -185,8 +185,8 @@ export default function ContactPage() {
           </div>
 
           {/* Regional Globe Section */}
-          <div className="mt-16 pt-16 border-t border-[#E8DFF0]">
-            <h3 className="text-xl font-bold font-sora text-[#2B0D3A] text-center mb-8">
+          <div className="mt-16 pt-16 border-t border-[var(--border-default)]">
+            <h3 className="text-xl font-bold font-sora text-[var(--text-primary)] text-center mb-8">
               Interactive Worldwide Support Footprint
             </h3>
             <GlobalNetworkGlobe />

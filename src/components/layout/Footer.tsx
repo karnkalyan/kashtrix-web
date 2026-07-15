@@ -86,39 +86,39 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-[#FFFFFF] border-t border-[#E8DFF0] text-[#1B1024] relative overflow-hidden">
+    <footer className="w-full bg-[var(--surface-1)] border-t border-[var(--border-default)] text-[var(--text-primary)] relative overflow-hidden">
       {/* Top Banner: Newsletter & Global Readiness */}
-      <div className="bg-[#F8F7FA] border-b border-[#E8DFF0]">
+      <div className="bg-[var(--surface-2)] border-b border-[var(--border-default)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <div className="space-y-1.5 max-w-xl">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#F4EEFF] text-[#4A1B7A]">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[var(--surface-purple)] text-[var(--text-link)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72] animate-pulse" />
               Continuous Telecom Architecture
             </span>
-            <h3 className="text-xl md:text-2xl font-bold font-sora text-[#2B0D3A]">
+            <h3 className="text-xl md:text-2xl font-bold font-sora text-[var(--text-primary)]">
               Where Networks, Business, and AI Work Together.
             </h3>
-            <p className="text-xs md:text-sm text-[#6F6078]">
+            <p className="text-xs md:text-sm text-[var(--text-secondary)]">
               Join 15,000+ NOC engineers receiving weekly multi-vendor automation scripts and AI intelligence updates.
             </p>
           </div>
 
           <form onSubmit={handleSubscribe} className="w-full lg:w-auto flex flex-col sm:flex-row gap-2">
             {subscribed ? (
-              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#F4EEFF] text-[#4A1B7A] text-xs font-bold font-sora">
-                <CheckCircle2 className="w-4 h-4 text-[#E11D72]" /> You are subscribed to Kashtrix Engineering Dispatch.
+              <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[var(--surface-purple)] text-[var(--text-link)] text-xs font-bold font-sora">
+                <CheckCircle2 className="w-4 h-4 text-[var(--text-accent)]" /> You are subscribed to Kashtrix Engineering Dispatch.
               </div>
             ) : (
               <>
                 <div className="relative flex-1 sm:w-72">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6F6078]" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-secondary)]" />
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter work email address..."
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#E8DFF0] text-xs focus:outline-none focus:border-[#4A1B7A] transition-colors"
+                    className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-[var(--surface-1)] border border-[var(--border-default)] text-xs focus:outline-none focus:border-[var(--focus-border)] transition-colors"
                   />
                 </div>
                 <button
@@ -141,26 +141,26 @@ export const Footer: React.FC = () => {
             <Link href="/" className="inline-block">
               <AnimatedLogo size="lg" variant="stacked" className="!h-24 !w-52" />
             </Link>
-            <p className="text-xs text-[#6F6078] leading-relaxed max-w-sm">
+            <p className="text-xs text-[var(--text-secondary)] leading-relaxed max-w-sm">
               Kashtrix unifies OSS, BSS, CRM, billing, payments, network operations, subscriber management, hardware automation, support, field service, inventory, analytics, voice automation, APIs, and AI agents into one intelligent platform.
             </p>
 
-            <div className="space-y-2 pt-2 border-t border-[#E8DFF0]/60 text-xs text-[#1B1024]">
+            <div className="space-y-2 pt-2 border-t border-[var(--border-default)]/60 text-xs text-[var(--text-primary)]">
               <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-[#4A1B7A]" />
+                <Globe className="w-4 h-4 text-[var(--text-link)]" />
                 <span>Global presence: Dubai, Singapore, Dallas (US), and Kathmandu (Nepal)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#E11D72]" />
-                <a href="mailto:info@kashtrix.com" className="hover:text-[#4A1B7A]">Contact: info@kashtrix.com</a>
+                <Mail className="w-4 h-4 text-[var(--text-accent)]" />
+                <a href="mailto:info@kashtrix.com" className="hover:text-[var(--text-link)]">Contact: info@kashtrix.com</a>
               </div>
             </div>
 
             <div className="flex items-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#F8F7FA] border border-[#E8DFF0] text-[11px] font-bold text-[#2B0D3A]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#4A1B7A]" /> SOC 2 Type II Certified
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--surface-2)] border border-[var(--border-default)] text-[11px] font-bold text-[var(--text-primary)]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[var(--text-link)]" /> SOC 2 Type II Certified
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#F8F7FA] border border-[#E8DFF0] text-[11px] font-bold text-[#2B0D3A]">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--surface-2)] border border-[var(--border-default)] text-[11px] font-bold text-[var(--text-primary)]">
                 ISO 27001 Compliant
               </span>
             </div>
@@ -170,7 +170,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-6">
             {footerColumns.map((col) => (
               <div key={col.title} className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#2B0D3A] font-sora">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] font-sora">
                   {col.title}
                 </h4>
                 <ul className="space-y-2">
@@ -178,7 +178,7 @@ export const Footer: React.FC = () => {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-xs text-[#6F6078] hover:text-[#2B0D3A] hover:underline transition-colors block leading-snug"
+                        className="text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:underline transition-colors block leading-snug"
                       >
                         {link.label}
                       </Link>
@@ -192,15 +192,15 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Supported Payment Gateways */}
-      <div className="border-t border-[#E8DFF0] bg-white">
+      <div className="border-t border-[var(--border-default)] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="shrink-0">
-              <div className="flex items-center gap-2 font-sora text-sm font-semibold text-[#2B0D3A]">
-                <WalletCards className="h-4 w-4 text-[#E11D72]" />
+              <div className="flex items-center gap-2 font-sora text-sm font-semibold text-[var(--text-primary)]">
+                <WalletCards className="h-4 w-4 text-[var(--text-accent)]" />
                 Payment gateways supported
               </div>
-              <p className="mt-1 max-w-md font-inter text-xs leading-relaxed text-[#6F6078]">
+              <p className="mt-1 max-w-md font-inter text-xs leading-relaxed text-[var(--text-secondary)]">
                 Accept regional and global payments through native connectors or the secure Kashtrix internal payment gateway.
               </p>
             </div>
@@ -209,9 +209,9 @@ export const Footer: React.FC = () => {
               {PAYMENT_GATEWAYS.map((gateway) => (
                 <span
                   key={gateway}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] px-2.5 py-1.5 font-inter text-[11px] font-medium text-[#514458] transition-colors hover:border-[#BBA8C8] hover:bg-[#F4EEFF]"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] px-2.5 py-1.5 font-inter text-[11px] font-medium text-[var(--text-secondary)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface-purple)]"
                 >
-                  <CreditCard className="h-3 w-3 text-[#4A1B7A]" />
+                  <CreditCard className="h-3 w-3 text-[var(--text-link)]" />
                   {gateway}
                 </span>
               ))}
@@ -221,23 +221,23 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Legal & Copyright Strip */}
-      <div className="border-t border-[#E8DFF0] bg-[#F8F7FA]/70 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#6F6078]">
+      <div className="border-t border-[var(--border-default)] bg-[var(--surface-2)]/70 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[var(--text-secondary)]">
           <div>
             &copy; {new Date().getFullYear()} Kashtrix Technologies Inc. All rights reserved. Every System. One Platform. Limitless AI Possibilities.
           </div>
 
           <div className="flex flex-wrap items-center gap-5">
-            <Link href="/privacy" className="hover:text-[#2B0D3A] transition-colors">
+            <Link href="/privacy" className="hover:text-[var(--text-primary)] transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-[#2B0D3A] transition-colors">
+            <Link href="/terms" className="hover:text-[var(--text-primary)] transition-colors">
               Terms of Service
             </Link>
-            <Link href="/security" className="hover:text-[#2B0D3A] transition-colors">
+            <Link href="/security" className="hover:text-[var(--text-primary)] transition-colors">
               Security Center
             </Link>
-            <Link href="/sitemap.xml" className="hover:text-[#2B0D3A] transition-colors">
+            <Link href="/sitemap.xml" className="hover:text-[var(--text-primary)] transition-colors">
               Sitemap
             </Link>
           </div>

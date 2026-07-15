@@ -21,56 +21,56 @@ export const GlobalReady: React.FC = () => {
   const currentSpecs = regionSpecs[activeRegion] || regionSpecs["North America"];
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#F8F7FA] border-t border-[#E8DFF0] text-[#1B1024] relative overflow-hidden">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-2)] border-t border-[var(--border-default)] text-[var(--text-primary)] relative overflow-hidden">
       <ScrollNetworkAccent side="left" className="top-auto bottom-8 opacity-80" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Global Operations Specs */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
               <Globe className="w-3.5 h-3.5" /> Worldwide Multi-Tenant Core
             </span>
 
-            <h2 className="section-heading text-[#2B0D3A]">
+            <h2 className="section-heading text-[var(--text-primary)]">
               Orchestrating telecom traffic globally.
             </h2>
 
-            <p className="text-sm md:text-base text-[#6F6078] leading-relaxed">
+            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">
               Kashtrix operates across 9 global peering regions with automated geo-redundancy. If an optical terminal controller or BNG pool experiences hardware degradation, subscriber sessions instantly fail over to adjacent availability zones without session drop.
             </p>
 
             {/* Active Region Highlights Box */}
-            <div className="p-5 rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-md space-y-3">
-              <div className="flex items-center justify-between pb-3 border-b border-[#E8DFF0]">
-                <span className="text-sm font-bold font-sora text-[#2B0D3A] flex items-center gap-2">
+            <div className="p-5 rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-md space-y-3">
+              <div className="flex items-center justify-between pb-3 border-b border-[var(--border-default)]">
+                <span className="text-sm font-bold font-sora text-[var(--text-primary)] flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E11D72] animate-pulse" />
                   {activeRegion} Operations Hub
                 </span>
-                <span className="text-xs font-bold text-[#4A1B7A] bg-[#F4EEFF] px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-bold text-[var(--text-link)] bg-[var(--surface-purple)] px-2.5 py-0.5 rounded-full">
                   {currentSpecs.sla}
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <span className="text-[#6F6078] block">Active Circuits:</span>
-                  <strong className="text-[#2B0D3A] text-sm">{currentSpecs.circuits}</strong>
+                  <span className="text-[var(--text-secondary)] block">Active Circuits:</span>
+                  <strong className="text-[var(--text-primary)] text-sm">{currentSpecs.circuits}</strong>
                 </div>
                 <div>
-                  <span className="text-[#6F6078] block">Average Latency:</span>
-                  <strong className="text-[#2B0D3A] text-sm">{currentSpecs.ping}</strong>
+                  <span className="text-[var(--text-secondary)] block">Average Latency:</span>
+                  <strong className="text-[var(--text-primary)] text-sm">{currentSpecs.ping}</strong>
                 </div>
               </div>
 
               <div className="pt-2">
-                <span className="text-[10px] font-bold uppercase text-[#6F6078] block mb-1">
+                <span className="text-[10px] font-bold uppercase text-[var(--text-secondary)] block mb-1">
                   Active Regional Peering Hubs:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {currentSpecs.hubs.map((hub) => (
                     <span
                       key={hub}
-                      className="px-2 py-1 rounded bg-[#F8F7FA] text-[11px] font-semibold text-[#1B1024] border border-[#E8DFF0]"
+                      className="px-2 py-1 rounded bg-[var(--surface-2)] text-[11px] font-semibold text-[var(--text-primary)] border border-[var(--border-default)]"
                     >
                       {hub}
                     </span>
@@ -79,12 +79,12 @@ export const GlobalReady: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 text-xs font-bold text-[#2B0D3A]">
+            <div className="flex items-center gap-4 text-xs font-bold text-[var(--text-primary)]">
               <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#4A1B7A]" /> ISO 27001 Data Centers
+                <ShieldCheck className="w-4 h-4 text-[var(--text-link)]" /> ISO 27001 Data Centers
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#E11D72]" /> Anycast DNS Resolution
+                <CheckCircle2 className="w-4 h-4 text-[var(--text-accent)]" /> Anycast DNS Resolution
               </div>
             </div>
           </div>

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Inter, Sora, Space_Grotesk } from "next/font/google";
+import { Inter, Poppins, Roboto } from "next/font/google";
 import { constructMetadata } from "@/lib/seo";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { getOrganizationSchema, getSoftwareApplicationSchema, getWebsiteSchema } from "@/lib/seo";
 
-export const sora = Sora({
+export const poppins = Poppins({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--font-sora",
+  variable: "--font-poppins",
 });
 
 export const inter = Inter({
@@ -18,10 +18,10 @@ export const inter = Inter({
   variable: "--font-inter",
 });
 
-export const spaceGrotesk = Space_Grotesk({
+export const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = constructMetadata({ canonical: "https://kashtrix.com" });
@@ -30,9 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html suppressHydrationWarning
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      className={`${poppins.variable} ${inter.variable} ${roboto.variable} antialiased`}
     >
-      <body className="bg-[#F8F7FA] text-[#1B1024] selection:bg-[#E11D72] selection:text-white">
+      <body className="bg-[var(--page-bg)] text-[var(--text-primary)] selection:bg-[var(--brand-pink)] selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getSoftwareApplicationSchema()) }} />

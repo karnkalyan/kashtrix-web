@@ -37,29 +37,29 @@ export const NetworkAutomation: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#F8F7FA] border-t border-[#E8DFF0] text-[#1B1024]">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-2)] border-t border-[var(--border-default)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
             Zero-Touch Broadband Core
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             Automate subscriber, broadband, and network operations.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Orchestrate BNG, vBNG, Radius, DHCP, and OLT workflows with visual drag-and-drop triggers, automated pre-commit state validation, and automatic rollback protection.
           </p>
         </div>
 
         {/* Mock Automation Builder Grid */}
-        <div className="rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-2xl p-6 md:p-8 mb-16">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#E8DFF0]">
+        <div className="rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-2xl p-6 md:p-8 mb-16">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 mb-6 border-b border-[var(--border-default)]">
             <div>
-              <h3 className="text-base font-bold font-sora text-[#2B0D3A] flex items-center gap-2">
-                <Wifi className="w-4 h-4 text-[#4A1B7A]" /> Live Network Workflow Orchestration Sandbox
+              <h3 className="text-base font-bold font-sora text-[var(--text-primary)] flex items-center gap-2">
+                <Wifi className="w-4 h-4 text-[var(--text-link)]" /> Live Network Workflow Orchestration Sandbox
               </h3>
-              <p className="text-xs text-[#6F6078]">
+              <p className="text-xs text-[var(--text-secondary)]">
                 Visual Workflow: Dynamic Subscriber Speed Upgrade &amp; Radius CoA Push
               </p>
             </div>
@@ -70,7 +70,7 @@ export const NetworkAutomation: React.FC = () => {
               className={cn(
                 "px-5 py-2.5 rounded-xl font-inter font-semibold text-xs transition-all flex items-center gap-2 shadow-sm",
                 runningSimulation
-                  ? "bg-[#E8DFF0] text-[#6F6078] cursor-not-allowed"
+                  ? "bg-[var(--surface-4)] text-[var(--text-secondary)] cursor-not-allowed"
                   : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A]"
               )}
             >
@@ -99,10 +99,10 @@ export const NetworkAutomation: React.FC = () => {
                     className={cn(
                       "p-3.5 rounded-xl border transition-all duration-300 flex items-start gap-3",
                       isActive
-                        ? "bg-[#FFFFFF] border-[#E11D72] shadow-md -translate-y-0.5"
+                        ? "bg-[var(--surface-1)] border-[#E11D72] shadow-md -translate-y-0.5"
                         : isPassed
-                        ? "bg-[#F8F7FA] border-[#4A1B7A]/30"
-                        : "bg-[#FFFFFF] border-[#E8DFF0] opacity-75"
+                        ? "bg-[var(--surface-2)] border-[var(--border-brand)]/30"
+                        : "bg-[var(--surface-1)] border-[var(--border-default)] opacity-75"
                     )}
                   >
                     <div
@@ -112,7 +112,7 @@ export const NetworkAutomation: React.FC = () => {
                           ? "bg-[#E11D72] text-white animate-pulse"
                           : isPassed
                           ? "bg-[#2B0D3A] text-white"
-                          : "bg-[#F4EEFF] text-[#4A1B7A]"
+                          : "bg-[var(--surface-purple)] text-[var(--text-link)]"
                       )}
                     >
                       {isPassed ? <CheckCircle2 className="w-3.5 h-3.5" /> : stepNum}
@@ -120,14 +120,14 @@ export const NetworkAutomation: React.FC = () => {
 
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-xs font-bold font-sora text-[#2B0D3A]">{step.label}</h4>
+                        <h4 className="text-xs font-bold font-sora text-[var(--text-primary)]">{step.label}</h4>
                         {isActive && (
-                          <span className="text-[10px] font-bold text-[#E11D72] uppercase tracking-wider animate-pulse">
+                          <span className="text-[10px] font-bold text-[var(--text-accent)] uppercase tracking-wider animate-pulse">
                             Executing...
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-[#6F6078] mt-0.5">{step.detail}</p>
+                      <p className="text-xs text-[var(--text-secondary)] mt-0.5">{step.detail}</p>
                     </div>
                   </div>
                 );
@@ -137,10 +137,10 @@ export const NetworkAutomation: React.FC = () => {
             {/* Right Column: Live Execution Terminal / Preview */}
             <div className="lg:col-span-7 rounded-2xl bg-[#1B1024] border border-[#342044] p-5 text-white font-inter text-xs flex flex-col justify-between min-h-[340px]">
               <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#342044]">
-                <span className="text-[#9B82B5] font-semibold flex items-center gap-1.5">
-                  <Terminal className="w-4 h-4 text-[#E11D72]" /> Real-Time Orchestration Output Console
+                <span className="text-[var(--text-tertiary)] font-semibold flex items-center gap-1.5">
+                  <Terminal className="w-4 h-4 text-[var(--text-accent)]" /> Real-Time Orchestration Output Console
                 </span>
-                <span className="text-[10px] text-[#E11D72] font-bold uppercase tracking-wider">
+                <span className="text-[10px] text-[var(--text-accent)] font-bold uppercase tracking-wider">
                   {simulationStage === 5 ? "Execution Completed" : runningSimulation ? "Active Transaction" : "Idle Ready"}
                 </span>
               </div>
@@ -152,12 +152,12 @@ export const NetworkAutomation: React.FC = () => {
                   </div>
                 )}
                 {simulationStage >= 2 && (
-                  <div className="text-[#9B82B5]">
+                  <div className="text-[var(--text-tertiary)]">
                     [00:00.45] Pre-check condition passed. OLT-MA5800-PORT-1/12 optical attenuation: -19.4 dBm (Optimal range verified).
                   </div>
                 )}
                 {simulationStage >= 3 && (
-                  <div className="text-[#E11D72]">
+                  <div className="text-[var(--text-accent)]">
                     [00:01.10] Sending Radius CoA (Disconnect-Request + Re-Auth) to ASR-9000-BNG-01 with Session-Id: &apos;sess_tokyo_9912&apos;.
                   </div>
                 )}
@@ -167,8 +167,8 @@ export const NetworkAutomation: React.FC = () => {
                   </div>
                 )}
                 {simulationStage >= 5 && (
-                  <div className="p-3 rounded-lg bg-[#2B0D3A] border border-[#4A1B7A] space-y-1 mt-3 text-white font-bold">
-                    <div className="flex items-center gap-2 text-[#E11D72]">
+                  <div className="p-3 rounded-lg bg-[#2B0D3A] border border-[var(--border-brand)] space-y-1 mt-3 text-white font-bold">
+                    <div className="flex items-center gap-2 text-[var(--text-accent)]">
                       <CheckCircle2 className="w-4 h-4" /> [SUCCESS] Workflow Executed &amp; Verified (1.82s Total Latency)
                     </div>
                     <div className="text-[11px] font-normal text-[#E8DFF0]">
@@ -177,13 +177,13 @@ export const NetworkAutomation: React.FC = () => {
                   </div>
                 )}
                 {simulationStage === 0 && (
-                  <div className="h-full flex items-center justify-center text-center text-[#6F6078] py-12">
+                  <div className="h-full flex items-center justify-center text-center text-[var(--text-secondary)] py-12">
                     Click &quot;Test Workflow Execution&quot; above to run atomic network validation.
                   </div>
                 )}
               </div>
 
-              <div className="pt-3 mt-4 border-t border-[#342044] flex items-center justify-between text-[11px] text-[#9B82B5]">
+              <div className="pt-3 mt-4 border-t border-[#342044] flex items-center justify-between text-[11px] text-[var(--text-tertiary)]">
                 <span>State Rollback Safeguard: Armed &amp; Ready</span>
                 <span className="text-[#F4EEFF] font-semibold">SLA Target: Zero Packet Drop</span>
               </div>
@@ -196,10 +196,10 @@ export const NetworkAutomation: React.FC = () => {
           {AUTOMATION_MODULES.map((mod, idx) => (
             <div
               key={mod.title}
-              className="p-4 rounded-xl border border-[#E8DFF0] bg-[#FFFFFF] hover:border-[#4A1B7A] transition-all duration-200"
+              className="p-4 rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] hover:border-[var(--border-brand)] transition-all duration-200"
             >
-              <h4 className="text-xs font-bold font-sora text-[#2B0D3A] mb-1">{mod.title}</h4>
-              <p className="text-xs text-[#6F6078] leading-relaxed">{mod.desc}</p>
+              <h4 className="text-xs font-bold font-sora text-[var(--text-primary)] mb-1">{mod.title}</h4>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{mod.desc}</p>
             </div>
           ))}
         </div>

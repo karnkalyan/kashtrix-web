@@ -33,7 +33,7 @@ export const TrustStrip: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   return (
-    <section className="w-full py-12 bg-[#FFFFFF] border-y border-[#E8DFF0] text-[#1B1024]">
+    <section className="w-full py-12 bg-[var(--surface-1)] border-y border-[var(--border-default)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TRUST_CARDS.map((card, index) => {
@@ -50,10 +50,10 @@ export const TrustStrip: React.FC = () => {
                 onMouseEnter={() => setHoveredCard(card.id)}
                 onMouseLeave={() => setHoveredCard(null)}
                 className={cn(
-                  "p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-[#FFFFFF]",
+                  "p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden flex flex-col justify-between bg-[var(--surface-1)]",
                   isHovered
-                    ? "border-[#4A1B7A] -translate-y-1 shadow-lg shadow-[#2B0D3A]/10"
-                    : "border-[#E8DFF0]"
+                    ? "border-[var(--border-brand)] -translate-y-1 shadow-lg shadow-[#2B0D3A]/10"
+                    : "border-[var(--border-default)]"
                 )}
               >
                 {/* Mini Logo Flowing Line SVG embedded inside each card */}
@@ -87,7 +87,7 @@ export const TrustStrip: React.FC = () => {
 
                 <div className="relative z-10 space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="p-2.5 rounded-xl bg-[#F4EEFF] text-[#4A1B7A]">
+                    <div className="p-2.5 rounded-xl bg-[var(--surface-purple)] text-[var(--text-link)]">
                       <Icon className="w-5 h-5" />
                     </div>
                     {card.id === "possibilities" && (
@@ -95,10 +95,10 @@ export const TrustStrip: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className="text-lg font-bold font-sora text-[#2B0D3A] tracking-tight">
+                  <h3 className="text-lg font-bold font-sora text-[var(--text-primary)] tracking-tight">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-[#6F6078] leading-relaxed">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                     {card.description}
                   </p>
                 </div>

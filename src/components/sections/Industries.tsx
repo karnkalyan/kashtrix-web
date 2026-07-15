@@ -1,157 +1,125 @@
-"use client";
-
-import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Wifi, Server, Radio, Tv, PhoneCall, Building2, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import {
+  ArrowRight, Building2, Cable, CheckCircle2, CircleDollarSign,
+  CloudCog, Gauge, Headset, MapPinned, Network, PhoneCall, Radio,
+  Router, Server, ShieldCheck, Smartphone, TicketCheck, UsersRound,
+  Wifi, Workflow, Wrench, type LucideIcon,
+} from "lucide-react";
+import { OSS_BSS_ASSETS, SERVICE_ACCENTS, type ServiceAccent } from "@/lib/marketing";
 
-const INDUSTRIES_LIST = [
+type Industry = {
+  id: string; title: string; eyebrow: string; description: string; icon: LucideIcon;
+  accent: ServiceAccent; image: string; imageAlt: string; benefit: string;
+  features: Array<{ title: string; description: string; icon: LucideIcon }>;
+  workflow: string[];
+};
+
+const INDUSTRIES: Industry[] = [
   {
-    id: "isps",
-    title: "Internet Service Providers (ISPs)",
-    icon: Wifi,
-    desc: "Automated subscriber Radius authentication, high-concurrency BNG load balancing, and automated billing collections.",
-    metrics: "+45% Faster Cash Collection",
-    features: ["PPPoE/DHCP Zero-Touch", "Automated Dunning & Pay Links", "Instant OLT Diagnostic Buttons"],
+    id: "isps", title: "Internet service providers", eyebrow: "ISP operating system", accent: "isp", icon: Wifi,
+    description: "Unify subscriber authentication, network service, billing, support, and field activity without replacing every system at once.",
+    image: OSS_BSS_ASSETS.ossOverview, imageAlt: "Kashtrix real-time ISP operations dashboard", benefit: "One shared operating context from network event to customer outcome.",
+    features: [
+      { title: "Subscriber and AAA control", description: "Coordinate sessions, service policy, and subscriber context across the access network.", icon: Router },
+      { title: "Network operations", description: "Connect topology, alarms, capacity, and service health for NOC teams.", icon: Network },
+      { title: "Revenue journeys", description: "Link plans, invoices, payments, collections, and service policy.", icon: CircleDollarSign },
+      { title: "Care and field work", description: "Turn customer and network events into owned support and technician tasks.", icon: Headset },
+    ],
+    workflow: ["Connect network signals", "Add subscriber context", "Apply service policy", "Coordinate teams", "Confirm the outcome"],
   },
   {
-    id: "ftth",
-    title: "FTTH & GPON Operators",
-    icon: Server,
-    desc: "Complete optical terminal provisioning across Cisco, Huawei MA5800, and Nokia ISAM/ISAM FX with fiber GIS outage mapping.",
-    metrics: "Sub-Second Provisioning",
-    features: ["TR-069 / USP Auto-Config", "Real-Time Optical Loss Tests", "Fiber GIS Topology Outage Maps"],
+    id: "msp", title: "Managed service providers", eyebrow: "Multi-client operations", accent: "msp", icon: Building2,
+    description: "Operate distinct client environments through a repeatable service model with clear tenant context, SLA workflows, and accountable delivery.",
+    image: OSS_BSS_ASSETS.support, imageAlt: "Kashtrix support ticket workflow for managed service providers", benefit: "Standardized delivery that still preserves each client’s operational context.",
+    features: [
+      { title: "Tenant-aware operations", description: "Organize customers, services, sites, assets, and work with clear boundaries.", icon: UsersRound },
+      { title: "SLA workflow", description: "Prioritize incidents and service tasks around customer commitments.", icon: Gauge },
+      { title: "Service desk context", description: "Give agents network, asset, commercial, and interaction history together.", icon: TicketCheck },
+      { title: "Managed automation", description: "Reuse controlled runbooks across devices, sites, and customer environments.", icon: CloudCog },
+    ],
+    workflow: ["Receive service signal", "Identify tenant impact", "Apply SLA policy", "Execute runbook", "Report completion"],
   },
   {
-    id: "wireless",
-    title: "Wireless Operators (WISPs)",
-    icon: Radio,
-    desc: "Sector capacity monitoring, Cambium/Ubiquiti API integration, and automated subscriber bandwidth shaping during peak hours.",
-    metrics: "Zero Congestion Drops",
-    features: ["Dynamic QoS Priority Queueing", "Wireless Tower Health Polling", "Automated Speed Boost Upsells"],
+    id: "ftth", title: "FTTH and GPON operators", eyebrow: "Fiber operations", accent: "fiber", icon: Cable,
+    description: "Connect fiber topology, OLT operations, equipment lifecycle, activation, and outage response.", image: OSS_BSS_ASSETS.oltManagement, imageAlt: "Kashtrix OLT management application", benefit: "A clearer path from physical access infrastructure to active service.",
+    features: [
+      { title: "OLT workflows", description: "Coordinate access hardware and activation operations.", icon: Server },
+      { title: "Fiber context", description: "Relate network topology, assets, and affected services.", icon: Cable },
+      { title: "Device lifecycle", description: "Track customer equipment from stock to installation.", icon: Router },
+    ], workflow: ["Map infrastructure", "Qualify service", "Provision access", "Verify device", "Monitor health"],
   },
   {
-    id: "cable",
-    title: "Cable Operators (DOCSIS)",
-    icon: Tv,
-    desc: "Automated CMTS channel bonding verification, modem configuration file generation, and real-time signal-to-noise alerting.",
-    metrics: "99.999% CMTS Uptime",
-    features: ["DOCSIS 3.1/4.0 Orchestration", "RF Signal Degradation Alarms", "Automated CPE Firmware Push"],
+    id: "wireless", title: "Wireless operators", eyebrow: "WISP operations", accent: "wireless", icon: Radio,
+    description: "Coordinate tower health, sector capacity, subscriber policy, field response, and customer communication.", image: OSS_BSS_ASSETS.fiberMap, imageAlt: "Kashtrix network map application", benefit: "Operational context that travels from remote site to support desk.",
+    features: [
+      { title: "Site visibility", description: "Organize tower, link, and service health context.", icon: Radio },
+      { title: "Capacity policy", description: "Coordinate subscriber and network policy decisions.", icon: Gauge },
+      { title: "Field dispatch", description: "Convert site issues into prioritized mobile work.", icon: MapPinned },
+    ], workflow: ["Observe site", "Assess impact", "Adjust policy", "Dispatch field team", "Verify recovery"],
   },
   {
-    id: "voip",
-    title: "VoIP & SIP Providers",
-    icon: PhoneCall,
-    desc: "Real-time Call Detail Record (CDR) mediation, high-concurrency SIP trunk rating, and conversational AI payment reminder calls.",
-    metrics: "Over 2M Calls/Day Rated",
-    features: ["PBX Direct API Integration", "Real-Time Fraud Call Detection", "Automated Voice Payment Cadences"],
+    id: "cable", title: "Cable operators", eyebrow: "Broadband assurance", accent: "support", icon: Smartphone,
+    description: "Bring access-network health, subscriber service, device context, and incident workflows into one operating rhythm.", image: OSS_BSS_ASSETS.tr069, imageAlt: "Kashtrix remote device management application", benefit: "Fewer handoff gaps between plant, device, service, and care teams.",
+    features: [
+      { title: "Device operations", description: "Connect remote equipment context and controlled actions.", icon: Smartphone },
+      { title: "Service assurance", description: "Prioritize operational signals by subscriber impact.", icon: ShieldCheck },
+      { title: "Work coordination", description: "Move issues between NOC, care, and field teams.", icon: Workflow },
+    ], workflow: ["Capture signal", "Add service context", "Prioritize impact", "Coordinate response", "Close incident"],
   },
   {
-    id: "msp",
-    title: "Managed IT & SD-WAN Providers",
-    icon: Building2,
-    desc: "Multi-tenant enterprise self-care portals, SLA uptime tracking, and multi-vendor firewall and perimeter security sync.",
-    metrics: "Multi-Tenant Isolation",
-    features: ["White-Label Enterprise Portal", "Automated VIP SLA Credit Rating", "FortiGate / Cisco SD-WAN Sync"],
+    id: "voip", title: "VoIP and SIP providers", eyebrow: "Voice service operations", accent: "bss", icon: PhoneCall,
+    description: "Connect voice platforms with subscriber, support, revenue, and communication workflows.", image: OSS_BSS_ASSETS.voice, imageAlt: "Kashtrix PBX and voice management application", benefit: "Voice operations grounded in customer and commercial context.",
+    features: [
+      { title: "PBX connectivity", description: "Relate trunks, extensions, and service operations.", icon: PhoneCall },
+      { title: "Customer context", description: "Give teams relevant subscriber and account history.", icon: UsersRound },
+      { title: "Response workflow", description: "Coordinate communication, support, and follow-up.", icon: Headset },
+    ], workflow: ["Connect voice system", "Capture event", "Resolve identity", "Trigger workflow", "Review result"],
   },
 ];
 
-export const Industries: React.FC = () => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
+function IndustrySection({ industry, index }: { industry: Industry; index: number }) {
+  const colors = SERVICE_ACCENTS[industry.accent];
+  const Icon = industry.icon;
+  const imageFirst = index % 2 === 1;
   return (
-    <section className="section-art section-art-minimal section-art-shapes w-full py-20 md:py-28 bg-[#FFFFFF] border-t border-[#E8DFF0] text-[#1B1024]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
-            Tailored Telecom Architecture
-          </span>
-          <h2 className="section-heading text-[#2B0D3A]">
-            Built for every telecom provider type.
-          </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
-            Whether you operate 15,000 wireless subscribers across rural sectors or 500,000+ GPON fiber circuits in metropolitan rings, Kashtrix scales to your infrastructure.
-          </p>
+    <section id={industry.id} className="scroll-mt-28 border-t border-[var(--border-default)] bg-[var(--surface-1)] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12">
+          <div className={`lg:col-span-5 ${imageFirst ? "lg:order-2" : ""}`}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-2)] px-3 py-1.5 font-poppins text-xs font-semibold uppercase tracking-[.12em]" style={{ color: colors.primary }}><Icon className="h-4 w-4" />{industry.eyebrow}</span>
+            <h2 className="mt-5 font-poppins text-3xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-4xl">{industry.title}</h2>
+            <p className="mt-4 font-inter text-base leading-7 text-[var(--text-secondary)]">{industry.description}</p>
+            <div className="mt-6 flex gap-3 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-4"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" style={{ color: colors.primary }} /><p className="font-inter text-sm font-semibold leading-6 text-[var(--text-primary)]">{industry.benefit}</p></div>
+            <Link href="/request-demo" className="mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-inter text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5" style={{ background: colors.gradient }}>Explore this solution <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+          <div className={`lg:col-span-7 ${imageFirst ? "lg:order-1" : ""}`}>
+            <div className="relative overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--surface-2)] p-2 shadow-[var(--shadow-lg)] sm:p-3"><div className="relative aspect-[16/10] overflow-hidden rounded-2xl"><Image src={industry.image} alt={industry.imageAlt} fill sizes="(max-width: 1024px) 100vw, 56vw" className="object-cover object-top" /></div></div>
+          </div>
         </div>
-
-        {/* Industries Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INDUSTRIES_LIST.map((ind, index) => {
-            const Icon = ind.icon;
-            const isHovered = hoveredId === ind.id;
-
-            return (
-              <motion.div
-                key={ind.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onMouseEnter={() => setHoveredId(ind.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className={cn(
-                  "p-6 rounded-2xl border transition-all duration-300 bg-[#FFFFFF] flex flex-col justify-between relative",
-                  isHovered
-                    ? "border-[#4A1B7A] -translate-y-1 shadow-xl shadow-[#2B0D3A]/10"
-                    : "border-[#E8DFF0]"
-                )}
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div
-                      className={cn(
-                        "p-3 rounded-xl transition-colors",
-                        isHovered ? "bg-[#2B0D3A] text-white" : "bg-[#F4EEFF] text-[#4A1B7A]"
-                      )}
-                    >
-                      <Icon className="w-6 h-6 stroke-[1.75]" />
-                    </div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#F8F7FA] text-[#2B0D3A] border border-[#E8DFF0]">
-                      {ind.metrics}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold font-sora text-[#2B0D3A]">
-                    {ind.title}
-                  </h3>
-                  <p className="text-xs text-[#6F6078] leading-relaxed">
-                    {ind.desc}
-                  </p>
-
-                  <div className="pt-2 space-y-1.5 border-t border-[#E8DFF0]/60">
-                    <span className="text-[10px] font-bold uppercase text-[#4A1B7A] tracking-wider block">
-                      Core Capabilities:
-                    </span>
-                    {ind.features.map((feat) => (
-                      <div key={feat} className="flex items-center gap-2 text-xs font-semibold text-[#1B1024]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72]" />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-[#E8DFF0]">
-                  <Link
-                    href={`/industries#${ind.id}`}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#4A1B7A] group hover:text-[#2B0D3A]"
-                  >
-                    <span>Explore Solution</span>
-                    <ArrowRight
-                      className={cn(
-                        "w-4 h-4 transition-transform",
-                        isHovered ? "translate-x-1 text-[#E11D72]" : ""
-                      )}
-                    />
-                  </Link>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {industry.features.map(({ title, description, icon: FeatureIcon }, featureIndex) => <article key={title} className="rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-5" style={{ borderTopColor: featureIndex === 0 ? colors.primary : featureIndex === 1 ? colors.secondary : ["#6366F1", "#D97706"][featureIndex - 2], borderTopWidth: 2 }}><FeatureIcon className="h-5 w-5" style={{ color: featureIndex % 2 ? colors.secondary : colors.primary }} /><h3 className="mt-4 font-poppins text-sm font-semibold text-[var(--text-primary)]">{title}</h3><p className="mt-2 font-inter text-xs leading-5 text-[var(--text-secondary)]">{description}</p></article>)}
         </div>
+        <ol className="mt-6 grid gap-2 rounded-2xl bg-[#16081F] p-4 sm:grid-cols-5">
+          {industry.workflow.map((step, stepIndex) => <li key={step} className="rounded-xl border border-white/10 bg-white/[.055] p-4 text-white"><span className="font-roboto text-[10px] text-white/45">0{stepIndex + 1}</span><p className="mt-2 font-poppins text-xs font-semibold">{step}</p></li>)}
+        </ol>
       </div>
     </section>
   );
-};
+}
+
+export function Industries() {
+  return (
+    <div className="bg-[var(--page-bg)]">
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center"><span className="font-poppins text-xs font-semibold uppercase tracking-[.14em] text-[var(--text-link)]">Provider solutions</span><h2 className="section-heading mt-3">A telecom operating model shaped around your network.</h2><p className="mt-4 font-inter text-sm leading-7 text-[var(--text-secondary)]">Start with the operational outcome that matters, then connect the network and business capabilities required to deliver it.</p></div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {INDUSTRIES.map((industry) => { const Icon = industry.icon; const colors = SERVICE_ACCENTS[industry.accent]; return <a key={industry.id} href={`#${industry.id}`} className="group rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-md)]" style={{ borderTopColor: colors.primary, borderTopWidth: 2 }}><span className="grid h-10 w-10 place-items-center rounded-xl" style={{ background: colors.soft, color: colors.primary }}><Icon className="h-5 w-5" /></span><h3 className="mt-4 font-poppins text-base font-semibold text-[var(--text-primary)]">{industry.title}</h3><span className="mt-3 inline-flex items-center gap-1 font-inter text-xs font-semibold" style={{ color: colors.primary }}>View operating model <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" /></span></a>; })}
+          </div>
+        </div>
+      </section>
+      {INDUSTRIES.map((industry, index) => <IndustrySection key={industry.id} industry={industry} index={index} />)}
+    </div>
+  );
+}

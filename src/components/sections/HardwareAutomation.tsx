@@ -15,17 +15,17 @@ const PROTOCOLS = [
 
 export const HardwareAutomation: React.FC = () => {
   return (
-    <section className="w-full py-20 md:py-28 bg-[#FFFFFF] text-[#1B1024]">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-1)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
             Multi-Vendor Orchestration
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             Orchestrate multi-vendor infrastructure from one platform.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Stop managing separate vendor controllers. Kashtrix provides unified drivers and automated rollback loops for Cisco, Huawei, Nokia, Juniper, Fortinet, and over 450+ network operating systems.
           </p>
         </div>
@@ -37,17 +37,17 @@ export const HardwareAutomation: React.FC = () => {
 
         {/* Supported Protocols & Matrix Overview */}
         <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#E8DFF0]">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border-default)]">
             <div>
-              <h3 className="text-lg font-bold font-sora text-[#2B0D3A]">
+              <h3 className="text-lg font-bold font-sora text-[var(--text-primary)]">
                 Enterprise Network Protocols Supported Natively
               </h3>
-              <p className="text-xs text-[#6F6078]">
+              <p className="text-xs text-[var(--text-secondary)]">
                 Every command is wrapped in pre-commit validation and atomic state rollback loops.
               </p>
             </div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#F8F7FA] border border-[#E8DFF0] text-xs font-bold text-[#2B0D3A]">
-              <ShieldCheck className="w-4 h-4 text-[#4A1B7A]" /> Zero-Trust Command Vault
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[var(--surface-2)] border border-[var(--border-default)] text-xs font-bold text-[var(--text-primary)]">
+              <ShieldCheck className="w-4 h-4 text-[var(--text-link)]" /> Zero-Trust Command Vault
             </span>
           </div>
 
@@ -55,14 +55,14 @@ export const HardwareAutomation: React.FC = () => {
             {PROTOCOLS.map((p) => (
               <div
                 key={p.name}
-                className="p-5 rounded-2xl border border-[#E8DFF0] bg-[#F8F7FA]/50 hover:border-[#4A1B7A] transition-all duration-300 flex flex-col justify-between"
+                className="p-5 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)]/50 hover:border-[var(--border-brand)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#4A1B7A]" />
-                    <h4 className="text-sm font-bold font-sora text-[#2B0D3A]">{p.name}</h4>
+                    <CheckCircle2 className="w-4 h-4 text-[var(--text-link)]" />
+                    <h4 className="text-sm font-bold font-sora text-[var(--text-primary)]">{p.name}</h4>
                   </div>
-                  <p className="text-xs text-[#6F6078] leading-relaxed">{p.desc}</p>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{p.desc}</p>
                 </div>
               </div>
             ))}

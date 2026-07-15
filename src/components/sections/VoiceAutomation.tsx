@@ -15,17 +15,17 @@ const USE_CASES = [
 
 export const VoiceAutomation: React.FC = () => {
   return (
-    <section className="w-full py-20 md:py-28 bg-[#F8F7FA] border-t border-[#E8DFF0] text-[#1B1024]">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-2)] border-t border-[var(--border-default)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FCE7F3] text-[#E11D72]">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-pink)] text-[var(--text-accent)]">
             <Sparkles className="w-3.5 h-3.5" /> Conversational Voice AI
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             AI-powered voice automation for telecom operations.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Connect Kashtrix Voice AI directly to your existing Asterisk, Yeastar, or carrier SIP trunks. Conduct thousands of natural telephone interactions simultaneously without scaling call center overhead.
           </p>
         </div>
@@ -40,16 +40,16 @@ export const VoiceAutomation: React.FC = () => {
           {USE_CASES.map((uc) => (
             <div
               key={uc.title}
-              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] hover:border-[#4A1B7A] transition-all duration-300 space-y-2"
+              className="p-6 rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] hover:border-[var(--border-brand)] transition-all duration-300 space-y-2"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#4A1B7A] font-sora">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-link)] font-sora">
                   Voice Campaign
                 </span>
-                <PhoneCall className="w-4 h-4 text-[#E11D72]" />
+                <PhoneCall className="w-4 h-4 text-[var(--text-accent)]" />
               </div>
-              <h3 className="text-base font-bold font-sora text-[#2B0D3A]">{uc.title}</h3>
-              <p className="text-xs text-[#6F6078] leading-relaxed">{uc.desc}</p>
+              <h3 className="text-base font-bold font-sora text-[var(--text-primary)]">{uc.title}</h3>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{uc.desc}</p>
             </div>
           ))}
         </div>

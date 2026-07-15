@@ -12,7 +12,7 @@ export const SiteShell: React.FC<{ children: React.ReactNode }> = ({ children })
 
   return (
     <LenisProvider>
-      <div className="min-h-screen flex flex-col bg-[#F8F7FA] text-[#1B1024] dark:bg-[#09050F] dark:text-white">
+      <div className="min-h-screen flex flex-col bg-[var(--page-bg)] text-[var(--text-primary)]">
         <Navbar onRequestDemo={() => setIsDemoModalOpen(true)} />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>

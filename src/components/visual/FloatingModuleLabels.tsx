@@ -52,7 +52,7 @@ export const FloatingModuleLabels: React.FC<FloatingModuleLabelsProps> = ({ clas
             item.position,
             item.accent
               ? "bg-[#2B0D3A] text-white border-[#E11D72]"
-              : "bg-white/90 backdrop-blur-md text-[#2B0D3A] border-[#E8DFF0]"
+              : "bg-white/90 backdrop-blur-md text-[var(--text-primary)] border-[var(--border-default)]"
           )}
         >
           {item.accent && (

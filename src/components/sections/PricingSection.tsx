@@ -75,22 +75,22 @@ export const PricingSection: React.FC = () => {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("annual");
 
   return (
-    <section className="w-full py-20 md:py-28 bg-[#FFFFFF] border-t border-[#E8DFF0] text-[#1B1024]">
+    <section className="w-full py-20 md:py-28 bg-[var(--surface-1)] border-t border-[var(--border-default)] text-[var(--text-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
             Predictable Telecom Economics
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             One platform. Transparent circuit-based pricing.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Stop paying 6 different software licenses for Radius, billing, inventory, ticketing, and network monitoring. Kashtrix scales predictably with your active subscriber circuits.
           </p>
 
           {/* Billing Cycle Toggle */}
           <div className="pt-4 flex items-center justify-center gap-3">
-            <span className={cn("text-xs font-bold font-sora", billingCycle === "monthly" ? "text-[#2B0D3A]" : "text-[#6F6078]")}>
+            <span className={cn("text-xs font-bold font-sora", billingCycle === "monthly" ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]")}>
               Monthly Billing
             </span>
             <button
@@ -104,9 +104,9 @@ export const PricingSection: React.FC = () => {
                 )}
               />
             </button>
-            <span className={cn("text-xs font-bold font-sora flex items-center gap-1.5", billingCycle === "annual" ? "text-[#2B0D3A]" : "text-[#6F6078]")}>
+            <span className={cn("text-xs font-bold font-sora flex items-center gap-1.5", billingCycle === "annual" ? "text-[var(--text-primary)]" : "text-[var(--text-secondary)]")}>
               Annual Billing
-              <span className="px-2 py-0.5 rounded-full bg-[#FCE7F3] text-[#E11D72] text-[10px] font-bold">
+              <span className="px-2 py-0.5 rounded-full bg-[var(--surface-pink)] text-[var(--text-accent)] text-[10px] font-bold">
                 Save 20%
               </span>
             </span>
@@ -127,7 +127,7 @@ export const PricingSection: React.FC = () => {
                   "rounded-3xl p-8 flex flex-col justify-between relative transition-all duration-300 border",
                   plan.featured
                     ? "bg-gradient-to-br from-[#2B0D3A] to-[#4A1B7A] text-white border-[#E11D72] shadow-2xl scale-102"
-                    : "bg-[#FFFFFF] text-[#1B1024] border-[#E8DFF0] hover:border-[#4A1B7A]"
+                    : "bg-[var(--surface-1)] text-[var(--text-primary)] border-[var(--border-default)] hover:border-[var(--border-brand)]"
                 )}
               >
                 {plan.featured && (
@@ -139,25 +139,25 @@ export const PricingSection: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-xl font-bold font-sora">{plan.name}</h3>
-                    <p className={cn("text-xs mt-1.5 leading-relaxed", plan.featured ? "text-[#E8DFF0]" : "text-[#6F6078]")}>
+                    <p className={cn("text-xs mt-1.5 leading-relaxed", plan.featured ? "text-[#E8DFF0]" : "text-[var(--text-secondary)]")}>
                       {plan.subtitle}
                     </p>
                   </div>
 
                   {/* Price Display */}
-                  <div className="pb-6 border-b border-[#E8DFF0]/20">
+                  <div className="pb-6 border-b border-[var(--border-default)]/20">
                     <div className="flex items-baseline gap-1.5">
                       <span className="type-price text-4xl tracking-tight md:text-5xl">
                         {currentPrice}
                       </span>
                       {!isCustom && (
-                        <span className={cn("text-xs font-semibold", plan.featured ? "text-[#E8DFF0]" : "text-[#6F6078]")}>
+                        <span className={cn("text-xs font-semibold", plan.featured ? "text-[#E8DFF0]" : "text-[var(--text-secondary)]")}>
                           / month
                         </span>
                       )}
                     </div>
                     {!isCustom && (
-                      <span className={cn("text-[11px] block mt-1", plan.featured ? "text-[#FCE7F3]/80" : "text-[#6F6078]")}>
+                      <span className={cn("text-[11px] block mt-1", plan.featured ? "text-[#FCE7F3]/80" : "text-[var(--text-secondary)]")}>
                         {billingCycle === "annual" ? "Billed annually" : "Billed month-to-month"}
                       </span>
                     )}
@@ -165,14 +165,14 @@ export const PricingSection: React.FC = () => {
 
                   {/* Features List */}
                   <div className="space-y-3">
-                    <span className={cn("text-xs font-bold uppercase tracking-wider block", plan.featured ? "text-[#FCE7F3]" : "text-[#4A1B7A]")}>
+                    <span className={cn("text-xs font-bold uppercase tracking-wider block", plan.featured ? "text-[#FCE7F3]" : "text-[var(--text-link)]")}>
                       Included capabilities:
                     </span>
                     <ul className="space-y-2.5">
                       {plan.features.map((feat) => (
                         <li key={feat} className="flex items-start gap-2.5 text-xs font-semibold">
-                          <CheckCircle2 className={cn("w-4 h-4 shrink-0 mt-0.5", plan.featured ? "text-[#E11D72]" : "text-[#4A1B7A]")} />
-                          <span className={plan.featured ? "text-white" : "text-[#1B1024]"}>{feat}</span>
+                          <CheckCircle2 className={cn("w-4 h-4 shrink-0 mt-0.5", plan.featured ? "text-[var(--text-accent)]" : "text-[var(--text-link)]")} />
+                          <span className={plan.featured ? "text-white" : "text-[var(--text-primary)]"}>{feat}</span>
                         </li>
                       ))}
                     </ul>
@@ -185,7 +185,7 @@ export const PricingSection: React.FC = () => {
                     className={cn(
                       "w-full py-3.5 px-6 rounded-xl font-sora font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md",
                       plan.featured
-                        ? "bg-[#FFFFFF] text-[#2B0D3A] hover:bg-[#F4EEFF]"
+                        ? "bg-[var(--surface-1)] text-[var(--text-primary)] hover:bg-[var(--surface-purple)]"
                         : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A]"
                     )}
                   >
@@ -199,14 +199,14 @@ export const PricingSection: React.FC = () => {
         </div>
 
         {/* FAQ Preview Banner */}
-        <div className="p-6 rounded-2xl bg-[#F8F7FA] border border-[#E8DFF0] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#1B1024]">
+        <div className="p-6 rounded-2xl bg-[var(--surface-2)] border border-[var(--border-default)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-primary)]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-[#F4EEFF] text-[#4A1B7A]">
+            <div className="p-2.5 rounded-xl bg-[var(--surface-purple)] text-[var(--text-link)]">
               <HelpCircle className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold font-sora text-[#2B0D3A]">Have custom hardware or legacy database migration questions?</h4>
-              <p className="text-[#6F6078] mt-0.5">Our solutions architects provide free 60-day migration blueprints for OLTs and BNG gateways.</p>
+              <h4 className="font-bold font-sora text-[var(--text-primary)]">Have custom hardware or legacy database migration questions?</h4>
+              <p className="text-[var(--text-secondary)] mt-0.5">Our solutions architects provide free 60-day migration blueprints for OLTs and BNG gateways.</p>
             </div>
           </div>
           <Link href="/contact" className="px-5 py-2.5 rounded-xl bg-[#2B0D3A] text-white font-sora font-bold shrink-0 hover:bg-[#4A1B7A] transition-colors">

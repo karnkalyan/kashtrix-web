@@ -25,12 +25,9 @@ interface Arc3D {
 
 export const HeroParticleSphere: React.FC<HeroParticleSphereProps> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-  }, []);
+  const [reducedMotion] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;

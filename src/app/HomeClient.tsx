@@ -16,7 +16,7 @@ import { GlobalReady } from "@/components/sections/GlobalReady";
 import { SecuritySection } from "@/components/sections/SecuritySection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { RequestDemoModal } from "@/components/layout/RequestDemoModal";
-import { ParticleSectionSeparator } from "@/components/visual/ParticleSectionSeparator";
+import { OSSBSSShowcase } from "@/components/sections/OSSBSSShowcase";
 
 export const HomeClient: React.FC = () => {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -26,8 +26,8 @@ export const HomeClient: React.FC = () => {
       <HeroSection onRequestDemo={() => setIsDemoModalOpen(true)} />
       <TrustStrip />
       <PlatformOverview />
-      <ParticleSectionSeparator />
       <ProductArchitecture />
+      <OSSBSSShowcase />
       <AIAgents />
       <NetworkAutomation />
       <HardwareAutomation />

@@ -13,6 +13,7 @@ const OVERVIEW_CARDS = [
     href: "/platform",
     icon: Server,
     badge: "Core Architecture",
+    color: "#4A1B7A",
   },
   {
     title: "AI Automation",
@@ -20,6 +21,7 @@ const OVERVIEW_CARDS = [
     href: "/ai-agents",
     icon: Cpu,
     badge: "AI-Native",
+    color: "#E11D72",
     accent: true,
   },
   {
@@ -28,6 +30,7 @@ const OVERVIEW_CARDS = [
     href: "/network-management",
     icon: Activity,
     badge: "Sub-second Telemetry",
+    color: "#2563EB",
   },
   {
     title: "Global Payments",
@@ -35,6 +38,7 @@ const OVERVIEW_CARDS = [
     href: "/billing",
     icon: DollarSign,
     badge: "Zero Leakage",
+    color: "#0F9F8F",
   },
   {
     title: "Field Operations",
@@ -42,6 +46,7 @@ const OVERVIEW_CARDS = [
     href: "/field-operations",
     icon: Wrench,
     badge: "Mobile Dispatch",
+    color: "#D97706",
   },
   {
     title: "Customer Experience",
@@ -49,6 +54,7 @@ const OVERVIEW_CARDS = [
     href: "/crm",
     icon: Users,
     badge: "Self-Service",
+    color: "#6366F1",
   },
 ];
 
@@ -56,17 +62,17 @@ export const PlatformOverview: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full overflow-hidden py-20 md:py-28 bg-[#FFFFFF] text-[#1B1024]">
+    <section className="relative w-full overflow-hidden py-20 md:py-28 bg-[var(--surface-1)] text-[var(--text-primary)]">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4EEFF] text-[#4A1B7A]">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
             Every System. One Platform.
           </span>
-          <h2 className="section-heading text-[#2B0D3A]">
+          <h2 className="section-heading text-[var(--text-primary)]">
             One platform for every telecom operation.
           </h2>
-          <p className="text-sm md:text-base text-[#6F6078]">
+          <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Eliminate operational friction by unifying network infrastructure, subscriber management, financial billing, and field dispatching under a single AI-powered control plane.
           </p>
         </div>
@@ -87,52 +93,49 @@ export const PlatformOverview: React.FC = () => {
                 onMouseEnter={() => setHoveredIndex(idx)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={cn(
-                  "p-6 rounded-2xl border transition-all duration-300 bg-[#FFFFFF] flex flex-col justify-between relative",
+                  "p-6 rounded-2xl border transition-all duration-300 bg-[var(--surface-1)] flex flex-col justify-between relative",
                   isHovered
-                    ? "border-[#4A1B7A] -translate-y-1 shadow-xl shadow-[#2B0D3A]/10"
-                    : "border-[#E8DFF0]"
+                    ? "border-[var(--border-brand)] -translate-y-1 shadow-xl shadow-[#2B0D3A]/10"
+                    : "border-[var(--border-default)]"
                 )}
+                style={{ borderTopColor: card.color, borderTopWidth: 2 }}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div
-                      className={cn(
-                        "p-3 rounded-xl transition-colors",
-                        isHovered ? "bg-[#2B0D3A] text-white" : "bg-[#F4EEFF] text-[#4A1B7A]"
-                      )}
-                    >
+                    <div className="p-3 rounded-xl transition-transform group-hover:scale-105" style={{ color: card.color, backgroundColor: `${card.color}18` }}>
                       <Icon className="w-6 h-6 stroke-[1.75]" />
                     </div>
                     <span
                       className={cn(
                         "text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full",
                         card.accent
-                          ? "bg-[#FCE7F3] text-[#E11D72]"
-                          : "bg-[#F8F7FA] text-[#6F6078] border border-[#E8DFF0]"
+                          ? "bg-[var(--surface-pink)] text-[var(--text-accent)]"
+                          : "bg-[var(--surface-2)] text-[var(--text-secondary)] border border-[var(--border-default)]"
                       )}
                     >
                       {card.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold font-sora text-[#2B0D3A]">
+                  <h3 className="text-lg font-bold font-sora text-[var(--text-primary)]">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-[#6F6078] leading-relaxed">
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                     {card.description}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#E8DFF0]/60">
+                <div className="pt-6 mt-6 border-t border-[var(--border-default)]/60">
                   <Link
                     href={card.href}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#4A1B7A] group hover:text-[#2B0D3A]"
+                    className="inline-flex items-center gap-2 text-xs font-bold group hover:text-[var(--text-primary)]"
+                    style={{ color: card.color }}
                   >
                     <span>Explore Module</span>
                     <ArrowRight
                       className={cn(
                         "w-4 h-4 transition-transform",
-                        isHovered ? "translate-x-1 text-[#E11D72]" : ""
+                        isHovered ? "translate-x-1 text-[var(--text-accent)]" : ""
                       )}
                     />
                   </Link>

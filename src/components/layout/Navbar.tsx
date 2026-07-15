@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
         "top-0 left-0 right-0 z-40 h-20 transition-all duration-300",
         pathname === "/" ? "fixed" : "sticky",
         isScrolled
-          ? "bg-[#FFFFFF]/88 shadow-[0_10px_35px_rgba(43,13,58,0.07)] backdrop-blur-xl dark:bg-[#09050F]/88"
+          ? "navbar-scrolled border-b border-white/50 bg-white/70 shadow-[0_10px_35px_rgba(43,13,58,0.08)] backdrop-blur-2xl [--border-default:#E9E1EE] [--surface-1:#FFFFFF] [--surface-2:#F9F6FC] [--surface-elevated:#FFFFFF] [--surface-purple:#F7F2FB] [--text-link:#4A1B7A] [--text-primary:#2B0F3D]"
           : "bg-transparent shadow-none"
       )}
     >
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
 
         {/* Desktop Navigation Links */}
         <nav
-          className="hidden lg:flex items-center gap-1 xl:gap-3 font-inter text-xs font-medium text-[#1B1024]"
+          className="hidden lg:flex items-center gap-1 xl:gap-3 font-inter text-xs font-medium text-[var(--text-primary)]"
           onMouseLeave={handleMouseLeave}
         >
           {/* Platform Mega Item */}
@@ -75,12 +75,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
                 activeMenu === "platform" || pathname.startsWith("/platform") || pathname.startsWith("/oss") || pathname.startsWith("/bss")
-                  ? "text-[#2B0D3A] bg-[#F4EEFF]"
-                  : "hover:text-[#4A1B7A] hover:bg-[#F8F7FA]"
+                  ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
+                  : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
               <span>Platform</span>
-              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "platform" && "rotate-180 text-[#E11D72]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "platform" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "platform" && <PlatformMegaMenu onClose={() => setActiveMenu(null)} />}
           </div>
@@ -91,12 +91,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
                 activeMenu === "solutions" || pathname.startsWith("/industries")
-                  ? "text-[#2B0D3A] bg-[#F4EEFF]"
-                  : "hover:text-[#4A1B7A] hover:bg-[#F8F7FA]"
+                  ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
+                  : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
               <span>Solutions</span>
-              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "solutions" && "rotate-180 text-[#E11D72]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "solutions" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "solutions" && <SolutionsMegaMenu onClose={() => setActiveMenu(null)} />}
           </div>
@@ -107,14 +107,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
                 activeMenu === "ai" || pathname.startsWith("/ai-agents")
-                  ? "text-[#2B0D3A] bg-[#F4EEFF]"
-                  : "hover:text-[#4A1B7A] hover:bg-[#F8F7FA]"
+                  ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
+                  : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
               <span className="flex items-center gap-1.5">
                 AI Agents <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72]" />
               </span>
-              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "ai" && "rotate-180 text-[#E11D72]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "ai" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "ai" && <AIAgentsMegaMenu onClose={() => setActiveMenu(null)} />}
           </div>
@@ -125,12 +125,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
                 activeMenu === "automation" || pathname.startsWith("/network-automation") || pathname.startsWith("/hardware-automation") || pathname.startsWith("/voice-automation")
-                  ? "text-[#2B0D3A] bg-[#F4EEFF]"
-                  : "hover:text-[#4A1B7A] hover:bg-[#F8F7FA]"
+                  ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
+                  : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
               <span>Automation</span>
-              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "automation" && "rotate-180 text-[#E11D72]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "automation" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "automation" && <AutomationMegaMenu onClose={() => setActiveMenu(null)} />}
           </div>
@@ -141,12 +141,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
                 activeMenu === "resources" || pathname.startsWith("/resources") || pathname.startsWith("/documentation") || pathname.startsWith("/api-platform")
-                  ? "text-[#2B0D3A] bg-[#F4EEFF]"
-                  : "hover:text-[#4A1B7A] hover:bg-[#F8F7FA]"
+                  ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
+                  : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
               <span>Resources</span>
-              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "resources" && "rotate-180 text-[#E11D72]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "resources" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "resources" && <ResourcesMegaMenu onClose={() => setActiveMenu(null)} />}
           </div>
@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
             href="/pricing"
             className={cn(
               "px-3 py-2 rounded-lg transition-colors",
-              pathname === "/pricing" ? "text-[#2B0D3A] font-bold bg-[#F4EEFF]" : "hover:text-[#4A1B7A]"
+              pathname === "/pricing" ? "text-[var(--text-primary)] font-bold bg-[var(--surface-purple)]" : "hover:text-[var(--text-link)]"
             )}
           >
             Pricing
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
           <ThemeToggle />
           <Link
             href="/login"
-            className="px-4 py-2 rounded-xl text-xs font-inter font-medium text-[#2B0D3A] hover:bg-[#F4EEFF] transition-all"
+            className="px-4 py-2 rounded-xl text-xs font-inter font-medium text-[var(--text-primary)] hover:bg-[var(--surface-purple)] transition-all"
           >
             Login
           </Link>
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
           </button>
           <button
             onClick={() => setIsMobileOpen(true)}
-            className="p-2 rounded-xl text-[#2B0D3A] hover:bg-[#E8DFF0] transition-colors"
+            className="p-2 rounded-xl text-[var(--text-primary)] hover:bg-[var(--surface-4)] transition-colors"
             aria-label="Open Navigation Menu"
           >
             <Menu className="w-6 h-6" />

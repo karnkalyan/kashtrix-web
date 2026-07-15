@@ -85,7 +85,7 @@ export const APIFlowAnimation: React.FC = () => {
       {/* Left: API Request Steps Flow */}
       <div className="lg:col-span-5 space-y-3">
         <div className="flex items-center justify-between mb-4">
-          <h4 className="text-sm font-bold uppercase tracking-wider text-[#2B0D3A] font-sora">
+          <h4 className="text-sm font-bold uppercase tracking-wider text-[var(--text-primary)] font-sora">
             Live Request Execution Pipeline
           </h4>
           <button
@@ -94,7 +94,7 @@ export const APIFlowAnimation: React.FC = () => {
             className={cn(
               "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all",
               isRunning
-                ? "bg-[#E8DFF0] text-[#6F6078] cursor-not-allowed"
+                ? "bg-[var(--surface-4)] text-[var(--text-secondary)] cursor-not-allowed"
                 : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A] shadow-sm"
             )}
           >
@@ -114,10 +114,10 @@ export const APIFlowAnimation: React.FC = () => {
               className={cn(
                 "p-3.5 rounded-xl border transition-all duration-300 cursor-pointer flex items-start gap-3",
                 isCurrent
-                  ? "bg-[#FFFFFF] border-[#E11D72] shadow-md -translate-y-0.5"
+                  ? "bg-[var(--surface-1)] border-[#E11D72] shadow-md -translate-y-0.5"
                   : isCompleted
-                  ? "bg-[#F8F7FA] border-[#4A1B7A]/30"
-                  : "bg-[#FFFFFF] border-[#E8DFF0] opacity-75 hover:opacity-100"
+                  ? "bg-[var(--surface-2)] border-[var(--border-brand)]/30"
+                  : "bg-[var(--surface-1)] border-[var(--border-default)] opacity-75 hover:opacity-100"
               )}
             >
               <div
@@ -127,7 +127,7 @@ export const APIFlowAnimation: React.FC = () => {
                     ? "bg-[#E11D72] text-white animate-pulse"
                     : isCompleted
                     ? "bg-[#2B0D3A] text-white"
-                    : "bg-[#F4EEFF] text-[#4A1B7A]"
+                    : "bg-[var(--surface-purple)] text-[var(--text-link)]"
                 )}
               >
                 {isCompleted ? <CheckCircle2 className="w-4 h-4" /> : step.id}
@@ -138,18 +138,18 @@ export const APIFlowAnimation: React.FC = () => {
                   <h5
                     className={cn(
                       "text-xs font-bold font-sora",
-                      isCurrent ? "text-[#E11D72]" : "text-[#2B0D3A]"
+                      isCurrent ? "text-[var(--text-accent)]" : "text-[var(--text-primary)]"
                     )}
                   >
                     {step.title}
                   </h5>
                   {isCurrent && (
-                    <span className="text-[10px] font-semibold text-[#E11D72] uppercase tracking-wider animate-pulse">
+                    <span className="text-[10px] font-semibold text-[var(--text-accent)] uppercase tracking-wider animate-pulse">
                       Active Step
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-[#6F6078] mt-0.5 leading-relaxed">{step.desc}</p>
+                <p className="text-xs text-[var(--text-secondary)] mt-0.5 leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
           );
@@ -157,9 +157,9 @@ export const APIFlowAnimation: React.FC = () => {
       </div>
 
       {/* Right: API Code Console with strict Deep Plum / Soft Lavender styling */}
-      <div className="lg:col-span-7 rounded-2xl bg-[#2B0D3A] border border-[#4A1B7A] shadow-2xl overflow-hidden">
+      <div className="lg:col-span-7 rounded-2xl bg-[#2B0D3A] border border-[var(--border-brand)] shadow-2xl overflow-hidden">
         {/* Console Header Tabs */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#1B1024] border-b border-[#4A1B7A]/60">
+        <div className="flex items-center justify-between px-4 py-3 bg-[#1B1024] border-b border-[var(--border-brand)]/60">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#E11D72]" />
             <span className="w-3 h-3 rounded-full bg-[#4A1B7A]" />
@@ -189,15 +189,15 @@ export const APIFlowAnimation: React.FC = () => {
 
         {/* Code Viewport */}
         <div className="p-5 overflow-x-auto font-inter text-xs leading-relaxed text-[#F4EEFF]">
-          <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[#4A1B7A]/40 text-[#E8DFF0]/80">
-            <span className="font-bold text-[#E11D72]">{API_EXAMPLES[selectedExample].method}</span>
+          <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[var(--border-brand)]/40 text-[#E8DFF0]/80">
+            <span className="font-bold text-[var(--text-accent)]">{API_EXAMPLES[selectedExample].method}</span>
             <span className="text-white font-semibold">https://api.kashtrix.com{API_EXAMPLES[selectedExample].endpoint}</span>
           </div>
           <pre className="whitespace-pre-wrap">{API_EXAMPLES[selectedExample].code}</pre>
         </div>
 
         {/* Live Simulation Response Output Bar */}
-        <div className="p-4 bg-[#1B1024] border-t border-[#4A1B7A]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="p-4 bg-[#1B1024] border-t border-[var(--border-brand)]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <div className="w-2.5 h-2.5 rounded-full bg-[#E11D72] animate-ping" />
             <span className="text-xs font-inter text-[#F4EEFF]">

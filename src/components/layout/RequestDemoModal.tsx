@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, Sparkles, Send, ShieldCheck, PhoneCall } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { demoRequestSchema, type DemoRequestFormValues } from "@/lib/validation";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     reset,
     formState: { errors },
   } = useForm<DemoRequestFormValues>({
@@ -49,7 +49,7 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
     },
   });
 
-  const selectedModules = watch("interestedModules") || [];
+  const selectedModules = useWatch({ control, name: "interestedModules" }) || [];
 
   const toggleModule = (mod: string) => {
     if (selectedModules.includes(mod)) {
@@ -87,18 +87,18 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[#09050F]/75 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[var(--page-bg)]/75 backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-2xl rounded-2xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-2xl text-[#1B1024] overflow-hidden my-8"
+            className="relative w-full max-w-2xl rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-2xl text-[var(--text-primary)] overflow-hidden my-8"
           >
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[#2B0D3A] to-[#4A1B7A] text-white">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-[#E11D72]" />
+                <Sparkles className="w-5 h-5 text-[var(--text-accent)]" />
                 <div>
                   <h3 className="text-base font-bold font-sora">Request Custom Kashtrix Platform Demo</h3>
                   <p className="text-[11px] text-[#E8DFF0]">
@@ -121,13 +121,13 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
             <div className="p-6">
               {submitted ? (
                 <div className="text-center py-10 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-[#F4EEFF] text-[#E11D72] mx-auto flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-[var(--surface-purple)] text-[var(--text-accent)] mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h4 className="text-xl font-bold font-sora text-[#2B0D3A]">
+                  <h4 className="text-xl font-bold font-sora text-[var(--text-primary)]">
                     Demo Request Received &amp; Logged to Database!
                   </h4>
-                  <p className="text-sm text-[#6F6078] max-w-md mx-auto leading-relaxed">
+                  <p className="text-sm text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
                     Our Senior Telecom Solutions Architect will review your hardware requirements and contact your work email within 2 hours to coordinate your custom live sandbox.
                   </p>
                   <div className="pt-4">
@@ -146,63 +146,63 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">
-                        Full Name <span className="text-[#E11D72]">*</span>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">
+                        Full Name <span className="text-[var(--text-accent)]">*</span>
                       </label>
                       <input
                         {...register("fullName")}
                         placeholder="Alex Rivera"
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
                       {errors.fullName && (
-                        <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.fullName.message}</span>
+                        <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.fullName.message}</span>
                       )}
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">
-                        Work Email <span className="text-[#E11D72]">*</span>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">
+                        Work Email <span className="text-[var(--text-accent)]">*</span>
                       </label>
                       <input
                         {...register("workEmail")}
                         placeholder="alex@fibertelecom.com"
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
                       {errors.workEmail && (
-                        <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.workEmail.message}</span>
+                        <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.workEmail.message}</span>
                       )}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">
-                        Company / ISP Name <span className="text-[#E11D72]">*</span>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">
+                        Company / ISP Name <span className="text-[var(--text-accent)]">*</span>
                       </label>
                       <input
                         {...register("companyName")}
                         placeholder="Acme Fiber Networks"
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
                       {errors.companyName && (
-                        <span className="text-[10px] text-[#E11D72] mt-1 block">{errors.companyName.message}</span>
+                        <span className="text-[10px] text-[var(--text-accent)] mt-1 block">{errors.companyName.message}</span>
                       )}
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Phone Number (Optional)</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Phone Number (Optional)</label>
                       <input
                         {...register("phoneNumber")}
                         placeholder="+1 (555) 019-8900"
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Country</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Country</label>
                       <select
                         {...register("country")}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs font-medium"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs font-medium"
                       >
                         <option>United States</option>
                         <option>United Kingdom</option>
@@ -216,10 +216,10 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Provider Type</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Provider Type</label>
                       <select
                         {...register("providerType")}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs font-medium"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs font-medium"
                       >
                         <option>ISP / Fiber Provider (FTTH)</option>
                         <option>Wireless Operator (WISP)</option>
@@ -229,10 +229,10 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs font-bold text-[#2B0D3A] block mb-1">Subscriber Circuits</label>
+                      <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">Subscriber Circuits</label>
                       <select
                         {...register("subscriberRange")}
-                        className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs font-medium"
+                        className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs font-medium"
                       >
                         <option>Under 10,000 circuits</option>
                         <option>10,000 - 50,000 circuits</option>
@@ -244,10 +244,10 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
 
                   {/* Modules of Interest Checkbox Grid */}
                   <div>
-                    <label className="text-xs font-bold text-[#2B0D3A] block mb-1.5">
+                    <label className="text-xs font-bold text-[var(--text-primary)] block mb-1.5">
                       Interested Modules (Select All That Apply)
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-36 overflow-y-auto p-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-36 overflow-y-auto p-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)]">
                       {MODULES_LIST.map((mod) => {
                         const checked = selectedModules.includes(mod);
                         return (
@@ -257,8 +257,8 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                             className={cn(
                               "flex items-center gap-2 p-2 rounded-md text-xs cursor-pointer transition-colors border",
                               checked
-                                ? "bg-[#2B0D3A] text-white border-[#4A1B7A]"
-                                : "bg-white text-[#1B1024] border-[#E8DFF0] hover:border-[#9B82B5]"
+                                ? "bg-[#2B0D3A] text-white border-[var(--border-brand)]"
+                                : "bg-white text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
                             )}
                           >
                             <input
@@ -275,20 +275,20 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-[#2B0D3A] block mb-1">
+                    <label className="text-xs font-bold text-[var(--text-primary)] block mb-1">
                       Current Hardware / Challenges (Optional)
                     </label>
                     <textarea
                       {...register("message")}
                       rows={2}
                       placeholder="E.g. We use Cisco ASR 9000 & MA5800 OLTs and want to automate billing rating and PPPoE session disconnects."
-                      className="w-full px-3 py-2 rounded-lg border border-[#E8DFF0] bg-[#F8F7FA] text-xs focus:outline-none focus:border-[#4A1B7A]"
+                      className="w-full px-3 py-2 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] text-xs focus:outline-none focus:border-[var(--focus-border)]"
                     />
                   </div>
 
-                  <div className="pt-2 flex items-center justify-between gap-4 border-t border-[#E8DFF0]">
-                    <div className="flex items-center gap-1.5 text-[11px] text-[#6F6078]">
-                      <ShieldCheck className="w-4 h-4 text-[#4A1B7A]" /> SOC 2 Zero-Trust Protected
+                  <div className="pt-2 flex items-center justify-between gap-4 border-t border-[var(--border-default)]">
+                    <div className="flex items-center gap-1.5 text-[11px] text-[var(--text-secondary)]">
+                      <ShieldCheck className="w-4 h-4 text-[var(--text-link)]" /> SOC 2 Zero-Trust Protected
                     </div>
                     <button
                       type="submit"

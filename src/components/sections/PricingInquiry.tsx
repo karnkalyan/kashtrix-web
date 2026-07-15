@@ -32,17 +32,17 @@ export function PricingInquiry() {
   }
 
   return (
-    <section className="section-art section-art-shapes1 bg-white py-16 text-[#1B1024] dark:bg-[#09050F] dark:text-white md:py-24">
+    <section className="section-art section-art-shapes1 bg-white py-16 text-[var(--text-primary)] dark:bg-[var(--page-bg)] dark:text-white md:py-24">
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="space-y-7 lg:col-span-5">
           <div>
-            <span className="text-xs font-bold uppercase tracking-[.14em] text-[#E11D72]">Pricing designed around your operation</span>
-            <h1 className="mt-4 font-sora text-4xl font-bold tracking-tight text-[#2B0D3A] dark:text-white sm:text-5xl">Let’s build the right commercial plan.</h1>
-            <p className="mt-5 leading-7 text-[#6F6078] dark:text-[#CFC2D8]">Every network has a different subscriber base, device estate, integration scope and rollout plan. Share your requirements and we’ll prepare a clear, relevant proposal—without forcing you into an unsuitable package.</p>
+            <span className="text-xs font-bold uppercase tracking-[.14em] text-[var(--text-accent)]">Pricing designed around your operation</span>
+            <h1 className="mt-4 font-sora text-4xl font-bold tracking-tight text-[var(--text-primary)] dark:text-white sm:text-5xl">Let’s build the right commercial plan.</h1>
+            <p className="mt-5 leading-7 text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">Every network has a different subscriber base, device estate, integration scope and rollout plan. Share your requirements and we’ll prepare a clear, relevant proposal—without forcing you into an unsuitable package.</p>
           </div>
           <div className="grid gap-3">
             {["A requirements review with a telecom solutions architect", "A tailored scope and deployment recommendation", "A commercial proposal sent to your work email"].map((text) => (
-              <div key={text} className="flex gap-3 rounded-xl border border-[#E8DFF0] bg-white/80 p-4 text-sm dark:border-[#342044] dark:bg-[#120819]/90"><CheckCircle2 className="h-5 w-5 shrink-0 text-[#E11D72]" />{text}</div>
+              <div key={text} className="flex gap-3 rounded-xl border border-[var(--border-default)] bg-white/80 p-4 text-sm dark:border-[var(--border-default)] dark:bg-[var(--surface-1)]/90"><CheckCircle2 className="h-5 w-5 shrink-0 text-[var(--text-accent)]" />{text}</div>
             ))}
           </div>
           <div className="rounded-2xl bg-[#2B0D3A] p-6 text-white">
@@ -53,24 +53,24 @@ export function PricingInquiry() {
         </div>
 
         <div className="lg:col-span-7">
-          <div className="rounded-3xl border border-[#E8DFF0] bg-white/95 p-6 shadow-2xl shadow-[#2B0D3A]/10 dark:border-[#342044] dark:bg-[#120819]/95 sm:p-8">
+          <div className="rounded-3xl border border-[var(--border-default)] bg-white/95 p-6 shadow-2xl shadow-[#2B0D3A]/10 dark:border-[var(--border-default)] dark:bg-[var(--surface-1)]/95 sm:p-8">
             {status === "sent" ? (
-              <div className="py-16 text-center"><CheckCircle2 className="mx-auto h-14 w-14 text-[#E11D72]" /><h2 className="mt-5 font-sora text-2xl font-bold">Thank you—your requirements are with us.</h2><p className="mx-auto mt-3 max-w-md text-sm text-[#6F6078] dark:text-[#CFC2D8]">We’ll review the details and get in touch by email with the next steps and any focused questions.</p></div>
+              <div className="py-16 text-center"><CheckCircle2 className="mx-auto h-14 w-14 text-[var(--text-accent)]" /><h2 className="mt-5 font-sora text-2xl font-bold">Thank you—your requirements are with us.</h2><p className="mx-auto mt-3 max-w-md text-sm text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">We’ll review the details and get in touch by email with the next steps and any focused questions.</p></div>
             ) : (
               <form action={submit} className="space-y-5">
-                <div><h2 className="font-sora text-2xl font-bold text-[#2B0D3A] dark:text-white">Tell us what you need</h2><p className="mt-1 text-sm text-[#6F6078] dark:text-[#CFC2D8]">Fields marked * are required.</p></div>
+                <div><h2 className="font-sora text-2xl font-bold text-[var(--text-primary)] dark:text-white">Tell us what you need</h2><p className="mt-1 text-sm text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">Fields marked * are required.</p></div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field name="fullName" label="Full name *" placeholder="Your name" required />
                   <Field name="email" label="Work email *" placeholder="you@company.com" type="email" required />
                   <Field name="company" label="Company / ISP *" placeholder="Company name" required />
                   <Select name="subscribers" label="Subscriber / business size *" options={["Under 5,000", "5,000–25,000", "25,000–100,000", "100,000+", "Enterprise / other"]} />
                 </div>
-                <fieldset><legend className="mb-2 text-xs font-bold text-[#2B0D3A] dark:text-white">What are you exploring?</legend><div className="grid gap-2 sm:grid-cols-2">{modules.map((module) => <label key={module} className="flex items-center gap-2 rounded-xl border border-[#E8DFF0] p-3 text-xs dark:border-[#342044]"><input type="checkbox" name="modules" value={module} className="accent-[#E11D72]" />{module}</label>)}</div></fieldset>
+                <fieldset><legend className="mb-2 text-xs font-bold text-[var(--text-primary)] dark:text-white">What are you exploring?</legend><div className="grid gap-2 sm:grid-cols-2">{modules.map((module) => <label key={module} className="flex items-center gap-2 rounded-xl border border-[var(--border-default)] p-3 text-xs dark:border-[var(--border-default)]"><input type="checkbox" name="modules" value={module} className="accent-[#E11D72]" />{module}</label>)}</div></fieldset>
                 <Select name="timeline" label="Target timeline *" options={["As soon as possible", "Within 3 months", "3–6 months", "6–12 months", "Researching options"]} />
-                <label className="block text-xs font-bold text-[#2B0D3A] dark:text-white">Requirements *<textarea required name="requirements" rows={5} placeholder="Tell us about your current systems, devices, integrations, operational challenges and desired outcomes…" className="mt-1.5 w-full rounded-xl border border-[#DCCFE5] bg-[#F8F7FA] px-4 py-3 font-normal outline-none focus:border-[#4A1B7A] dark:border-[#342044] dark:bg-[#1A0D24]" /></label>
-                {status === "error" && <p className="text-sm text-[#E11D72]">We couldn’t submit the form. Please retry or email info@kashtrix.com.</p>}
+                <label className="block text-xs font-bold text-[var(--text-primary)] dark:text-white">Requirements *<textarea required name="requirements" rows={5} placeholder="Tell us about your current systems, devices, integrations, operational challenges and desired outcomes…" className="mt-1.5 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--surface-2)] px-4 py-3 font-normal outline-none focus:border-[var(--focus-border)] dark:border-[var(--border-default)] dark:bg-[var(--surface-2)]" /></label>
+                {status === "error" && <p className="text-sm text-[var(--text-accent)]">We couldn’t submit the form. Please retry or email info@kashtrix.com.</p>}
                 <button disabled={status === "sending"} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2B0D3A] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#4A1B7A] disabled:opacity-60"><Send className="h-4 w-4" />{status === "sending" ? "Sending…" : "Send pricing requirements"}</button>
-                <p className="flex items-center justify-center gap-2 text-center text-[11px] text-[#6F6078] dark:text-[#CFC2D8]"><ShieldCheck className="h-4 w-4" />Your details are used only to respond to this business inquiry.</p>
+                <p className="flex items-center justify-center gap-2 text-center text-[11px] text-[var(--text-secondary)] dark:text-[var(--text-secondary)]"><ShieldCheck className="h-4 w-4" />Your details are used only to respond to this business inquiry.</p>
               </form>
             )}
           </div>
@@ -80,5 +80,5 @@ export function PricingInquiry() {
   );
 }
 
-function Field({ label, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) { return <label className="text-xs font-bold text-[#2B0D3A] dark:text-white">{label}<input {...props} className="mt-1.5 w-full rounded-xl border border-[#DCCFE5] bg-[#F8F7FA] px-4 py-3 font-normal outline-none focus:border-[#4A1B7A] dark:border-[#342044] dark:bg-[#1A0D24]" /></label>; }
-function Select({ name, label, options }: { name: string; label: string; options: string[] }) { return <label className="block text-xs font-bold text-[#2B0D3A] dark:text-white">{label}<select required name={name} className="mt-1.5 w-full rounded-xl border border-[#DCCFE5] bg-[#F8F7FA] px-4 py-3 font-normal outline-none focus:border-[#4A1B7A] dark:border-[#342044] dark:bg-[#1A0D24]">{options.map(o => <option key={o}>{o}</option>)}</select></label>; }
+function Field({ label, ...props }: React.InputHTMLAttributes<HTMLInputElement> & { label: string }) { return <label className="text-xs font-bold text-[var(--text-primary)] dark:text-white">{label}<input {...props} className="mt-1.5 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--surface-2)] px-4 py-3 font-normal outline-none focus:border-[var(--focus-border)] dark:border-[var(--border-default)] dark:bg-[var(--surface-2)]" /></label>; }
+function Select({ name, label, options }: { name: string; label: string; options: string[] }) { return <label className="block text-xs font-bold text-[var(--text-primary)] dark:text-white">{label}<select required name={name} className="mt-1.5 w-full rounded-xl border border-[var(--border-strong)] bg-[var(--surface-2)] px-4 py-3 font-normal outline-none focus:border-[var(--focus-border)] dark:border-[var(--border-default)] dark:bg-[var(--surface-2)]">{options.map(o => <option key={o}>{o}</option>)}</select></label>; }

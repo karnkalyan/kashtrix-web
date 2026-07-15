@@ -192,20 +192,20 @@ export const GlobalNetworkGlobe: React.FC<GlobalNetworkGlobeProps> = ({ classNam
 
       {/* Interactive Tooltip / Active Regional Hub Card */}
       {hoveredNode && (
-        <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-8 md:bottom-8 md:w-80 p-4 rounded-xl bg-[#FFFFFF] border border-[#E8DFF0] shadow-xl shadow-[#2B0D3A]/10 text-[#1B1024]">
+        <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-8 md:bottom-8 md:w-80 p-4 rounded-xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-xl shadow-[#2B0D3A]/10 text-[var(--text-primary)]">
           <div className="flex items-center justify-between mb-2">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#F4EEFF] text-[#4A1B7A]">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[var(--surface-purple)] text-[var(--text-link)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72] animate-pulse" />
               {hoveredNode.region} Hub
             </span>
-            <span className="text-xs font-semibold text-[#6F6078]">Uptime: {hoveredNode.uptime}</span>
+            <span className="text-xs font-semibold text-[var(--text-secondary)]">Uptime: {hoveredNode.uptime}</span>
           </div>
-          <h4 className="text-sm font-bold text-[#2B0D3A] font-sora mb-1">{hoveredNode.name}</h4>
-          <p className="text-xs text-[#6F6078] mb-3">
-            Active Subscriber Circuits: <span className="font-semibold text-[#2B0D3A]">{hoveredNode.circuits}</span>
+          <h4 className="text-sm font-bold text-[var(--text-primary)] font-sora mb-1">{hoveredNode.name}</h4>
+          <p className="text-xs text-[var(--text-secondary)] mb-3">
+            Active Subscriber Circuits: <span className="font-semibold text-[var(--text-primary)]">{hoveredNode.circuits}</span>
           </p>
 
-          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#E8DFF0]">
+          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[var(--border-default)]">
             {DATA_CENTERS.map((dc, i) => (
               <button
                 key={i}
@@ -217,7 +217,7 @@ export const GlobalNetworkGlobe: React.FC<GlobalNetworkGlobeProps> = ({ classNam
                   "px-2 py-1 rounded text-[10px] font-medium transition-all",
                   hoveredNode.name === dc.name
                     ? "bg-[#2B0D3A] text-white"
-                    : "bg-[#F8F7FA] text-[#6F6078] hover:bg-[#E8DFF0]"
+                    : "bg-[var(--surface-2)] text-[var(--text-secondary)] hover:bg-[var(--surface-4)]"
                 )}
               >
                 {dc.name.split(" ")[0]}
