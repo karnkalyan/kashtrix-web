@@ -13,7 +13,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
   return (
-    <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden border-b border-[var(--border-default)] bg-[radial-gradient(circle_at_84%_28%,rgba(74,27,122,0.08),transparent_32%),radial-gradient(circle_at_18%_82%,rgba(225,29,114,0.08),transparent_30%),var(--surface-1)] px-0 pb-12 pt-28 text-[var(--text-primary)] dark:bg-[radial-gradient(circle_at_72%_32%,rgba(74,27,122,0.22),transparent_42%),linear-gradient(135deg,var(--page-bg)_0%,var(--surface-1)_58%,var(--surface-2)_100%)] sm:pb-14 sm:pt-28 lg:pb-16 lg:pt-28">
+    <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden border-b border-[#E9E1EE] bg-white px-0 pb-12 pt-28 text-[#2B0F3D] [--border-default:#E9E1EE] [--border-strong:#D8CADF] [--surface-1:#FFFFFF] [--surface-2:#F9F6FC] [--text-accent:#E11D72] [--text-link:#4A1B7A] [--text-primary:#2B0F3D] [--text-secondary:#67566F] sm:pb-14 sm:pt-28 lg:pb-16 lg:pt-28">
       <HeroWaveNetwork className="z-0" />
       <div className="pointer-events-none absolute -right-40 top-0 h-[620px] w-[620px] rounded-full bg-[#E11D72]/[0.05] blur-3xl" />
 
