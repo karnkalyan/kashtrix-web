@@ -51,8 +51,8 @@ export const FloatingModuleLabels: React.FC<FloatingModuleLabelsProps> = ({ clas
             "absolute px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wider uppercase border shadow-sm transition-colors",
             item.position,
             item.accent
-              ? "bg-[#2B0D3A] text-white border-[#E11D72]"
-              : "bg-white/90 backdrop-blur-md text-[var(--text-primary)] border-[var(--border-default)]"
+              ? "bg-[#2B0D3A] text-white border-[#E11D72] dark:bg-[var(--surface-purple)]"
+              : "bg-[var(--surface-1)]/90 backdrop-blur-md text-[var(--text-primary)] border-[var(--border-default)]"
           )}
         >
           {item.accent && (

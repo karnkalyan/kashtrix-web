@@ -100,8 +100,8 @@ function IndustrySection({ industry, index }: { industry: Industry; index: numbe
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {industry.features.map(({ title, description, icon: FeatureIcon }, featureIndex) => <article key={title} className="rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-5" style={{ borderTopColor: featureIndex === 0 ? colors.primary : featureIndex === 1 ? colors.secondary : ["#6366F1", "#D97706"][featureIndex - 2], borderTopWidth: 2 }}><FeatureIcon className="h-5 w-5" style={{ color: featureIndex % 2 ? colors.secondary : colors.primary }} /><h3 className="mt-4 font-poppins text-sm font-semibold text-[var(--text-primary)]">{title}</h3><p className="mt-2 font-inter text-xs leading-5 text-[var(--text-secondary)]">{description}</p></article>)}
         </div>
-        <ol className="mt-6 grid gap-2 rounded-2xl bg-[#16081F] p-4 sm:grid-cols-5">
-          {industry.workflow.map((step, stepIndex) => <li key={step} className="rounded-xl border border-white/10 bg-white/[.055] p-4 text-white"><span className="font-roboto text-[10px] text-white/45">0{stepIndex + 1}</span><p className="mt-2 font-poppins text-xs font-semibold">{step}</p></li>)}
+        <ol className="mt-6 grid gap-2 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-4 sm:grid-cols-5">
+          {industry.workflow.map((step, stepIndex) => <li key={step} className="rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] p-4 text-[var(--text-primary)] shadow-xs"><span className="font-roboto text-[10px] font-bold text-[var(--text-tertiary)]">0{stepIndex + 1}</span><p className="mt-2 font-poppins text-xs font-semibold text-[var(--text-primary)]">{step}</p></li>)}
         </ol>
       </div>
     </section>

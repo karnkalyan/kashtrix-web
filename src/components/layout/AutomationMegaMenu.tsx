@@ -36,7 +36,7 @@ export const AutomationMegaMenu: React.FC<AutomationMegaMenuProps> = ({ onClose 
               </span>
             </div>
             <ul className="space-y-2">
-              {AUTOMATION_SUBSECTIONS.network.map((item, index) => { const ItemIcon = NETWORK_ICONS[index]; const color = COLORS[index]; return (
+              {AUTOMATION_SUBSECTIONS.network.map((item, index) => { const ItemIcon = NETWORK_ICONS[index] || Activity; const color = COLORS[index % COLORS.length]; return (
                 <li key={item.title}>
                   <Link
                     href={item.href}
@@ -62,7 +62,7 @@ export const AutomationMegaMenu: React.FC<AutomationMegaMenuProps> = ({ onClose 
               </span>
             </div>
             <ul className="space-y-2">
-              {AUTOMATION_SUBSECTIONS.hardware.map((item, index) => { const ItemIcon = HARDWARE_ICONS[index]; const color = COLORS[index + 1]; return (
+              {AUTOMATION_SUBSECTIONS.hardware.map((item, index) => { const ItemIcon = HARDWARE_ICONS[index] || Activity; const color = COLORS[(index + 1) % COLORS.length]; return (
                 <li key={item.title}>
                   <Link
                     href={item.href}
@@ -88,7 +88,7 @@ export const AutomationMegaMenu: React.FC<AutomationMegaMenuProps> = ({ onClose 
               </span>
             </div>
             <ul className="space-y-2">
-              {AUTOMATION_SUBSECTIONS.voice.map((item, index) => { const ItemIcon = VOICE_ICONS[index]; const color = COLORS[(index + 2) % COLORS.length]; return (
+              {AUTOMATION_SUBSECTIONS.voice.map((item, index) => { const ItemIcon = VOICE_ICONS[index] || Activity; const color = COLORS[(index + 2) % COLORS.length]; return (
                 <li key={item.title}>
                   <Link
                     href={item.href}
@@ -114,7 +114,7 @@ export const AutomationMegaMenu: React.FC<AutomationMegaMenuProps> = ({ onClose 
               </span>
             </div>
             <ul className="space-y-2">
-              {AUTOMATION_SUBSECTIONS.workflow.map((item, index) => { const ItemIcon = WORKFLOW_ICONS[index]; const color = COLORS[(index + 3) % COLORS.length]; return (
+              {AUTOMATION_SUBSECTIONS.workflow.map((item, index) => { const ItemIcon = WORKFLOW_ICONS[index] || Activity; const color = COLORS[(index + 3) % COLORS.length]; return (
                 <li key={item.title}>
                   <Link
                     href={item.href}

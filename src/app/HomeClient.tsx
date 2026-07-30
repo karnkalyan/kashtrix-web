@@ -17,6 +17,7 @@ import { SecuritySection } from "@/components/sections/SecuritySection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { RequestDemoModal } from "@/components/layout/RequestDemoModal";
 import { OSSBSSShowcase } from "@/components/sections/OSSBSSShowcase";
+import { ISPSyslogSection } from "@/components/sections/ISPSyslogSection";
 
 export const HomeClient: React.FC = () => {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -30,6 +31,7 @@ export const HomeClient: React.FC = () => {
       <OSSBSSShowcase />
       <AIAgents />
       <NetworkAutomation />
+      <ISPSyslogSection />
       <HardwareAutomation />
       <VoiceAutomation />
       <TelecomWorkflow />

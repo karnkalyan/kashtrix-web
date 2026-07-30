@@ -155,4 +155,12 @@ export const DETAIL_CONFIGS = {
     capability("Operational guardrails", "Put approvals and policy checks around automation.", ShieldCheck),
     capability("Security visibility", "Surface relevant activity and exceptions for review.", Activity),
   ], ["Authenticate actor", "Evaluate policy", "Authorize action", "Record evidence", "Review exceptions"], ["Identity-led", "Policy-aware", "Auditable", "Defense-in-depth"]),
+
+  syslog: detail("noc", "Carrier-Grade Syslog", "Ingest syslog streams.", "Ensure 100% CGNAT audit compliance.", "Ingest high-frequency syslog streams across routers, OLTs, and RADIUS servers while maintaining encrypted CGNAT law enforcement audit archives.", Activity, OSS_BSS_ASSETS.nocMonitoring, "Carrier-grade syslog collector dashboard", [
+    capability("High-Throughput Ingestion", "Process over 100,000 syslog messages per second via UDP/TCP 514 and TLS.", Activity, "Syslog"),
+    capability("CGNAT Audit Archiving", "Log public IP and port mappings to private subscriber profiles with 1-year compliance.", ShieldCheck, "CGNAT"),
+    capability("Multi-Vendor Parsers", "Standardized syslog parsers for MikroTik, Cisco, Huawei, Nokia, and OLTs.", ServerCog),
+    capability("Automated Alarm Triggers", "Transform syslog fiber attenuation and BGP flaps into field work orders.", BellRing),
+    capability("Live Log Filtering", "Filter logs by severity, facility, subscriber ID, or public IP ranges in sub-seconds.", FileChartColumn),
+  ], ["Listen on Port 514", "Parse facility payload", "Index subscriber & IP", "Archive encrypted log", "Surface alarms"], ["100K+ msgs/s", "Encrypted", "CGNAT-ready", "Auditable"]),
 } satisfies Record<string, MarketingDetailConfig>;

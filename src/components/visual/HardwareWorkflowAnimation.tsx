@@ -173,7 +173,7 @@ export const HardwareWorkflowAnimation: React.FC = () => {
             <button
               onClick={() => runTest(false)}
               disabled={executionState === "running"}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-[#2B0D3A] text-white font-sora font-bold text-xs hover:bg-[#4A1B7A] transition-all flex items-center justify-center gap-2 shadow-md"
+              className="flex-1 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-sora font-bold text-xs hover:from-cyan-500 hover:to-blue-500 transition-all flex items-center justify-center gap-2 shadow-md"
             >
               <Play className="w-3.5 h-3.5 fill-current" /> Execute Atomic Command
             </button>
@@ -189,14 +189,14 @@ export const HardwareWorkflowAnimation: React.FC = () => {
 
         {/* Right: Code & Output Terminal Viewport */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="rounded-xl bg-[#1B1024] border border-[#342044] p-4 text-white font-inter text-xs">
-            <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#342044]">
+          <div className="rounded-xl bg-[var(--surface-1)] border border-[var(--border-default)] p-4 text-[var(--text-primary)] font-inter text-xs shadow-md">
+            <div className="flex items-center justify-between pb-2 mb-3 border-b border-[var(--border-default)]">
               <span className="text-[var(--text-tertiary)] font-semibold flex items-center gap-1.5">
                 <Terminal className="w-3.5 h-3.5 text-[var(--text-accent)]" /> Atomic Command Script
               </span>
               <span className="text-[10px] text-[var(--text-accent)] uppercase font-bold">Transaction State Locked</span>
             </div>
-            <pre className="whitespace-pre-wrap text-[#F4EEFF] leading-relaxed">{selectedVendor.command}</pre>
+            <pre className="whitespace-pre-wrap text-[var(--text-primary)] leading-relaxed">{selectedVendor.command}</pre>
           </div>
 
           {/* Execution Output Status / Rollback Branch */}

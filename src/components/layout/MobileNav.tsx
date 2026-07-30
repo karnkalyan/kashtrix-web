@@ -44,7 +44,9 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, onRequest
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-default)] bg-[var(--surface-2)]">
-              <AnimatedLogo size="sm" />
+              <Link href="/" onClick={() => { onClose(); window.scrollTo({ top: 0, behavior: "smooth" }); }} aria-label="Kashtrix Home">
+                <AnimatedLogo size="sm" />
+              </Link>
               <button
                 onClick={onClose}
                 className="p-2 rounded-xl text-[var(--text-primary)] hover:bg-[var(--surface-4)] transition-colors"
@@ -62,7 +64,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, onRequest
                   onClick={() => toggleAccordion("platform")}
                   className="w-full flex items-center justify-between py-2 text-sm font-semibold text-[var(--text-primary)] font-inter"
                 >
-                  <span>Platform</span>
+                  <span>Products</span>
                   <ChevronDown className={cn("w-4 h-4 transition-transform", openAccordion === "platform" ? "rotate-180 text-[var(--text-accent)]" : "")} />
                 </button>
                 {openAccordion === "platform" && (

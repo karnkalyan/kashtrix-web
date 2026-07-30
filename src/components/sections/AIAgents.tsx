@@ -59,16 +59,16 @@ export const AIAgents: React.FC = () => {
                 key={agent.id}
                 onClick={() => setActiveTab(agent.id)}
                 className={cn(
-                  "px-4 py-2.5 rounded-xl text-xs font-semibold font-inter transition-all duration-200 flex items-center gap-2",
+                  "px-4 py-2.5 rounded-xl text-xs font-semibold font-inter transition-colors duration-200 flex items-center gap-2 border border-transparent",
                   isActive
-                    ? "bg-[#2B0D3A] text-white shadow-md shadow-[#2B0D3A]/20 scale-102"
-                    : "bg-[var(--surface-2)] text-[var(--text-primary)] border border-[var(--border-default)] hover:bg-[var(--surface-purple)] hover:border-[var(--border-brand)] dark:border-[var(--border-default)] dark:bg-[var(--surface-1)] dark:text-white dark:hover:bg-[var(--surface-2)]"
+                    ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-purple-400 shadow-md"
+                    : "bg-[var(--surface-2)] text-[var(--text-primary)] border-[var(--border-default)] hover:bg-[var(--surface-purple)] dark:border-[var(--border-default)] dark:bg-[var(--surface-1)] dark:text-white dark:hover:bg-[var(--surface-2)]"
                 )}
               >
                 <Icon className={cn("w-4 h-4", isActive ? "text-[#FCE7F3]" : "text-[var(--text-link)]")} />
                 <span>{agent.title}</span>
                 {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72] animate-ping" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E11D72]" />
                 )}
               </button>
             );
@@ -87,11 +87,11 @@ export const AIAgents: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35 }}
-                className="grid grid-cols-1 items-center gap-6 rounded-2xl border border-[var(--border-default)] bg-gradient-to-br from-[#F8F7FA] via-[#FFFFFF] to-[#F4EEFF]/60 p-6 shadow-sm dark:border-[var(--border-default)] dark:from-[#120819] dark:via-[#120819] dark:to-[#1A0D24] md:grid-cols-12 md:p-8"
+                className="pink-glow-card grid grid-cols-1 items-center gap-6 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] p-6 shadow-sm dark:border-[var(--border-brand)] dark:bg-[var(--surface-1)] md:grid-cols-12 md:p-8"
               >
                 <div className="md:col-span-8 space-y-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-2xl bg-[#2B0D3A] text-white">
+                    <div className="p-3 rounded-2xl bg-[var(--surface-purple)] text-[var(--text-link)] border border-[var(--border-default)]">
                       <Icon className="w-6 h-6 stroke-[1.75]" />
                     </div>
                     <div>

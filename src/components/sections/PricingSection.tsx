@@ -185,8 +185,8 @@ export const PricingSection: React.FC = () => {
                     className={cn(
                       "w-full py-3.5 px-6 rounded-xl font-sora font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md",
                       plan.featured
-                        ? "bg-[var(--surface-1)] text-[var(--text-primary)] hover:bg-[var(--surface-purple)]"
-                        : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A]"
+                        ? "bg-white text-[#2B0F3D] hover:bg-[#F7F2FB]"
+                        : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A] dark:bg-[var(--brand-violet)] dark:hover:bg-[var(--brand-pink)]"
                     )}
                   >
                     <span>{plan.id === "enterprise" ? "Contact Carrier Sales" : "Request Custom Sandbox"}</span>

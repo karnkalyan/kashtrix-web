@@ -48,19 +48,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
     }, 180);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={cn(
         "top-0 left-0 right-0 z-40 h-20 transition-all duration-300",
         pathname === "/" ? "fixed" : "sticky",
         isScrolled
-          ? "navbar-scrolled border-b border-white/50 bg-white/70 shadow-[0_10px_35px_rgba(43,13,58,0.08)] backdrop-blur-2xl [--border-default:#E9E1EE] [--surface-1:#FFFFFF] [--surface-2:#F9F6FC] [--surface-elevated:#FFFFFF] [--surface-purple:#F7F2FB] [--text-link:#4A1B7A] [--text-primary:#2B0F3D]"
+          ? "navbar-scrolled border-b border-[var(--border-default)] bg-[var(--surface-overlay)] shadow-md backdrop-blur-2xl"
           : "bg-transparent shadow-none"
       )}
     >
       <div className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Logo */}
-        <Link href="/" aria-label="Kashtrix Home">
+        <Link href="/" onClick={handleLogoClick} aria-label="Kashtrix Home">
           <AnimatedLogo size="lg" className="!h-11 !w-[225px] max-[480px]:!w-[170px]" />
         </Link>
 
@@ -74,12 +81,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
             <button
               className={cn(
                 "flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors",
-                activeMenu === "platform" || pathname.startsWith("/platform") || pathname.startsWith("/oss") || pathname.startsWith("/bss")
+                activeMenu === "platform" || pathname.startsWith("/platform") || pathname.startsWith("/oss") || pathname.startsWith("/bss") || pathname.startsWith("/syslog")
                   ? "text-[var(--text-primary)] bg-[var(--surface-purple)]"
                   : "hover:text-[var(--text-link)] hover:bg-[var(--surface-2)]"
               )}
             >
-              <span>Platform</span>
+              <span>Products</span>
               <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", activeMenu === "platform" && "rotate-180 text-[var(--text-accent)]")} />
             </button>
             {activeMenu === "platform" && <PlatformMegaMenu onClose={() => setActiveMenu(null)} />}
@@ -175,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
 
           <button
             onClick={onRequestDemo}
-            className="group px-4 py-2.5 rounded-xl bg-[#2B0D3A] text-white font-inter font-semibold text-xs hover:bg-[#4A1B7A] transition-all duration-300 flex items-center gap-2 shadow-md shadow-[#2B0D3A]/15"
+            className="pink-glow-button group px-4 py-2.5 rounded-xl bg-[#E11D72] text-white font-inter font-semibold text-xs hover:bg-[#FF2E93] transition-all duration-300 flex items-center gap-2 shadow-md shadow-[#E11D72]/20"
           >
             <span>Request Demo</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -187,7 +194,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
           <ThemeToggle />
           <button
             onClick={onRequestDemo}
-            className="px-3 py-1.5 rounded-lg bg-[#2B0D3A] text-white font-inter font-semibold text-xs shadow-2xs"
+            className="px-3 py-1.5 rounded-lg bg-[#E11D72] text-white font-inter font-semibold text-xs shadow-2xs hover:bg-[#FF2E93] transition-all"
           >
             Demo
           </button>

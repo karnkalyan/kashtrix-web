@@ -95,7 +95,7 @@ export const APIFlowAnimation: React.FC = () => {
               "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all",
               isRunning
                 ? "bg-[var(--surface-4)] text-[var(--text-secondary)] cursor-not-allowed"
-                : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A] shadow-sm"
+                : "pink-glow-button bg-[#E11D72] text-white hover:bg-[#FF2E93] shadow-md"
             )}
           >
             <Play className="w-3.5 h-3.5 fill-current" />
@@ -126,7 +126,7 @@ export const APIFlowAnimation: React.FC = () => {
                   isCurrent
                     ? "bg-[#E11D72] text-white animate-pulse"
                     : isCompleted
-                    ? "bg-[#2B0D3A] text-white"
+                    ? "bg-[var(--brand-violet)] text-white"
                     : "bg-[var(--surface-purple)] text-[var(--text-link)]"
                 )}
               >
@@ -156,15 +156,15 @@ export const APIFlowAnimation: React.FC = () => {
         })}
       </div>
 
-      {/* Right: API Code Console with strict Deep Plum / Soft Lavender styling */}
-      <div className="lg:col-span-7 rounded-2xl bg-[#2B0D3A] border border-[var(--border-brand)] shadow-2xl overflow-hidden">
+      {/* Right: API Code Console with theme variables */}
+      <div className="lg:col-span-7 rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] shadow-xl overflow-hidden">
         {/* Console Header Tabs */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#1B1024] border-b border-[var(--border-brand)]/60">
+        <div className="flex items-center justify-between px-4 py-3 bg-[var(--surface-2)] border-b border-[var(--border-default)]">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#E11D72]" />
             <span className="w-3 h-3 rounded-full bg-[#4A1B7A]" />
             <span className="w-3 h-3 rounded-full bg-[#76549A]" />
-            <span className="ml-2 text-xs font-inter text-[#F4EEFF] font-semibold">
+            <span className="ml-2 text-xs font-inter text-[var(--text-primary)] font-semibold">
               api.kashtrix.com · orchestration-sdk@2.4.0
             </span>
           </div>
@@ -178,7 +178,7 @@ export const APIFlowAnimation: React.FC = () => {
                   "px-2.5 py-1 rounded text-[11px] font-inter font-semibold transition-colors",
                   selectedExample === i
                     ? "bg-[#E11D72] text-white"
-                    : "bg-[#4A1B7A]/40 text-[#F4EEFF]/70 hover:text-[#F4EEFF]"
+                    : "bg-[var(--surface-purple)] text-[var(--text-link)] hover:text-[var(--text-primary)]"
                 )}
               >
                 {ex.method}
@@ -188,25 +188,25 @@ export const APIFlowAnimation: React.FC = () => {
         </div>
 
         {/* Code Viewport */}
-        <div className="p-5 overflow-x-auto font-inter text-xs leading-relaxed text-[#F4EEFF]">
-          <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[var(--border-brand)]/40 text-[#E8DFF0]/80">
+        <div className="p-5 overflow-x-auto font-inter text-xs leading-relaxed text-[var(--text-primary)]">
+          <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[var(--border-default)] text-[var(--text-secondary)]">
             <span className="font-bold text-[var(--text-accent)]">{API_EXAMPLES[selectedExample].method}</span>
-            <span className="text-white font-semibold">https://api.kashtrix.com{API_EXAMPLES[selectedExample].endpoint}</span>
+            <span className="text-[var(--text-primary)] font-semibold">https://api.kashtrix.com{API_EXAMPLES[selectedExample].endpoint}</span>
           </div>
           <pre className="whitespace-pre-wrap">{API_EXAMPLES[selectedExample].code}</pre>
         </div>
 
         {/* Live Simulation Response Output Bar */}
-        <div className="p-4 bg-[#1B1024] border-t border-[var(--border-brand)]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="p-4 bg-[var(--surface-2)] border-t border-[var(--border-default)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <div className="w-2.5 h-2.5 rounded-full bg-[#E11D72] animate-ping" />
-            <span className="text-xs font-inter text-[#F4EEFF]">
-              HTTP Status: <strong className="text-white">200 OK</strong> | Latency:{" "}
-              <strong className="text-white">12.4ms</strong> | Audit ID:{" "}
-              <strong className="text-[#E8DFF0]">AUD_8901_SEC</strong>
+            <span className="text-xs font-inter text-[var(--text-primary)]">
+              HTTP Status: <strong className="text-[var(--text-primary)]">200 OK</strong> | Latency:{" "}
+              <strong className="text-[var(--text-primary)]">12.4ms</strong> | Audit ID:{" "}
+              <strong className="text-[var(--text-secondary)]">AUD_8901_SEC</strong>
             </span>
           </div>
-          <span className="text-[11px] font-inter px-2 py-0.5 rounded bg-[#4A1B7A] text-[#F4EEFF]">
+          <span className="text-[11px] font-inter px-2 py-0.5 rounded bg-[var(--surface-purple)] text-[var(--text-link)] border border-[var(--border-default)]">
             Zero-Trust Verified
           </span>
         </div>

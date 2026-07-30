@@ -257,8 +257,8 @@ export const RequestDemoModal: React.FC<RequestDemoModalProps> = ({ isOpen, onCl
                             className={cn(
                               "flex items-center gap-2 p-2 rounded-md text-xs cursor-pointer transition-colors border",
                               checked
-                                ? "bg-[#2B0D3A] text-white border-[var(--border-brand)]"
-                                : "bg-white text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
+                                ? "bg-[#2B0D3A] text-white border-[var(--border-brand)] dark:bg-[var(--surface-purple)]"
+                                : "bg-[var(--surface-1)] text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
                             )}
                           >
                             <input

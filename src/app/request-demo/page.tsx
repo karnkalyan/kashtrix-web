@@ -210,8 +210,8 @@ export default function RequestDemoPage() {
                           className={cn(
                             "flex items-center gap-2.5 p-2.5 rounded-lg text-xs cursor-pointer transition-all border",
                             checked
-                              ? "bg-[#2B0D3A] text-white border-[var(--border-brand)] shadow-2xs"
-                              : "bg-white text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
+                              ? "bg-[#2B0D3A] text-white border-[var(--border-brand)] shadow-2xs dark:bg-[var(--surface-purple)]"
+                              : "bg-[var(--surface-1)] text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
                           )}
                         >
                           <input type="checkbox" checked={checked} onChange={() => {}} className="w-4 h-4 accent-[#E11D72]" />

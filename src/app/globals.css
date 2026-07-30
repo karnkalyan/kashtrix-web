@@ -114,38 +114,38 @@
 
   html.dark {
     color-scheme: dark;
-    --page-bg: #16081F;
-    --surface-1: #1D0A29;
-    --surface-2: #250D34;
-    --surface-3: #2B0D3A;
-    --surface-4: #351046;
-    --surface-purple: #321145;
-    --surface-pink: #391027;
-    --surface-elevated: #2A0E39;
-    --surface-overlay: rgba(29, 10, 41, 0.94);
+    --page-bg: #09040D;
+    --surface-1: #12091A;
+    --surface-2: #1A0D26;
+    --surface-3: #221232;
+    --surface-4: #2A163D;
+    --surface-purple: #230E33;
+    --surface-pink: rgba(225, 29, 114, 0.14);
+    --surface-elevated: #160B21;
+    --surface-overlay: rgba(18, 9, 26, 0.94);
     --text-primary: #FFF8FD;
     --text-secondary: #D7C9DF;
     --text-tertiary: #B4A5BE;
     --text-muted: #8F8099;
-    --text-inverse: #2B0F3D;
-    --text-accent: #F05298;
-    --text-link: #C49AE4;
-    --text-link-hover: #F05298;
-    --border-default: rgba(213, 188, 227, 0.16);
-    --border-subtle: rgba(213, 188, 227, 0.10);
-    --border-strong: rgba(213, 188, 227, 0.28);
-    --border-brand: rgba(196, 154, 228, 0.42);
-    --divider: rgba(213, 188, 227, 0.12);
-    --focus-border: #F05298;
-    --focus-ring: rgba(225, 29, 114, 0.34);
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.20);
-    --shadow-sm: 0 5px 16px rgba(0, 0, 0, 0.24);
-    --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.30);
-    --shadow-lg: 0 26px 65px rgba(0, 0, 0, 0.38);
-    --shadow-brand: 0 16px 38px rgba(225, 29, 114, 0.14);
-    --gradient-soft: linear-gradient(135deg, #1D0A29 0%, #2A0E39 100%);
-    --gradient-footer: linear-gradient(135deg, #110619 0%, #2B0D3A 58%, #4A1B7A 100%);
-    --chart-grid: rgba(213, 188, 227, 0.12);
+    --text-inverse: #09040D;
+    --text-accent: #FF2E93;
+    --text-link: #F05298;
+    --text-link-hover: #FF2E93;
+    --border-default: rgba(225, 29, 114, 0.16);
+    --border-subtle: rgba(225, 29, 114, 0.10);
+    --border-strong: rgba(225, 29, 114, 0.28);
+    --border-brand: rgba(225, 29, 114, 0.45);
+    --divider: rgba(225, 29, 114, 0.12);
+    --focus-border: #FF2E93;
+    --focus-ring: rgba(225, 29, 114, 0.40);
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.30);
+    --shadow-sm: 0 5px 16px rgba(0, 0, 0, 0.36);
+    --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 26px 65px rgba(0, 0, 0, 0.55);
+    --shadow-brand: 0 10px 30px rgba(225, 29, 114, 0.25);
+    --gradient-soft: linear-gradient(135deg, #12091A 0%, #1A0D26 100%);
+    --gradient-footer: linear-gradient(135deg, #07030A 0%, #12091A 58%, #1F0A2B 100%);
+    --chart-grid: rgba(225, 29, 114, 0.12);
     --chart-axis: #B4A5BE;
   }
 }
@@ -189,8 +189,9 @@
 
   html.dark body { background: var(--page-bg); color: var(--text-primary); }
 
-  html.dark .kashtrix-logo-image {
-    filter: brightness(0) invert(1);
+  html.dark .kashtrix-logo-image,
+  html.dark .navbar-scrolled .kashtrix-logo-image {
+    filter: brightness(0) invert(1) !important;
   }
   button,
   input,
@@ -329,7 +330,7 @@
 .font-poppins { font-family: var(--font-poppins), sans-serif; }
 .font-roboto { font-family: var(--font-roboto), sans-serif; }
 
-.navbar-scrolled .kashtrix-logo-image {
+html:not(.dark) .navbar-scrolled .kashtrix-logo-image {
   filter: none !important;
 }
 
@@ -365,6 +366,48 @@ a.font-sora {
   transform: translateY(-3px);
   border-color: var(--border-brand);
   box-shadow: var(--shadow-md);
+}
+
+.pink-glow-card {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pink-glow-card:hover {
+  border-color: rgba(225, 29, 114, 0.6) !important;
+  box-shadow: 0 0 24px rgba(225, 29, 114, 0.28) !important;
+  transform: translateY(-2px);
+}
+
+.pink-pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #E11D72;
+}
+.pink-pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background-color: rgba(225, 29, 114, 0.45);
+  animation: pink-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pink-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.pink-glow-button {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 16px rgba(225, 29, 114, 0.25);
+}
+.pink-glow-button:hover {
+  box-shadow: 0 6px 24px rgba(225, 29, 114, 0.45);
+  transform: translateY(-1px);
 }
 
 .bg-page { background-color: var(--page-bg); }

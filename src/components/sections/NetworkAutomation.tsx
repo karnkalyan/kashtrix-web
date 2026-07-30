@@ -68,10 +68,10 @@ export const NetworkAutomation: React.FC = () => {
               onClick={triggerSimulation}
               disabled={runningSimulation}
               className={cn(
-                "px-5 py-2.5 rounded-xl font-inter font-semibold text-xs transition-all flex items-center gap-2 shadow-sm",
+                "px-5 py-2.5 rounded-xl font-inter font-semibold text-xs transition-all flex items-center gap-2 shadow-md",
                 runningSimulation
                   ? "bg-[var(--surface-4)] text-[var(--text-secondary)] cursor-not-allowed"
-                  : "bg-[#2B0D3A] text-white hover:bg-[#4A1B7A]"
+                  : "bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-500 hover:to-teal-500"
               )}
             >
               <Play className="w-3.5 h-3.5 fill-current" />
@@ -99,9 +99,9 @@ export const NetworkAutomation: React.FC = () => {
                     className={cn(
                       "p-3.5 rounded-xl border transition-all duration-300 flex items-start gap-3",
                       isActive
-                        ? "bg-[var(--surface-1)] border-[#E11D72] shadow-md -translate-y-0.5"
+                        ? "bg-[var(--surface-1)] border-emerald-500 shadow-md -translate-y-0.5"
                         : isPassed
-                        ? "bg-[var(--surface-2)] border-[var(--border-brand)]/30"
+                        ? "bg-[var(--surface-2)] border-emerald-500/30"
                         : "bg-[var(--surface-1)] border-[var(--border-default)] opacity-75"
                     )}
                   >
@@ -109,10 +109,10 @@ export const NetworkAutomation: React.FC = () => {
                       className={cn(
                         "w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold transition-colors",
                         isActive
-                          ? "bg-[#E11D72] text-white animate-pulse"
+                          ? "bg-emerald-500 text-white animate-pulse"
                           : isPassed
-                          ? "bg-[#2B0D3A] text-white"
-                          : "bg-[var(--surface-purple)] text-[var(--text-link)]"
+                          ? "bg-emerald-600 text-white"
+                          : "bg-[var(--surface-3)] text-[var(--text-link)]"
                       )}
                     >
                       {isPassed ? <CheckCircle2 className="w-3.5 h-3.5" /> : stepNum}
@@ -122,7 +122,7 @@ export const NetworkAutomation: React.FC = () => {
                       <div className="flex items-center justify-between">
                         <h4 className="text-xs font-bold font-sora text-[var(--text-primary)]">{step.label}</h4>
                         {isActive && (
-                          <span className="text-[10px] font-bold text-[var(--text-accent)] uppercase tracking-wider animate-pulse">
+                          <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider animate-pulse">
                             Executing...
                           </span>
                         )}
@@ -135,39 +135,39 @@ export const NetworkAutomation: React.FC = () => {
             </div>
 
             {/* Right Column: Live Execution Terminal / Preview */}
-            <div className="lg:col-span-7 rounded-2xl bg-[#1B1024] border border-[#342044] p-5 text-white font-inter text-xs flex flex-col justify-between min-h-[340px]">
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#342044]">
+            <div className="lg:col-span-7 rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] p-5 text-[var(--text-primary)] font-inter text-xs flex flex-col justify-between min-h-[340px] shadow-md">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[var(--border-default)]">
                 <span className="text-[var(--text-tertiary)] font-semibold flex items-center gap-1.5">
-                  <Terminal className="w-4 h-4 text-[var(--text-accent)]" /> Real-Time Orchestration Output Console
+                  <Terminal className="w-4 h-4 text-emerald-500" /> Real-Time Orchestration Output Console
                 </span>
-                <span className="text-[10px] text-[var(--text-accent)] font-bold uppercase tracking-wider">
+                <span className="text-[10px] text-emerald-500 font-bold uppercase tracking-wider">
                   {simulationStage === 5 ? "Execution Completed" : runningSimulation ? "Active Transaction" : "Idle Ready"}
                 </span>
               </div>
 
-              <div className="space-y-2 text-[#F4EEFF] leading-relaxed flex-1 overflow-y-auto max-h-[240px]">
+              <div className="space-y-2 text-[var(--text-primary)] leading-relaxed flex-1 overflow-y-auto max-h-[240px]">
                 {simulationStage >= 1 && (
-                  <div className="text-[#E8DFF0]">
+                  <div className="text-[var(--text-primary)]">
                     [00:00.12] Trigger activated by webhook. Customer ID: #SUB-8941 | Old Profile: 500M_FTTH | Target Profile: 1G_VIP_FTTH
                   </div>
                 )}
                 {simulationStage >= 2 && (
-                  <div className="text-[var(--text-tertiary)]">
+                  <div className="text-[var(--text-secondary)]">
                     [00:00.45] Pre-check condition passed. OLT-MA5800-PORT-1/12 optical attenuation: -19.4 dBm (Optimal range verified).
                   </div>
                 )}
                 {simulationStage >= 3 && (
-                  <div className="text-[var(--text-accent)]">
+                  <div className="text-emerald-500 font-semibold">
                     [00:01.10] Sending Radius CoA (Disconnect-Request + Re-Auth) to ASR-9000-BNG-01 with Session-Id: &apos;sess_tokyo_9912&apos;.
                   </div>
                 )}
                 {simulationStage >= 4 && (
-                  <div className="text-[#F4EEFF]">
+                  <div className="text-[var(--text-primary)]">
                     [00:01.54] gNMI validation confirmed subscriber interface speed counter at 1,000 Mbps.
                   </div>
                 )}
                 {simulationStage >= 5 && (
-                  <div className="p-3 rounded-lg bg-[#2B0D3A] border border-[var(--border-brand)] space-y-1 mt-3 text-white font-bold">
+                  <div className="p-3 rounded-lg bg-emerald-950/30 dark:bg-emerald-950/80 border border-emerald-500/40 text-emerald-600 dark:text-emerald-200 font-bold space-y-1 mt-3">
                     <div className="flex items-center gap-2 text-[var(--text-accent)]">
                       <CheckCircle2 className="w-4 h-4" /> [SUCCESS] Workflow Executed &amp; Verified (1.82s Total Latency)
                     </div>

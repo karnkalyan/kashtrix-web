@@ -19,8 +19,8 @@ interface Particle {
   amplitude: number;
 }
 
-const LIGHT_COLORS = ["#2B0D3A", "#4A1B7A", "#76549A", "#E11D72", "#D9C8F2"];
-const DARK_COLORS = ["#D9C8F2", "#C4A7E7", "#9B82B5", "#E11D72", "#F4EEFF"];
+const LIGHT_COLORS = ["#06B6D4", "#8B5CF6", "#10B981", "#2563EB", "#EC4899"];
+const DARK_COLORS = ["#38BDF8", "#C084FC", "#34D399", "#60A5FA", "#F472B6"];
 
 export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

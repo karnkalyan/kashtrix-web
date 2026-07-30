@@ -69,7 +69,7 @@ export const VoiceWaveAnimation: React.FC = () => {
 
         <button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--surface-purple)] text-[var(--text-link)] border border-[var(--border-default)] hover:bg-[#2B0D3A] hover:text-white transition-colors"
+          className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[var(--surface-purple)] text-[var(--text-link)] border border-[var(--border-default)] hover:bg-sky-600 hover:text-white transition-colors"
         >
           {isPlaying ? "Pause Pipeline" : "Resume Pipeline"}
         </button>
@@ -78,7 +78,7 @@ export const VoiceWaveAnimation: React.FC = () => {
       {/* Waveform Bars Animation */}
       <div className="h-20 w-full rounded-xl bg-[var(--surface-2)] border border-[var(--border-default)] flex items-center justify-center gap-1.5 px-4 mb-8 overflow-hidden relative">
         <div className="absolute top-2 left-3 text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#E11D72] animate-ping" /> Live Audio Stream via Yeastar / Asterisk SIP Trunk
+          <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping" /> Live Audio Stream via Yeastar / Asterisk SIP Trunk
         </div>
         {[...Array(42)].map((_, i) => {
           const isAccent = i === Math.floor((currentStep / VOICE_STEPS.length) * 42);
@@ -96,7 +96,7 @@ export const VoiceWaveAnimation: React.FC = () => {
               }}
               className={cn(
                 "w-1.5 rounded-full transition-colors",
-                isAccent ? "bg-[#E11D72]" : i % 3 === 0 ? "bg-[#2B0D3A]" : "bg-[#9B82B5]"
+                isAccent ? "bg-sky-500" : i % 3 === 0 ? "bg-teal-600" : "bg-sky-400"
               )}
             />
           );
@@ -144,7 +144,7 @@ export const VoiceWaveAnimation: React.FC = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="p-5 rounded-xl bg-gradient-to-br from-[#F8F7FA] to-[#F4EEFF] border border-[var(--border-default)]"
+        className="p-5 rounded-xl bg-gradient-to-br from-[var(--surface-2)] to-[var(--surface-purple)] border border-[var(--border-default)]"
       >
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold text-[var(--text-link)] font-sora uppercase tracking-wide">
@@ -154,7 +154,7 @@ export const VoiceWaveAnimation: React.FC = () => {
             Processing latency: &lt; 180ms
           </span>
         </div>
-        <p className="text-sm font-medium text-[var(--text-primary)] leading-relaxed bg-white p-3.5 rounded-lg border border-[var(--border-default)] shadow-2xs">
+        <p className="text-sm font-medium text-[var(--text-primary)] leading-relaxed bg-[var(--surface-1)] p-3.5 rounded-lg border border-[var(--border-default)] shadow-2xs">
           {VOICE_STEPS[currentStep].detail}
         </p>
       </motion.div>

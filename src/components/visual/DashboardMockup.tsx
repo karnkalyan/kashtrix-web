@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Activity, CheckCircle2, Users, DollarSign, Ticket, Cpu, Wifi, Sparkles, ArrowUpRight, TrendingUp, Server, ShieldCheck, CreditCard, Boxes, Bot, Gauge, Router } from "lucide-react";
+import { Activity, CheckCircle2, Users, DollarSign, Ticket, Cpu, Wifi, Sparkles, ArrowUpRight, TrendingUp, Server, ShieldCheck, CreditCard, Boxes, Bot, Gauge, Router, Lock, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Icon = React.ComponentType<{ className?: string }>;
@@ -75,10 +75,38 @@ export const DashboardMockup: React.FC = () => {
   const ViewIcon = view.icon;
 
   return (
-    <motion.div initial={{ opacity: 0, scale: 0.97, y: 14 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65 }} className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-strong)] bg-white font-inter text-[var(--text-primary)] shadow-[0_28px_70px_-30px_rgba(43,13,58,0.32)]">
-      <div className="flex items-center justify-between border-b border-[var(--border-default)] bg-[var(--surface-2)] px-4 py-3">
-        <div className="flex items-center gap-2"><i className="h-3 w-3 rounded-full bg-[#E11D72]/80" /><i className="h-3 w-3 rounded-full bg-[#4A1B7A]/40" /><i className="h-3 w-3 rounded-full bg-[#2B0D3A]/30" /><span className="ml-2 hidden text-[11px] font-medium text-[var(--text-primary)] sm:block">Kashtrix OSS/BSS Unified Core — [ASR-9000-Core-01 Live]</span></div>
-        <span className="hidden items-center gap-1.5 rounded-full border border-[var(--border-default)] bg-[var(--surface-purple)] px-2.5 py-0.5 text-[11px] font-medium text-[var(--text-link)] md:inline-flex"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#E11D72]" />AI Autonomous Mode: Active</span>
+    <motion.div initial={{ opacity: 0, scale: 0.97, y: 14 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65 }} className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-strong)] bg-[var(--surface-1)] font-inter text-[var(--text-primary)] shadow-[0_28px_70px_-30px_rgba(43,13,58,0.32)]">
+      {/* Browser Window Chrome Header with Address Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--border-default)] bg-[var(--surface-2)] px-4 py-2.5">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5">
+            <span className="h-3 w-3 rounded-full bg-rose-500/90 shadow-xs" />
+            <span className="h-3 w-3 rounded-full bg-amber-500/90 shadow-xs" />
+            <span className="h-3 w-3 rounded-full bg-emerald-500/90 shadow-xs" />
+          </div>
+
+          <div className="hidden sm:flex items-center gap-1 text-[var(--text-secondary)] opacity-60">
+            <ChevronLeft className="h-3.5 w-3.5" />
+            <ChevronRight className="h-3.5 w-3.5" />
+          </div>
+        </div>
+
+        {/* Centralized Address Bar */}
+        <div className="flex max-w-md flex-1 items-center justify-between rounded-lg border border-[var(--border-default)] bg-[var(--surface-1)] px-3 py-1 font-mono text-[11px] text-[var(--text-secondary)] shadow-xs">
+          <div className="flex items-center gap-2 overflow-hidden">
+            <Lock className="h-3 w-3 text-emerald-500 shrink-0" />
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">https://</span>
+            <span className="truncate text-[var(--text-primary)] font-medium">kashtrix.com/products/oss-bss</span>
+          </div>
+          <RefreshCw className="h-3 w-3 opacity-40 shrink-0 ml-2" />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="hidden items-center gap-1.5 rounded-full border border-[var(--border-default)] bg-[var(--surface-purple)] px-2.5 py-0.5 text-[11px] font-medium text-[var(--text-link)] md:inline-flex">
+            <i className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#E11D72]" />
+            AI Autonomous Mode: Active
+          </span>
+        </div>
       </div>
 
       <div className="grid min-h-[520px] grid-cols-1 md:grid-cols-12">
@@ -86,12 +114,12 @@ export const DashboardMockup: React.FC = () => {
           <div className="space-y-1">
             <p className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-[var(--text-secondary)]">Operations Center</p>
             {Object.entries(VIEWS).map(([id, item]) => { const ItemIcon = item.icon; const active = id === activeId; return (
-              <button key={id} onClick={() => setActiveId(id)} aria-pressed={active} className={cn("flex w-full items-center justify-between rounded-lg px-3 py-2 font-inter text-xs font-medium transition-all", active ? "bg-[#2B0D3A] text-white shadow-sm" : "text-[var(--text-primary)] hover:translate-x-1 hover:bg-[var(--surface-purple)]")}>
+              <button key={id} onClick={() => setActiveId(id)} aria-pressed={active} className={cn("flex w-full items-center justify-between rounded-lg px-3 py-2 font-inter text-xs font-medium transition-colors", active ? "bg-[#2B0D3A] text-white shadow-sm dark:bg-[var(--surface-purple)]" : "text-[var(--text-primary)] hover:bg-[var(--surface-purple)]")}>
                 <span className="flex items-center gap-2.5"><ItemIcon className={cn("h-4 w-4", active ? "text-[#FCE7F3]" : item.accent ? "text-[var(--text-accent)]" : "text-[var(--text-link)]")} />{item.label}</span>
                 {item.accent && !active && <i className="h-1.5 w-1.5 rounded-full bg-[#E11D72]" />}
               </button> ); })}
           </div>
-          <div className="space-y-2 rounded-xl border border-[var(--border-default)] bg-white p-3 shadow-sm">
+          <div className="space-y-2 rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] p-3 shadow-sm">
             <div className="flex items-center justify-between text-xs font-semibold text-[var(--text-primary)]"><span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-[var(--text-link)]" />{view.health}</span><span className="rounded bg-[var(--surface-purple)] px-1.5 py-0.5 text-[10px] text-[var(--text-link)]">{view.healthState}</span></div>
             <div className="h-1.5 overflow-hidden rounded-full bg-[var(--surface-2)]"><div className="h-full w-[98%] bg-gradient-to-r from-[#2B0D3A] to-[#4A1B7A]" /></div>
             <p className="text-[10px] leading-relaxed text-[var(--text-secondary)]">{view.healthDetail}</p>
@@ -104,7 +132,7 @@ export const DashboardMockup: React.FC = () => {
               <div className="flex items-center gap-2"><ViewIcon className="h-4 w-4 text-[var(--text-link)]" /><div className="font-inter text-sm font-semibold text-[var(--text-primary)]">{view.label}</div></div>
               <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
                 {view.metrics.map((metric) => { const MetricIcon = metric.icon; return (
-                  <div key={metric.label} className="rounded-xl border border-[var(--border-default)] bg-white p-3.5 transition-all hover:-translate-y-0.5 hover:border-[var(--border-brand)] hover:shadow-md">
+                  <div key={metric.label} className="rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] p-3.5 transition-all hover:-translate-y-0.5 hover:border-[var(--border-brand)] hover:shadow-md">
                     <div className="mb-2 flex items-center justify-between"><span className="font-inter text-xs font-medium text-[var(--text-secondary)]">{metric.label}</span><span className="rounded-lg bg-[var(--surface-purple)] p-1.5"><MetricIcon className="h-4 w-4 text-[var(--text-link)]" /></span></div>
                     <div className="type-kpi text-[clamp(1.2rem,2vw,1.7rem)] leading-none tracking-[-0.04em] text-[var(--text-primary)]">{metric.value}</div>
                     <div className="mt-1 flex items-center gap-1 font-inter text-[11px] font-medium text-[var(--text-link)]"><TrendingUp className="h-3 w-3" />{metric.change}</div>

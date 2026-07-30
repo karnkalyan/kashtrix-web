@@ -46,7 +46,7 @@ export const PlatformMegaMenu: React.FC<PlatformMegaMenuProps> = ({ onClose }) =
                 </div>
                 <ul className="space-y-2">
                   {col.items.map((item, itemIndex) => {
-                    const ItemIcon = ITEM_ICONS[idx][itemIndex];
+                    const ItemIcon = ITEM_ICONS[idx]?.[itemIndex] || Activity;
                     const color = ITEM_COLORS[(idx * 2 + itemIndex) % ITEM_COLORS.length];
                     return (
                     <li key={item.title}>
@@ -76,30 +76,44 @@ export const PlatformMegaMenu: React.FC<PlatformMegaMenuProps> = ({ onClose }) =
           })}
         </div>
 
-        {/* Featured Panel */}
-        <div className="md:col-span-3 rounded-xl bg-gradient-to-br from-[#2B0D3A] to-[#4A1B7A] p-5 text-white flex flex-col justify-between relative overflow-hidden shadow-lg">
-          <div className="absolute -top-10 -right-10 w-36 h-36 rounded-full bg-[#E11D72]/20 blur-2xl pointer-events-none" />
-          
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-white/15 text-[#FCE7F3]">
-              <Sparkles className="w-3 h-3 text-[var(--text-accent)]" /> Unified Operating System
-            </span>
-            <h4 className="text-base font-bold font-sora leading-tight">
-              Explore the unified Kashtrix platform
-            </h4>
-            <p className="text-xs text-[#E8DFF0] leading-relaxed">
-              See how network, business, service, and AI operations work together in one multi-tenant architecture.
-            </p>
+        {/* Two Product Cards */}
+        <div className="md:col-span-3 flex flex-col gap-4">
+          {/* Kashtrix OSS/BSS Card */}
+          <div className="flex-1 rounded-xl bg-gradient-to-br from-[#2B0D3A] to-[#4A1B7A] p-5 text-white flex flex-col justify-between relative overflow-hidden shadow-lg">
+            <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-[#E11D72]/20 blur-2xl pointer-events-none" />
+            <div className="space-y-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-white/15 text-[#FCE7F3]">
+                <Sparkles className="w-3 h-3 text-[var(--text-accent)]" /> Flagship Product
+              </span>
+              <h4 className="text-sm font-bold font-sora leading-tight">Kashtrix OSS/BSS</h4>
+              <p className="text-[11px] text-[#E8DFF0] leading-relaxed">
+                Unified telecom operations, billing, CRM, and AI agents in one platform.
+              </p>
+            </div>
+            <div className="pt-4">
+              <Link href="/platform" onClick={onClose} className="w-full py-2 px-3 rounded-lg bg-white text-[#2B0F3D] font-sora font-bold text-xs hover:bg-[#F7F2FB] transition-all flex items-center justify-center gap-2 shadow-sm">
+                Explore OSS/BSS <ArrowRight className="w-3.5 h-3.5 text-[#4A1B7A]" />
+              </Link>
+            </div>
           </div>
 
-          <div className="pt-6">
-            <Link
-              href="/platform"
-              onClick={onClose}
-              className="w-full py-2.5 px-4 rounded-xl bg-[var(--surface-1)] text-[var(--text-primary)] font-sora font-bold text-xs hover:bg-[var(--surface-purple)] transition-all flex items-center justify-center gap-2 shadow-sm"
-            >
-              Explore Platform <ArrowRight className="w-3.5 h-3.5 text-[var(--text-link)]" />
-            </Link>
+          {/* Kashtrix Syslog Card */}
+          <div className="flex-1 rounded-xl bg-gradient-to-br from-[#064E3B] to-[#155E75] p-5 text-white flex flex-col justify-between relative overflow-hidden shadow-lg">
+            <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-cyan-400/20 blur-2xl pointer-events-none" />
+            <div className="space-y-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-white/15 text-cyan-200">
+                <Activity className="w-3 h-3 text-cyan-300" /> Standalone Product
+              </span>
+              <h4 className="text-sm font-bold font-sora leading-tight">Kashtrix Syslog</h4>
+              <p className="text-[11px] text-cyan-100 leading-relaxed">
+                Carrier-grade syslog collector with CGNAT law compliance archiving.
+              </p>
+            </div>
+            <div className="pt-4">
+              <Link href="/syslog" onClick={onClose} className="w-full py-2 px-3 rounded-lg bg-white text-[#064E3B] font-sora font-bold text-xs hover:bg-cyan-50 transition-all flex items-center justify-center gap-2 shadow-sm">
+                Explore Syslog <ArrowRight className="w-3.5 h-3.5 text-[#155E75]" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

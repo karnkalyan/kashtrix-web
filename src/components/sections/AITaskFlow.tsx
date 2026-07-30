@@ -76,7 +76,7 @@ export const AITaskFlow: React.FC<AITaskFlowProps> = ({ agentId }) => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsRunning(!isRunning)}
-            className="px-3.5 py-1.5 rounded-xl bg-[#2B0D3A] text-white font-inter font-semibold text-xs hover:bg-[#4A1B7A] transition-all flex items-center gap-1.5 shadow-xs"
+            className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-inter font-semibold text-xs hover:from-purple-500 hover:to-pink-500 transition-all flex items-center gap-1.5 shadow-sm"
           >
             <Play className="w-3.5 h-3.5 fill-current" />
             {isRunning ? "Pause Loop" : "Resume Loop"}
@@ -157,7 +157,7 @@ export const AITaskFlow: React.FC<AITaskFlowProps> = ({ agentId }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="p-5 rounded-2xl bg-gradient-to-r from-[#F8F7FA] to-[#F4EEFF] border border-[var(--border-default)] flex flex-col md:flex-row md:items-center justify-between gap-4"
+          className="p-5 rounded-2xl bg-gradient-to-r from-[var(--surface-2)] to-[var(--surface-purple)] border border-[var(--border-default)] flex flex-col md:flex-row md:items-center justify-between gap-4"
         >
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -172,7 +172,7 @@ export const AITaskFlow: React.FC<AITaskFlowProps> = ({ agentId }) => {
           </div>
 
           <div className="shrink-0 flex items-center gap-2">
-            <span className="text-xs font-bold text-[var(--text-primary)] px-3 py-1.5 rounded-lg bg-white border border-[var(--border-default)] shadow-2xs">
+            <span className="text-xs font-bold text-[var(--text-primary)] px-3 py-1.5 rounded-lg bg-[var(--surface-1)] border border-[var(--border-default)] shadow-2xs">
               Resolution Confidence: 99.8%
             </span>
           </div>

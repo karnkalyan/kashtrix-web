@@ -10,9 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 export const LenisProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      lerp: 0.08,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      infinite: false,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -22,7 +25,7 @@ export const LenisProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     };
 
     gsap.ticker.add(updateLenis);
-    gsap.ticker.fps(60);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
       gsap.ticker.remove(updateLenis);

@@ -55,21 +55,21 @@ export const SecuritySection: React.FC = () => {
                 className={cn(
                   "p-6 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between",
                   activeTab === index
-                    ? "bg-[#2B0D3A] text-white border-[var(--border-brand)] shadow-lg scale-102"
-                    : "bg-[var(--surface-1)] text-[var(--text-primary)] border-[var(--border-default)] hover:border-[#9B82B5]"
+                    ? "bg-gradient-to-r from-emerald-700 to-teal-700 text-white border-emerald-400 shadow-lg"
+                    : "bg-[var(--surface-1)] text-[var(--text-primary)] border-[var(--border-default)] hover:border-emerald-500/40"
                 )}
               >
                 <div>
                   <div
                     className={cn(
                       "p-3 rounded-xl w-fit mb-4 transition-colors",
-                      activeTab === index ? "bg-[#E11D72] text-white" : "bg-[var(--surface-purple)] text-[var(--text-link)]"
+                      activeTab === index ? "bg-emerald-400 text-slate-950 font-bold" : "bg-[var(--surface-purple)] text-[var(--text-link)]"
                     )}
                   >
                     <Icon className="w-6 h-6 stroke-[1.75]" />
                   </div>
                   <h3 className="text-base font-bold font-sora mb-2 leading-snug">{item.title}</h3>
-                  <p className={cn("text-xs leading-relaxed", activeTab === index ? "text-[#E8DFF0]/90" : "text-[var(--text-secondary)]")}>
+                  <p className={cn("text-xs leading-relaxed", activeTab === index ? "text-emerald-100" : "text-[var(--text-secondary)]")}>
                     {item.desc}
                   </p>
                 </div>
@@ -79,8 +79,8 @@ export const SecuritySection: React.FC = () => {
         </div>
 
         {/* Live Immutable Audit Log Preview */}
-        <div className="rounded-2xl bg-[#1B1024] border border-[#342044] p-6 text-white font-inter text-xs">
-          <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#342044]">
+        <div className="rounded-2xl bg-[var(--surface-1)] border border-[var(--border-default)] p-6 text-[var(--text-primary)] font-inter text-xs shadow-md">
+          <div className="flex items-center justify-between pb-3 mb-4 border-b border-[var(--border-default)]">
             <span className="text-[var(--text-tertiary)] font-semibold flex items-center gap-2">
               <Terminal className="w-4 h-4 text-[var(--text-accent)]" /> Real-Time SOC 2 Compliance &amp; Audit Log Stream
             </span>
@@ -89,7 +89,7 @@ export const SecuritySection: React.FC = () => {
             </span>
           </div>
 
-          <div className="space-y-2.5 text-[#F4EEFF] leading-relaxed">
+          <div className="space-y-2.5 text-[var(--text-primary)] leading-relaxed">
             <div className="flex items-start gap-2">
               <span className="text-[var(--text-secondary)] shrink-0">[2026-03-30 14:22:01 UTC]</span>
               <span>

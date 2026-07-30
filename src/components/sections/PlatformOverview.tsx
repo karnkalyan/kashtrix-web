@@ -8,12 +8,20 @@ import { cn } from "@/lib/utils";
 
 const OVERVIEW_CARDS = [
   {
-    title: "Unified OSS/BSS",
+    title: "Kashtrix OSS/BSS",
     description: "Replace disconnected Radius, rating engines, billing, and provisioning modules with one synchronized database.",
     href: "/platform",
     icon: Server,
-    badge: "Core Architecture",
+    badge: "Flagship Product",
     color: "#4A1B7A",
+  },
+  {
+    title: "Kashtrix Syslog",
+    description: "Carrier-grade syslog collector with CGNAT law compliance, audit archiving, and real-time log analytics.",
+    href: "/syslog",
+    icon: Activity,
+    badge: "Standalone Product",
+    color: "#0891B2",
   },
   {
     title: "AI Automation",
@@ -67,10 +75,10 @@ export const PlatformOverview: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)]">
-            Every System. One Platform.
+            Two Products. One Platform.
           </span>
           <h2 className="section-heading text-[var(--text-primary)]">
-            One platform for every telecom operation.
+            Two products for every telecom operation.
           </h2>
           <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Eliminate operational friction by unifying network infrastructure, subscriber management, financial billing, and field dispatching under a single AI-powered control plane.

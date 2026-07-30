@@ -36,9 +36,10 @@ export const Footer: React.FC = () => {
 
   const footerColumns = [
     {
-      title: "Platform & Core",
+      title: "Products",
       links: [
-        { label: "Platform Overview", href: "/platform" },
+        { label: "Kashtrix OSS/BSS", href: "/platform" },
+        { label: "Kashtrix Syslog", href: "/syslog" },
         { label: "Unified OSS Core", href: "/oss" },
         { label: "Unified BSS & Rating", href: "/bss" },
         { label: "AI Agents Grid", href: "/ai-agents" },
@@ -123,7 +124,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-xl bg-[#2B0D3A] text-white font-sora font-bold text-xs hover:bg-[#4A1B7A] transition-all shadow-sm shrink-0"
+                  className="pink-glow-button px-5 py-2.5 rounded-xl bg-[#E11D72] text-white font-sora font-bold text-xs hover:bg-[#FF2E93] transition-all shadow-sm shrink-0"
                 >
                   Subscribe
                 </button>
@@ -192,7 +193,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Supported Payment Gateways */}
-      <div className="border-t border-[var(--border-default)] bg-white">
+      <div className="border-t border-[var(--border-default)] bg-[var(--surface-1)]">
         <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="shrink-0">
@@ -209,7 +210,7 @@ export const Footer: React.FC = () => {
               {PAYMENT_GATEWAYS.map((gateway) => (
                 <span
                   key={gateway}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] px-2.5 py-1.5 font-inter text-[11px] font-medium text-[var(--text-secondary)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface-purple)]"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-default)] bg-[var(--surface-2)] px-2.5 py-1.5 font-inter text-[11px] font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--border-strong)] hover:bg-[var(--surface-purple)]"
                 >
                   <CreditCard className="h-3 w-3 text-[var(--text-link)]" />
                   {gateway}

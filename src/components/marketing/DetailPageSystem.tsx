@@ -4,6 +4,9 @@ import type { CSSProperties, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, CheckCircle2, ImageIcon, PlugZap, ShieldCheck } from "lucide-react";
 import { SERVICE_ACCENTS, type ServiceAccent } from "@/lib/marketing";
+import { ProductScreenshotFrame } from "./ProductScreenshotFrame";
+
+export { ProductScreenshotFrame };
 
 export interface DetailCapability {
   title: string;
@@ -49,23 +52,6 @@ export function DetailPageSubnav({ accent }: { accent: ServiceAccent }) {
         ))}
       </div>
     </nav>
-  );
-}
-
-export function ProductScreenshotFrame({ src, alt, accent, label, priority = false }: { src: string; alt: string; accent: ServiceAccent; label: string; priority?: boolean }) {
-  const colors = SERVICE_ACCENTS[accent];
-  return (
-    <figure className="relative">
-      <div className="absolute -inset-5 -z-10 rounded-[2rem] opacity-20 blur-3xl" style={{ background: colors.gradient }} />
-      <div className="overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--surface-1)] p-2 shadow-[var(--shadow-lg)] sm:p-3">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--surface-2)]">
-          <Image src={src} alt={alt} fill priority={priority} sizes="(max-width: 1024px) 100vw, 52vw" className="object-cover object-top" quality={84} />
-        </div>
-      </div>
-      <figcaption className="absolute bottom-5 left-5 rounded-xl border border-white/20 bg-[#16081F]/85 px-3 py-2 font-roboto text-[10px] font-medium text-white shadow-lg backdrop-blur-md">
-        <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: colors.primary }} />{label}
-      </figcaption>
-    </figure>
   );
 }
 
@@ -148,8 +134,8 @@ export function MarketingDetailPage({ config, children }: { config: MarketingDet
         </div>
       </section>
 
-      <section id="workflow" className="scroll-mt-36 bg-[#16081F] py-20 text-white md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-3xl"><span className="font-poppins text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: colors.secondary }}>Connected workflow</span><h2 className="mt-3 font-poppins text-3xl font-semibold tracking-tight sm:text-4xl">From operational signal to measurable outcome.</h2></div><ol className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-5">{config.workflow.map((step, index) => <li key={step} className="relative rounded-2xl border border-white/10 bg-white/[0.055] p-5"><span className="font-roboto text-xs text-white/45">0{index + 1}</span><p className="mt-3 font-poppins text-sm font-semibold">{step}</p>{index < config.workflow.length - 1 && <ArrowRight className="absolute -right-3 top-1/2 hidden h-5 w-5 text-white/25 lg:block" />}</li>)}</ol></div>
+      <section id="workflow" className="scroll-mt-36 border-y border-[var(--border-default)] bg-[var(--surface-2)] py-20 text-[var(--text-primary)] md:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-3xl"><span className="font-poppins text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: colors.secondary }}>Connected workflow</span><h2 className="mt-3 font-poppins text-3xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-4xl">From operational signal to measurable outcome.</h2></div><ol className="mt-10 grid gap-4 md:grid-cols-3 lg:grid-cols-5">{config.workflow.map((step, index) => <li key={step} className="relative rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] p-5 shadow-xs"><span className="font-roboto text-xs font-bold text-[var(--text-tertiary)]">0{index + 1}</span><p className="mt-3 font-poppins text-sm font-semibold text-[var(--text-primary)]">{step}</p>{index < config.workflow.length - 1 && <ArrowRight className="absolute -right-3 top-1/2 hidden h-5 w-5 text-[var(--text-muted)] lg:block" />}</li>)}</ol></div>
       </section>
 
       {children && <div id="deep-dive" className="scroll-mt-36">{children}</div>}

@@ -216,7 +216,7 @@ export const GlobalNetworkGlobe: React.FC<GlobalNetworkGlobeProps> = ({ classNam
                 className={cn(
                   "px-2 py-1 rounded text-[10px] font-medium transition-all",
                   hoveredNode.name === dc.name
-                    ? "bg-[#2B0D3A] text-white"
+                    ? "bg-[var(--brand-violet)] text-white"
                     : "bg-[var(--surface-2)] text-[var(--text-secondary)] hover:bg-[var(--surface-4)]"
                 )}
               >
