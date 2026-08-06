@@ -3,11 +3,12 @@ import Link from "next/link";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { BookOpen, Terminal, FileText, Video, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
 import { constructMetadata } from "@/lib/seo";
+import { AllPlatformAssetsShowcase } from "@/components/sections/AllPlatformAssetsShowcase";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Resources | Telecom Guides, ISP Whitepapers & AI Blueprints",
+  title: "Kashtrix Resources | 48 Product Application Screens, Guides & AI Blueprints",
   description:
-    "Explore Kashtrix technical resources, ISP case studies, CGNAT syslog compliance guides, FreeRADIUS AAA configuration blueprints, and AI NOC automation whitepapers.",
+    "Explore Kashtrix technical resources, 48 high-definition live application screenshots, ISP case studies, CGNAT syslog compliance guides, FreeRADIUS AAA blueprints, and AI NOC whitepapers.",
   keywords: [
     "telecom resources",
     "ISP technical guides",
@@ -108,6 +109,8 @@ export default function ResourcesPage() {
           </div>
         </div>
       </div>
+
+      <AllPlatformAssetsShowcase />
     </SiteShell>
   );
 }
