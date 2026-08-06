@@ -4,8 +4,15 @@ import { Shield, Lock } from "lucide-react";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Privacy Policy | Kashtrix Telecom Platform",
-  description: "Kashtrix privacy policy detailing how subscriber data, network telemetry, and customer billing metrics are protected under GDPR and SOC 2 guidelines.",
+  title: "Privacy Policy | Kashtrix Telecom Operating System",
+  description:
+    "Kashtrix Privacy Policy detailing how subscriber data, CGNAT audit logs, RADIUS accounting packets, and customer billing metrics are protected under GDPR, ISO 27001, and SOC 2.",
+  keywords: [
+    "Kashtrix privacy policy",
+    "telecom data privacy",
+    "CGNAT log privacy",
+    "subscriber data protection GDPR",
+  ],
   canonical: "https://kashtrix.com/privacy",
 });
 

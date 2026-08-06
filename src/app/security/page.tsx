@@ -6,8 +6,16 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Security | SOC 2 Type II & Zero-Trust Telecom Vault",
-  description: "Learn how Kashtrix secures multi-vendor network operations with mutual TLS, HMAC webhook signing, and immutable PostgreSQL SOC 2 compliance logs.",
+  title: "Kashtrix Security | SOC 2 Type II, ISO 27001 & Telecom Zero-Trust Architecture",
+  description:
+    "Enterprise security architecture powering Kashtrix Telecom Operating System. Featuring SOC 2 Type II compliance, zero-trust RBAC, mTLS encryption, and tamper-proof CGNAT syslog vaulting.",
+  keywords: [
+    "telecom security software",
+    "SOC 2 Type II telecom",
+    "CGNAT log audit security",
+    "ISP zero trust architecture",
+    "Kashtrix Security",
+  ],
   canonical: "https://kashtrix.com/security",
 });
 

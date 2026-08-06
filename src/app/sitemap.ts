@@ -1,47 +1,83 @@
 import type { MetadataRoute } from "next";
 
-const routes = [
-  "",
-  "about",
-  "ai-agents",
-  "api-platform",
-  "billing",
+// Define route categories for precise SEO indexing priority and change frequencies
+const FLAGSHIP_PRODUCT_ROUTES = [
+  "syslog",
+  "oss",
   "bss",
-  "contact",
+  "ai-agents",
+  "platform",
+  "billing",
   "crm",
-  "documentation",
-  "field-operations",
+];
+
+const SOLUTION_FEATURE_ROUTES = [
+  "network-management",
+  "network-automation",
   "hardware-automation",
+  "voice-automation",
+  "field-operations",
+  "inventory",
+  "api-platform",
   "industries",
   "integrations",
-  "inventory",
-  "login",
-  "network-automation",
-  "network-management",
-  "oss",
-  "platform",
   "pricing",
-  "privacy",
   "request-demo",
+];
+
+const RESOURCE_CORPORATE_ROUTES = [
+  "about",
+  "contact",
+  "documentation",
   "resources",
   "security",
-  "syslog",
-  "terms",
-  "voice-automation",
 ];
+
+const LEGAL_ROUTES = ["privacy", "terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://kashtrix.com").replace(/\/$/, "");
+  const currentDate = new Date().toISOString().split("T")[0];
 
-  return routes.map((route) => {
-    const isHome = route === "";
-    const isHighPriority = ["platform", "pricing", "syslog", "oss", "bss", "crm", "billing", "ai-agents", "request-demo"].includes(route);
+  // Home Page
+  const homeEntry: MetadataRoute.Sitemap[number] = {
+    url: `${baseUrl}/`,
+    lastModified: currentDate,
+    changeFrequency: "daily",
+    priority: 1.0,
+  };
 
-    return {
-      url: isHome ? `${baseUrl}/` : `${baseUrl}/${route}`,
-      lastModified: new Date().toISOString().split("T")[0],
-      changeFrequency: isHome ? "daily" : isHighPriority ? "weekly" : "monthly",
-      priority: isHome ? 1.0 : isHighPriority ? 0.9 : 0.7,
-    };
-  });
+  // Flagship Products (Syslog, OSS, BSS, AI Agents, Platform, Billing, CRM)
+  const flagshipEntries: MetadataRoute.Sitemap = FLAGSHIP_PRODUCT_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified: currentDate,
+    changeFrequency: "daily",
+    priority: 0.95,
+  }));
+
+  // Key Telecom Solutions & Feature Modules
+  const solutionEntries: MetadataRoute.Sitemap = SOLUTION_FEATURE_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.9,
+  }));
+
+  // Corporate & Engineering Knowledge Resources
+  const resourceEntries: MetadataRoute.Sitemap = RESOURCE_CORPORATE_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  // Legal & Compliance Pages
+  const legalEntries: MetadataRoute.Sitemap = LEGAL_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [homeEntry, ...flagshipEntries, ...solutionEntries, ...resourceEntries, ...legalEntries];
 }

@@ -4,8 +4,17 @@ import { Industries } from "@/components/sections/Industries";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Industries | Solutions for ISPs, FTTH, WISPs, Cable & VoIP",
-  description: "Tailored telecom automation architectures for Internet Service Providers (ISPs), FTTH operators, WISPs, cable DOCSIS networks, and VoIP carriers.",
+  title: "Kashtrix Industries | Solutions for WISPs, FTTH, Enterprise ISPs & Mobile Carriers",
+  description:
+    "Tailored ISP business management & telecom OSS/BSS software for Wireless ISPs (WISPs), Fiber-to-the-Home (FTTH) operators, Enterprise ISPs, and Mobile Network Operators.",
+  keywords: [
+    "WISP management software",
+    "FTTH OSS BSS",
+    "enterprise ISP business software",
+    "mobile network operator OSS BSS",
+    "broadband provider software",
+    "Kashtrix Industries",
+  ],
   canonical: "https://kashtrix.com/industries",
 });
 

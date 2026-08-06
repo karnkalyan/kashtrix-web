@@ -5,8 +5,17 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Voice AI | Conversational Telecom Call & IVR Automation",
-  description: "Connect Kashtrix Voice AI directly to Asterisk, Yeastar, or carrier SIP trunks. Conduct thousands of natural customer payment and support interactions simultaneously.",
+  title: "Kashtrix Voice AI | Telecom SIP Trunk, IVR & Conversational AI Server",
+  description:
+    "Connect Kashtrix Voice AI Server directly to Asterisk, FreePBX, and carrier SIP trunks. Automate inbound customer care, payment collections, and subscriber voice bots.",
+  keywords: [
+    "Voice AI telecom",
+    "SIP trunk IVR automation",
+    "Asterisk FreePBX voice AI",
+    "telecom voice agent",
+    "conversational AI server ISP",
+    "Kashtrix Voice AI",
+  ],
   canonical: "https://kashtrix.com/voice-automation",
 });
 

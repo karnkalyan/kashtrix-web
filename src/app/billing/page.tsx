@@ -5,8 +5,21 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Billing | Prepaid, Postpaid & Automated Dunning Engine",
-  description: "Real-time telecom rating, CDR mediation, and multi-currency billing collections. Eliminates revenue leakage and speeds up collections by over 45%.",
+  title: "Kashtrix Billing | ISP Billing Software, FreeRADIUS AAA & Dunning Engine",
+  description:
+    "No. 1 ISP billing software & telecom revenue assurance engine. Real-time broadband subscriber rating, CDR mediation, automated dunning, payment gateway integration, and MikroTik RADIUS billing.",
+  keywords: [
+    "ISP billing software",
+    "telecom billing software",
+    "broadband subscriber billing",
+    "FreeRADIUS AAA billing",
+    "MikroTik ISP billing",
+    "wisp billing software",
+    "automated dunning engine",
+    "payment gateway reconciliation ISP",
+    "Kashtrix Billing",
+    "bss billing",
+  ],
   canonical: "https://kashtrix.com/billing",
 });
 

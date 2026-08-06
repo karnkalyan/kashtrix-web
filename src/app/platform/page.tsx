@@ -8,8 +8,19 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Platform | Unified OSS, BSS & AI Core Architecture",
-  description: "Explore the unified Kashtrix platform architecture combining sub-second network telemetry, automated billing rating, and autonomous AI agents.",
+  title: "Kashtrix Platform | Unified AI Telecom Operating System & AI Server Architecture",
+  description:
+    "Explore Kashtrix Unified Telecom Platform. Connecting Syslog server log collection, OSS/BSS core modules, AI Telemetry Server, FreeRADIUS AAA, MikroTik billing, and autonomous AI agents in one composable architecture.",
+  keywords: [
+    "Kashtrix platform",
+    "telecom operating system",
+    "unified oss bss",
+    "ai server platform",
+    "carrier grade syslog architecture",
+    "ISP management software architecture",
+    "telecom software architecture",
+    "FreeRADIUS AAA platform",
+  ],
   canonical: "https://kashtrix.com/platform",
 });
 

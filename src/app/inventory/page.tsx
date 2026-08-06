@@ -5,8 +5,16 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Inventory | CPE Lifecycle, Barcode Tracking & Optical Serials",
-  description: "Track customer premise equipment (CPE), optical transceivers, and warehouse inventory with automated serial reconciliation and warranty lifecycle management.",
+  title: "Kashtrix Inventory | Telecom Asset & Serialized CPE Inventory Management",
+  description:
+    "Track serialized CPE routers, ONTs, optical transceivers, fiber spools, and warehouse stock across locations with automated warranty tracking and asset recovery.",
+  keywords: [
+    "telecom inventory software",
+    "ISP CPE asset tracking",
+    "serialized equipment tracking telecom",
+    "optical transceiver inventory management",
+    "Kashtrix Inventory",
+  ],
   canonical: "https://kashtrix.com/inventory",
 });
 

@@ -5,8 +5,17 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix API Platform | REST, GraphQL & Webhooks OpenAPI Reference",
-  description: "Explore the Kashtrix OpenAPI reference. Trigger multi-vendor BNG workflows, query active Radius sessions, and launch voice campaigns programmatically.",
+  title: "Kashtrix API Platform | Open REST API, Webhooks & OpenAPI Telecom Framework",
+  description:
+    "Open REST API and Webhook integration framework for telecom operators. Connect ERPs, payment gateways, MikroTik routers, FreeRADIUS AAA, and custom apps seamlessly.",
+  keywords: [
+    "Open REST API telecom",
+    "telecom API integration framework",
+    "OpenAPI OSS BSS",
+    "telecom webhook platform",
+    "FreeRADIUS API integration",
+    "Kashtrix API Platform",
+  ],
   canonical: "https://kashtrix.com/api-platform",
 });
 

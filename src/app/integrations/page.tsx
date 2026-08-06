@@ -6,8 +6,17 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Integrations | Webhooks, PBX, GIS & Multi-Vendor Connectors",
-  description: "Seamlessly integrate Kashtrix with existing billing gateways, corporate PBX dialplans, GIS mapping engines, and multi-vendor routers via secure webhooks.",
+  title: "Kashtrix Integrations | MikroTik, Cisco, Huawei, FreeRADIUS & Payment Connectors",
+  description:
+    "Pre-built hardware, billing, and network vendor connectors for Kashtrix OSS/BSS & Syslog Server. Connect MikroTik RouterOS, Cisco ASR, Huawei OLTs, Stripe, and FreeRADIUS.",
+  keywords: [
+    "MikroTik RADIUS integration",
+    "Cisco vBNG integration",
+    "Huawei OLT integration",
+    "FreeRADIUS integration",
+    "payment gateway ISP integration",
+    "Kashtrix Integrations",
+  ],
   canonical: "https://kashtrix.com/integrations",
 });
 

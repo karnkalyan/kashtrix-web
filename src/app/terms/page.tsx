@@ -4,8 +4,14 @@ import { FileCheck } from "lucide-react";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Terms of Service | Kashtrix Telecom Platform",
-  description: "Terms and conditions governing access to the Kashtrix AI-native telecom OSS/BSS, network automation, and hardware orchestration platform.",
+  title: "Terms of Service | Kashtrix Telecom Operating System",
+  description:
+    "Terms of Service governing Kashtrix AI-Native Telecom OSS/BSS, Carrier-Grade Syslog Server, AI Agents, and hardware automation services.",
+  keywords: [
+    "Kashtrix terms of service",
+    "telecom SLA agreement",
+    "ISP software terms",
+  ],
   canonical: "https://kashtrix.com/terms",
 });
 

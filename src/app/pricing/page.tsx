@@ -3,8 +3,17 @@ import { PricingInquiry } from "@/components/sections/PricingInquiry";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Custom Telecom Platform Pricing | Kashtrix",
-  description: "Request tailored Kashtrix pricing based on your subscribers, network estate, integrations and automation requirements. Speak with a telecom solutions architect.",
+  title: "Kashtrix Pricing | Flexible ISP & Telecom OSS/BSS & Syslog Plans",
+  description:
+    "Transparent pricing tailored to subscriber count, network capacity, and syslog volume. Request custom quote for Kashtrix OSS/BSS, Syslog Server, and AI Agent modules.",
+  keywords: [
+    "ISP software pricing",
+    "telecom OSS BSS pricing",
+    "syslog server cost ISP",
+    "Kashtrix pricing",
+    "wisp software cost",
+    "ISP billing software pricing",
+  ],
   canonical: "https://kashtrix.com/pricing",
 });
 

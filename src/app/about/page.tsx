@@ -5,8 +5,17 @@ import { GlobalReady } from "@/components/sections/GlobalReady";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "About Kashtrix | Where Networks, Business & AI Work Together",
-  description: "Kashtrix was founded by veteran telecom network architects to replace disconnected legacy billing, rating, and provisioning tools with one intelligent AI platform.",
+  title: "About Kashtrix | Creators of No. 1 AI-Native Telecom Operating System",
+  description:
+    "Kashtrix Platform Inc. was founded by veteran telecom network architects to unify Syslog log collection, OSS/BSS core modules, AI Telemetry Servers, and AI Agents into one telecom platform.",
+  keywords: [
+    "Kashtrix Platform Inc",
+    "About Kashtrix",
+    "telecom software company",
+    "AI OSS BSS vendor",
+    "syslog software provider",
+    "ISP software company",
+  ],
   canonical: "https://kashtrix.com/about",
 });
 

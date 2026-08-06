@@ -5,8 +5,17 @@ import { Terminal, Server, Shield, BookOpen, CheckCircle2, ArrowRight } from "lu
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Documentation | OSS, BSS & Network Integration Guides",
-  description: "Comprehensive technical documentation covering unified OSS/BSS installation, multi-vendor NETCONF/gNMI driver configuration, and AI agent deployment.",
+  title: "Kashtrix Documentation | Telecom OSS/BSS, Syslog & AI Server Setup Guides",
+  description:
+    "Comprehensive technical documentation for installing and integrating Kashtrix Telecom Operating System, Carrier-Grade Syslog Server, FreeRADIUS AAA, and AI Agents.",
+  keywords: [
+    "telecom documentation",
+    "Kashtrix documentation",
+    "OSS BSS setup guide",
+    "carrier grade syslog documentation",
+    "FreeRADIUS integration guide",
+    "AI NOC setup guide",
+  ],
   canonical: "https://kashtrix.com/documentation",
 });
 

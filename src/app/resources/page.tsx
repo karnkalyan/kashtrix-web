@@ -5,8 +5,17 @@ import { BookOpen, Terminal, FileText, Video, HelpCircle, ArrowRight, Sparkles }
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Resources | Technical Guides, Whitepapers & Release Notes",
-  description: "Access technical documentation, multi-vendor BNG automation templates, AI agent fine-tuning guides, and weekly telecom architecture release notes.",
+  title: "Kashtrix Resources | Telecom Guides, ISP Whitepapers & AI Blueprints",
+  description:
+    "Explore Kashtrix technical resources, ISP case studies, CGNAT syslog compliance guides, FreeRADIUS AAA configuration blueprints, and AI NOC automation whitepapers.",
+  keywords: [
+    "telecom resources",
+    "ISP technical guides",
+    "syslog compliance guide ISP",
+    "FreeRADIUS configuration guide",
+    "AI NOC whitepapers",
+    "Kashtrix resources",
+  ],
   canonical: "https://kashtrix.com/resources",
 });
 
