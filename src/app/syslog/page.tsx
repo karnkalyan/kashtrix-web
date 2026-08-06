@@ -4,14 +4,21 @@ import { MarketingDetailPage } from "@/components/marketing/DetailPageSystem";
 import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getSyslogProductSchema } from "@/lib/seo";
 import { ISPSyslogSection } from "@/components/sections/ISPSyslogSection";
+import { SyslogDeepDiveSection } from "@/components/sections/SyslogDeepDiveSection";
 
 export const metadata = constructMetadata({
   title: "Carrier-Grade ISP Syslog Server & CGNAT Audit Logging Collector | Kashtrix Syslog",
   description:
     "No. 1 high-throughput syslog server & CGNAT audit collector for ISPs. 100,000+ EPS log ingestion, subscriber IP-port mapping, hot/cold S3 archiving, and subpoena audit search for MikroTik, Cisco, Nokia, and Huawei.",
   keywords: [
+    "kashtrix oss bss syslog",
     "syslog",
     "syslog server",
+    "syslog server free",
+    "syslog server Windows",
+    "syslog server open source",
+    "syslog server Linux",
+    "Kiwi Syslog Server alternative",
     "Kashtrix Syslog",
     "carrier-grade syslog collector",
     "CGNAT syslog server",
@@ -37,6 +44,7 @@ export default function SyslogPage() {
       />
       <MarketingDetailPage config={DETAIL_CONFIGS.syslog}>
         <ISPSyslogSection />
+        <SyslogDeepDiveSection />
       </MarketingDetailPage>
     </SiteShell>
   );
