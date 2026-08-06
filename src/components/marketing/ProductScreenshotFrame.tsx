@@ -30,8 +30,8 @@ export function ProductScreenshotFrame({
         />
 
         {/* Browser Window Chrome (Light & Dark Mode Compatible) */}
-        <div className="overflow-hidden rounded-2xl border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-1)] dark:bg-[#0d131f] p-1.5 shadow-xl dark:shadow-2xl">
-          <div className="flex items-center justify-between border-b border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-[#090d16] px-3.5 py-2.5">
+        <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-1)] dark:bg-[#0d131f] p-1 sm:p-1.5 shadow-xl dark:shadow-2xl">
+          <div className="flex items-center justify-between border-b border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-[#090d16] px-2.5 py-2 sm:px-3.5 sm:py-2.5">
             <div className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-rose-500/90" />
               <span className="h-2.5 w-2.5 rounded-full bg-amber-500/90" />

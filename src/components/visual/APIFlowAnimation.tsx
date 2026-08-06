@@ -188,12 +188,12 @@ export const APIFlowAnimation: React.FC = () => {
         </div>
 
         {/* Code Viewport */}
-        <div className="p-5 overflow-x-auto font-inter text-xs leading-relaxed text-[var(--text-primary)]">
-          <div className="flex items-center gap-2 pb-3 mb-3 border-b border-[var(--border-default)] text-[var(--text-secondary)]">
+        <div className="p-3 sm:p-5 whitespace-pre-wrap break-words no-scrollbar font-inter text-xs leading-relaxed text-[var(--text-primary)]">
+          <div className="flex flex-wrap items-center gap-2 pb-3 mb-3 border-b border-[var(--border-default)] text-[var(--text-secondary)]">
             <span className="font-bold text-[var(--text-accent)]">{API_EXAMPLES[selectedExample].method}</span>
-            <span className="text-[var(--text-primary)] font-semibold">https://api.kashtrix.com{API_EXAMPLES[selectedExample].endpoint}</span>
+            <span className="text-[var(--text-primary)] font-semibold break-all">https://api.kashtrix.com{API_EXAMPLES[selectedExample].endpoint}</span>
           </div>
-          <pre className="whitespace-pre-wrap">{API_EXAMPLES[selectedExample].code}</pre>
+          <pre className="whitespace-pre-wrap break-words">{API_EXAMPLES[selectedExample].code}</pre>
         </div>
 
         {/* Live Simulation Response Output Bar */}

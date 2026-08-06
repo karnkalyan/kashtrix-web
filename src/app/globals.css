@@ -555,6 +555,15 @@ a.font-sora {
   background: #4A1B7A;
 }
 
+/* Utility to hide scrollbars across all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Lenis Smooth Scroll Recommended CSS */
 html.lenis {
   height: auto;

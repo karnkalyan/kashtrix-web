@@ -36,31 +36,31 @@ nat log session enable`,
   };
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-gradient-to-b from-[var(--surface-1)] via-purple-950/20 to-[var(--surface-1)] text-[var(--text-primary)] border-t border-b border-[var(--border-default)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section className="w-full py-12 sm:py-16 md:py-24 bg-gradient-to-b from-[var(--surface-1)] via-purple-950/20 to-[var(--surface-1)] text-[var(--text-primary)] border-t border-b border-[var(--border-default)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         
         {/* Deep Dive Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/30">
-            <Database className="w-3.5 h-3.5 text-pink-500" />
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/30">
+            <Database className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-pink-500" />
             Carrier-Grade ISP Syslog Infrastructure
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-sora tracking-tight leading-tight text-slate-900 dark:text-white">
-            Comprehensive CGNAT &amp; Legal <br />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sora tracking-tight leading-tight text-slate-900 dark:text-white">
+            Comprehensive CGNAT &amp; Legal <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 bg-clip-text text-transparent">
               Syslog Audit Architecture
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-inter">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-inter">
             Designed specifically for tier-1 telecom operators and ISPs to ingest 100,000+ events per second (EPS), correlate CGNAT NAT444 subscriber sessions, enforce DoT / TRAI legal compliance, and provide sub-second law enforcement subpoena lookups.
           </p>
         </div>
 
         {/* Feature Tabs Selector */}
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-[#130822] border border-purple-200 dark:border-purple-500/20 max-w-4xl mx-auto">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl bg-slate-100 dark:bg-[#130822] border border-purple-200 dark:border-purple-500/20 max-w-4xl mx-auto">
           <button
             onClick={() => setActiveTab("cgnat")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-sora text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-sora text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeTab === "cgnat"
                 ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30"
                 : "text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
@@ -72,7 +72,7 @@ nat log session enable`,
 
           <button
             onClick={() => setActiveTab("subpoena")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-sora text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-sora text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeTab === "subpoena"
                 ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30"
                 : "text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
@@ -84,7 +84,7 @@ nat log session enable`,
 
           <button
             onClick={() => setActiveTab("tiering")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-sora text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-sora text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeTab === "tiering"
                 ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30"
                 : "text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
@@ -96,7 +96,7 @@ nat log session enable`,
 
           <button
             onClick={() => setActiveTab("forwarders")}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-sora text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl font-sora text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeTab === "forwarders"
                 ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30"
                 : "text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
@@ -259,7 +259,7 @@ nat log session enable`,
               </div>
             </div>
 
-            <pre className="p-4 sm:p-6 rounded-2xl bg-slate-900 text-purple-200 font-mono text-xs sm:text-sm overflow-x-auto border border-slate-800 shadow-xl">
+            <pre className="p-4 sm:p-6 rounded-2xl bg-slate-900 text-purple-200 font-mono text-xs sm:text-sm whitespace-pre-wrap break-words no-scrollbar border border-slate-800 shadow-xl">
               <code>{forwarderConfigs[selectedVendor]}</code>
             </pre>
           </div>

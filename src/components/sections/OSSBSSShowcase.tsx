@@ -571,7 +571,7 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
   };
 
   return (
-    <section id="oss-bss-showcase" className="relative w-full overflow-hidden border-y border-[var(--border-default)] bg-[var(--surface-1)] dark:bg-slate-950 py-20 text-[var(--text-primary)] dark:text-white md:py-28">
+    <section id="oss-bss-showcase" className="relative w-full overflow-hidden border-y border-[var(--border-default)] bg-[var(--surface-1)] dark:bg-slate-950 py-12 sm:py-20 text-[var(--text-primary)] dark:text-white md:py-28">
       {/* Background Ambient Glow */}
       <div 
         className="pointer-events-none absolute -top-40 left-1/2 h-[700px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-[130px] transition-all duration-700" 
@@ -582,28 +582,28 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-white/5 px-4 py-1.5 backdrop-blur-md">
+        <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-white/5 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-md">
             <span className="h-2 w-2 animate-ping rounded-full" style={{ backgroundColor: category.accent.primary }} />
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-primary)] dark:text-white/80">
+            <span className="font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-primary)] dark:text-white/80">
               Interactive Live Demo Showcase
             </span>
           </div>
           
-          <h2 className="mt-4 font-sora text-3xl font-bold tracking-tight text-[var(--text-primary)] dark:text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-4 font-sora text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] dark:text-white md:text-4xl lg:text-5xl">
             Real OSS &amp; BSS Applications.{" "}
             <span className="bg-gradient-to-r from-[var(--text-primary)] via-purple-600 to-[var(--text-accent)] dark:from-white dark:via-slate-200 dark:to-white/60 bg-clip-text text-transparent block sm:inline">
               One Operational Truth.
             </span>
           </h2>
-          <p className="mt-4 font-inter text-sm leading-7 text-[var(--text-secondary)] dark:text-slate-300 sm:text-base">
+          <p className="mt-3 sm:mt-4 font-inter text-xs sm:text-sm leading-6 sm:leading-7 text-[var(--text-secondary)] dark:text-slate-300">
             Explore live application screens from network NOC telemetry, TR-069 ACS, RADIUS AAA sessions, subscriber CRM, automated billing ledgers, and AI field dispatch.
           </p>
         </div>
 
         {/* Top Category Tabs */}
-        <div className="mb-10 flex overflow-x-auto pb-3 pt-1 no-scrollbar scroll-smooth">
-          <div className="mx-auto flex min-w-max items-center gap-2 rounded-2xl border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-slate-900/80 p-2 shadow-xl dark:shadow-2xl backdrop-blur-xl">
+        <div className="mb-6 sm:mb-10 flex justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 rounded-2xl border border-[var(--border-default)] dark:border-white/10 bg-[var(--surface-2)] dark:bg-slate-900/80 p-1.5 sm:p-2 shadow-xl dark:shadow-2xl backdrop-blur-xl">
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon;
               const isActive = cat.id === activeCategoryId;
@@ -612,7 +612,7 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
                   key={cat.id}
                   type="button"
                   onClick={() => handleCategoryChange(cat.id)}
-                  className={`group relative flex items-center gap-2.5 rounded-xl border px-4 py-2.5 font-inter text-xs font-semibold transition-all duration-300 ${
+                  className={`group relative flex items-center gap-1.5 sm:gap-2.5 rounded-lg sm:rounded-xl border px-2.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[10px] sm:text-xs font-semibold transition-all duration-300 ${
                     isActive
                       ? "bg-[var(--surface-purple)] dark:bg-white/10 text-[var(--text-primary)] dark:text-white shadow-md backdrop-blur-md"
                       : "border-transparent text-[var(--text-secondary)] dark:text-slate-400 hover:bg-[var(--surface-3)] dark:hover:bg-white/5 hover:text-[var(--text-primary)] dark:hover:text-white"
@@ -622,18 +622,18 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
                   }}
                 >
                   <span
-                    className="grid h-7 w-7 place-items-center rounded-lg transition-transform group-hover:scale-110"
+                    className="grid h-5 w-5 sm:h-7 sm:w-7 place-items-center rounded-md sm:rounded-lg transition-transform group-hover:scale-110"
                     style={{
                       backgroundColor: isActive ? cat.accent.soft : "rgba(255,255,255,0.05)",
                       color: cat.accent.primary,
                     }}
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-3 w-3 sm:h-4 sm:w-4" />
                   </span>
-                  <span>{cat.shortName}</span>
+                  <span className="hidden sm:inline">{cat.shortName}</span>
                   {isActive && (
                     <div
-                      className="absolute inset-0 -z-10 rounded-xl opacity-20 blur-sm pointer-events-none"
+                      className="absolute inset-0 -z-10 rounded-lg sm:rounded-xl opacity-20 blur-sm pointer-events-none"
                       style={{ background: cat.accent.gradient }}
                     />
                   )}
@@ -644,7 +644,7 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
         </div>
 
         {/* Main Interactive Showcase Grid */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 lg:items-center">
           
           {/* Left Column: Feature Details & Screenshot Switcher */}
           <div className="flex flex-col justify-between space-y-6 lg:col-span-5">

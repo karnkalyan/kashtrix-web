@@ -487,22 +487,22 @@ export const AllPlatformAssetsShowcase: React.FC = () => {
   });
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-[var(--surface-1)] text-[var(--text-primary)] border-t border-b border-[var(--border-default)] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="w-full py-12 sm:py-16 md:py-24 bg-[var(--surface-1)] text-[var(--text-primary)] border-t border-b border-[var(--border-default)] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/30">
-            <Sparkles className="w-3.5 h-3.5 text-pink-500" />
-            Comprehensive Platform Application Screens (48 High-Res Assets)
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/30">
+            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-pink-500" />
+            Platform Application Screens (48 High-Res Assets)
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-sora tracking-tight leading-tight text-slate-900 dark:text-white">
-            Explore All 48 Live Product <br />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sora tracking-tight leading-tight text-slate-900 dark:text-white">
+            Explore All 48 Live Product <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 bg-clip-text text-transparent">
               Application Interfaces
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-inter">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-inter">
             Browse our complete high-definition application interface gallery covering OSS/BSS NOC control, carrier syslog CGNAT audit, multi-vendor OLT provisioning, AI agents, billing ledgers, and voice PBX automation.
           </p>
         </div>
@@ -511,14 +511,14 @@ export const AllPlatformAssetsShowcase: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-slate-100 dark:bg-[#130822] border border-purple-200 dark:border-purple-500/20">
           
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full md:w-auto">
             {[
-              { id: "all", label: "All 48 Assets", icon: Layers },
-              { id: "oss", label: "NOC & OSS/BSS (12)", icon: Activity },
-              { id: "syslog", label: "Carrier Syslog (10)", icon: ShieldCheck },
-              { id: "hardware", label: "OLT & Hardware (10)", icon: Cpu },
-              { id: "ai", label: "AI Agents (8)", icon: Bot },
-              { id: "billing", label: "Billing & Voice (8)", icon: CreditCard },
+              { id: "all", label: "All 48", icon: Layers },
+              { id: "oss", label: "NOC (12)", icon: Activity },
+              { id: "syslog", label: "Syslog (10)", icon: ShieldCheck },
+              { id: "hardware", label: "OLT (10)", icon: Cpu },
+              { id: "ai", label: "AI (8)", icon: Bot },
+              { id: "billing", label: "Billing (8)", icon: CreditCard },
             ].map((tab) => {
               const Icon = tab.icon;
               const isActive = activeCategory === tab.id;
@@ -526,13 +526,13 @@ export const AllPlatformAssetsShowcase: React.FC = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-sora font-bold transition-all cursor-pointer ${
+                  className={`flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-sora font-bold transition-all cursor-pointer ${
                     isActive
                       ? "bg-purple-600 text-white shadow-md shadow-purple-600/30"
                       : "text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span>{tab.label}</span>
                 </button>
               );
@@ -553,7 +553,7 @@ export const AllPlatformAssetsShowcase: React.FC = () => {
         </div>
 
         {/* 48 Asset Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
           {filteredAssets.map((asset) => (
             <div
               key={asset.id}

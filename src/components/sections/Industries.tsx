@@ -83,13 +83,13 @@ function IndustrySection({ industry, index }: { industry: Industry; index: numbe
   const Icon = industry.icon;
   const imageFirst = index % 2 === 1;
   return (
-    <section id={industry.id} className="scroll-mt-28 border-t border-[var(--border-default)] bg-[var(--surface-1)] py-20 md:py-28">
+    <section id={industry.id} className="scroll-mt-28 border-t border-[var(--border-default)] bg-[var(--surface-1)] py-12 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12">
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-12">
           <div className={`lg:col-span-5 ${imageFirst ? "lg:order-2" : ""}`}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-2)] px-3 py-1.5 font-poppins text-xs font-semibold uppercase tracking-[.12em]" style={{ color: colors.primary }}><Icon className="h-4 w-4" />{industry.eyebrow}</span>
-            <h2 className="mt-5 font-poppins text-3xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-4xl">{industry.title}</h2>
-            <p className="mt-4 font-inter text-base leading-7 text-[var(--text-secondary)]">{industry.description}</p>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--surface-2)] px-2.5 py-1 sm:px-3 sm:py-1.5 font-poppins text-[10px] sm:text-xs font-semibold uppercase tracking-[.12em]" style={{ color: colors.primary }}><Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />{industry.eyebrow}</span>
+            <h2 className="mt-4 sm:mt-5 font-poppins text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[var(--text-primary)]">{industry.title}</h2>
+            <p className="mt-3 sm:mt-4 font-inter text-sm sm:text-base leading-6 sm:leading-7 text-[var(--text-secondary)]">{industry.description}</p>
             <div className="mt-6 flex gap-3 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-4"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" style={{ color: colors.primary }} /><p className="font-inter text-sm font-semibold leading-6 text-[var(--text-primary)]">{industry.benefit}</p></div>
             <Link href="/request-demo" className="mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-inter text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5" style={{ background: colors.gradient }}>Explore this solution <ArrowRight className="h-4 w-4" /></Link>
           </div>
@@ -97,11 +97,11 @@ function IndustrySection({ industry, index }: { industry: Industry; index: numbe
             <div className="relative overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--surface-2)] p-2 shadow-[var(--shadow-lg)] sm:p-3"><div className="relative overflow-hidden rounded-2xl"><Image src={industry.image} alt={industry.imageAlt} width={1920} height={1200} sizes="(max-width: 1024px) 100vw, 56vw" className="w-full h-auto object-contain" /></div></div>
           </div>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {industry.features.map(({ title, description, icon: FeatureIcon }, featureIndex) => <article key={title} className="rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-5" style={{ borderTopColor: featureIndex === 0 ? colors.primary : featureIndex === 1 ? colors.secondary : ["#6366F1", "#D97706"][featureIndex - 2], borderTopWidth: 2 }}><FeatureIcon className="h-5 w-5" style={{ color: featureIndex % 2 ? colors.secondary : colors.primary }} /><h3 className="mt-4 font-poppins text-sm font-semibold text-[var(--text-primary)]">{title}</h3><p className="mt-2 font-inter text-xs leading-5 text-[var(--text-secondary)]">{description}</p></article>)}
+        <div className="mt-8 sm:mt-12 grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
+          {industry.features.map(({ title, description, icon: FeatureIcon }, featureIndex) => <article key={title} className="rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-4 sm:p-5" style={{ borderTopColor: featureIndex === 0 ? colors.primary : featureIndex === 1 ? colors.secondary : ["#6366F1", "#D97706"][featureIndex - 2], borderTopWidth: 2 }}><FeatureIcon className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: featureIndex % 2 ? colors.secondary : colors.primary }} /><h3 className="mt-3 sm:mt-4 font-poppins text-xs sm:text-sm font-semibold text-[var(--text-primary)]">{title}</h3><p className="mt-1.5 sm:mt-2 font-inter text-[10px] sm:text-xs leading-4 sm:leading-5 text-[var(--text-secondary)]">{description}</p></article>)}
         </div>
-        <ol className="mt-6 grid gap-2 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-4 sm:grid-cols-5">
-          {industry.workflow.map((step, stepIndex) => <li key={step} className="rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] p-4 text-[var(--text-primary)] shadow-xs"><span className="font-roboto text-[10px] font-bold text-[var(--text-tertiary)]">0{stepIndex + 1}</span><p className="mt-2 font-poppins text-xs font-semibold text-[var(--text-primary)]">{step}</p></li>)}
+        <ol className="mt-4 sm:mt-6 grid gap-2 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] p-3 sm:p-4 grid-cols-2 sm:grid-cols-5">
+          {industry.workflow.map((step, stepIndex) => <li key={step} className="rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] p-3 sm:p-4 text-[var(--text-primary)] shadow-xs"><span className="font-roboto text-[10px] font-bold text-[var(--text-tertiary)]">0{stepIndex + 1}</span><p className="mt-1.5 sm:mt-2 font-poppins text-[10px] sm:text-xs font-semibold text-[var(--text-primary)]">{step}</p></li>)}
         </ol>
       </div>
     </section>
@@ -111,9 +111,9 @@ function IndustrySection({ industry, index }: { industry: Industry; index: numbe
 export function Industries() {
   return (
     <div className="bg-[var(--page-bg)]">
-      <section className="py-20 md:py-28">
+      <section className="py-12 sm:py-16 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center"><span className="font-poppins text-xs font-semibold uppercase tracking-[.14em] text-[var(--text-link)]">Provider solutions</span><h2 className="section-heading mt-3">A telecom operating model shaped around your network.</h2><p className="mt-4 font-inter text-sm leading-7 text-[var(--text-secondary)]">Start with the operational outcome that matters, then connect the network and business capabilities required to deliver it.</p></div>
+          <div className="mx-auto max-w-3xl text-center"><span className="font-poppins text-[10px] sm:text-xs font-semibold uppercase tracking-[.14em] text-[var(--text-link)]">Provider solutions</span><h2 className="section-heading mt-3 text-2xl sm:text-3xl md:text-4xl">A telecom operating model shaped around your network.</h2><p className="mt-3 sm:mt-4 font-inter text-xs sm:text-sm leading-6 sm:leading-7 text-[var(--text-secondary)]">Start with the operational outcome that matters, then connect the network and business capabilities required to deliver it.</p></div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {INDUSTRIES.map((industry) => { const Icon = industry.icon; const colors = SERVICE_ACCENTS[industry.accent]; return <a key={industry.id} href={`#${industry.id}`} className="group rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] p-5 transition hover:-translate-y-1 hover:shadow-[var(--shadow-md)]" style={{ borderTopColor: colors.primary, borderTopWidth: 2 }}><span className="grid h-10 w-10 place-items-center rounded-xl" style={{ background: colors.soft, color: colors.primary }}><Icon className="h-5 w-5" /></span><h3 className="mt-4 font-poppins text-base font-semibold text-[var(--text-primary)]">{industry.title}</h3><span className="mt-3 inline-flex items-center gap-1 font-inter text-xs font-semibold" style={{ color: colors.primary }}>View operating model <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" /></span></a>; })}
           </div>

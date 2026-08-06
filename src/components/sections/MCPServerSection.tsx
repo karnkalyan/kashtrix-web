@@ -90,7 +90,7 @@ export const MCPServerSection: React.FC = () => {
               </span>
               <span className="text-purple-700 dark:text-purple-300 font-semibold">SSE / HTTP Transport</span>
             </div>
-            <pre className="p-4 rounded-xl bg-slate-900 dark:bg-[#0F061A] border border-slate-800 dark:border-purple-900/60 text-xs sm:text-sm font-mono text-purple-200 overflow-x-auto shadow-inner">
+            <pre className="p-4 rounded-xl bg-slate-900 dark:bg-[#0F061A] border border-slate-800 dark:border-purple-900/60 text-xs sm:text-sm font-mono text-purple-200 whitespace-pre-wrap break-words no-scrollbar shadow-inner">
               <code>{mcpConfigJson}</code>
             </pre>
           </div>

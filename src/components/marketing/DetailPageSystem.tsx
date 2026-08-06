@@ -43,10 +43,10 @@ export function DetailPageSubnav({ accent }: { accent: ServiceAccent }) {
   ];
 
   return (
-    <nav aria-label="Page sections" className="sticky top-20 z-30 overflow-x-auto border-y border-[var(--border-default)] bg-[var(--surface-overlay)] backdrop-blur-xl">
-      <div className="mx-auto flex min-w-max max-w-7xl items-center gap-1 px-4 py-2 sm:px-6 lg:px-8">
+    <nav aria-label="Page sections" className="sticky top-20 z-30 border-y border-[var(--border-default)] bg-[var(--surface-overlay)] backdrop-blur-xl">
+      <div className="mx-auto flex flex-wrap max-w-7xl items-center gap-1 px-4 py-2 sm:px-6 lg:px-8">
         {items.map(([href, label]) => (
-          <a key={href} href={`#${href}`} className="rounded-lg px-3 py-2 font-inter text-xs font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] focus-visible:outline-none" style={{ "--focus-border": color } as CSSProperties}>
+          <a key={href} href={`#${href}`} className="rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 font-inter text-[10px] sm:text-xs font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] focus-visible:outline-none" style={{ "--focus-border": color } as CSSProperties}>
             {label}
           </a>
         ))}
