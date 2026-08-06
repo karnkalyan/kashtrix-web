@@ -82,15 +82,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               </span>
             </div>
 
-            <h1 className="font-inter text-[clamp(2.4rem,4.8vw,4.25rem)] font-extrabold leading-[1.08] tracking-[-0.04em] text-[var(--text-primary)]">
+            <h1 className="font-inter text-[clamp(2rem,4.8vw,4.25rem)] font-extrabold leading-[1.1] tracking-[-0.04em] text-[var(--text-primary)]">
               <span className="block">Where <span className="text-[#E11D72]">Networks</span>, <span className="text-[#E11D72]">Business</span>,</span>
               <span className="block">and <span className="text-[#E11D72]">AI Work</span> Together.</span>
-              <span className="relative block mt-2 min-h-[1.25em]">
-                <span className="font-poppins font-normal text-[#E11D72]">
+              <span className="relative inline-block mt-2 min-h-[1.3em] align-top text-center lg:text-left">
+                <span className="font-poppins font-normal text-[#E11D72] inline-block whitespace-nowrap">
                   {displayText}
                 </span>
-                <span className="inline-block w-[3px] h-[0.85em] ml-1 bg-[#E11D72] animate-pulse align-middle" />
-                <span className="absolute -bottom-1.5 left-0 h-1 w-56 rounded-full bg-[#E11D72] opacity-60 lg:left-0" />
+                <span className="inline-block w-[3px] h-[0.8em] ml-1 bg-[#E11D72] animate-pulse align-middle" />
+                <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 h-1 w-48 sm:w-56 rounded-full bg-[#E11D72] opacity-70" />
               </span>
             </h1>
 

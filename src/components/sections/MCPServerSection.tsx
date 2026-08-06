@@ -53,19 +53,19 @@ export const MCPServerSection: React.FC = () => {
         </div>
 
         {/* Live Endpoint & Copy Container */}
-        <div className="max-w-4xl mx-auto mb-16 p-6 sm:p-8 rounded-3xl bg-[#1D0D2E]/90 border border-purple-500/30 shadow-2xl backdrop-blur-xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-purple-500/20">
-            <div className="space-y-1 text-center md:text-left">
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 p-4 sm:p-8 rounded-3xl bg-[#1D0D2E]/90 border border-purple-500/30 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-6 border-b border-purple-500/20">
+            <div className="space-y-1 text-center md:text-left w-full overflow-hidden">
               <span className="text-xs font-semibold text-purple-300 uppercase tracking-wider block">Production MCP Endpoint URL</span>
-              <div className="flex items-center gap-2">
-                <code className="text-lg sm:text-2xl font-bold font-mono text-pink-300 tracking-wide">
+              <div className="flex items-center justify-center md:justify-start gap-2 w-full">
+                <code className="text-base sm:text-2xl font-bold font-mono text-pink-300 tracking-wide break-all select-all">
                   https://mcp.kashtrix.com/mcp
                 </code>
               </div>
             </div>
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-purple-500/25 active:scale-95"
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-purple-500/25 active:scale-95"
             >
               {copied ? (
                 <>
