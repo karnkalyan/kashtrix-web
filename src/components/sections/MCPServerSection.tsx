@@ -29,43 +29,43 @@ export const MCPServerSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 md:py-28 bg-gradient-to-b from-[var(--surface-1)] via-[#150A21] to-[var(--surface-1)] text-[var(--text-primary)] relative overflow-hidden border-t border-b border-[var(--border-default)]">
+    <section className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-50/60 via-slate-50 to-white dark:from-[var(--surface-1)] dark:via-[#150A21] dark:to-[var(--surface-1)] text-[var(--text-primary)] relative overflow-hidden border-t border-b border-[var(--border-default)]">
       {/* Background Glow Effects */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-purple-600/15 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-purple-500/10 dark:bg-purple-600/15 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-pink-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/20 text-purple-300 border border-purple-500/30">
-            <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-500/30">
+            <Sparkles className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
             Model Context Protocol (MCP) Server
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold font-sora text-slate-900 dark:text-white tracking-tight leading-tight">
             Connect Any AI Agent to <br />
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-amber-600 dark:from-purple-400 dark:via-pink-400 dark:to-amber-300 bg-clip-text text-transparent">
               Kashtrix Telecom Operating System
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-            Integrate custom LLMs, autonomous AI agents, and IDE assistants directly into your telecom infrastructure with our standardized Model Context Protocol (MCP) server endpoint at <code className="text-pink-400 font-mono font-semibold">mcp.kashtrix.com/mcp</code>.
+          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed font-inter">
+            Integrate custom LLMs, autonomous AI agents, and IDE assistants directly into your telecom infrastructure with our standardized Model Context Protocol (MCP) server endpoint at <code className="text-pink-600 dark:text-pink-400 font-mono font-semibold bg-pink-50 dark:bg-transparent px-1.5 py-0.5 rounded border border-pink-200 dark:border-none">mcp.kashtrix.com/mcp</code>.
           </p>
         </div>
 
         {/* Live Endpoint & Copy Container */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 p-4 sm:p-8 rounded-3xl bg-[#1D0D2E]/90 border border-purple-500/30 shadow-2xl backdrop-blur-xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-6 border-b border-purple-500/20">
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 p-5 sm:p-8 rounded-3xl bg-white dark:bg-[#1D0D2E]/90 border border-purple-200 dark:border-purple-500/30 shadow-xl dark:shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 pb-6 border-b border-purple-100 dark:border-purple-500/20">
             <div className="space-y-1 text-center md:text-left w-full overflow-hidden">
-              <span className="text-xs font-semibold text-purple-300 uppercase tracking-wider block">Production MCP Endpoint URL</span>
+              <span className="text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider block">Production MCP Endpoint URL</span>
               <div className="flex items-center justify-center md:justify-start gap-2 w-full">
-                <code className="text-base sm:text-2xl font-bold font-mono text-pink-300 tracking-wide break-all select-all">
+                <code className="text-base sm:text-2xl font-bold font-mono text-purple-900 dark:text-pink-300 tracking-wide break-all select-all">
                   https://mcp.kashtrix.com/mcp
                 </code>
               </div>
             </div>
             <button
               onClick={handleCopy}
-              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-purple-500/25 active:scale-95"
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-purple-500/25 active:scale-95 cursor-pointer"
             >
               {copied ? (
                 <>
@@ -83,14 +83,14 @@ export const MCPServerSection: React.FC = () => {
 
           {/* Quick MCP Config Code Example */}
           <div className="mt-6 space-y-3">
-            <div className="flex items-center justify-between text-xs text-gray-400 font-mono">
+            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-gray-400 font-mono">
               <span className="flex items-center gap-2">
-                <Terminal className="w-3.5 h-3.5 text-purple-400" />
+                <Terminal className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                 Standard AI Client MCP Configuration (mcp.json)
               </span>
-              <span className="text-purple-300">SSE / HTTP Transport</span>
+              <span className="text-purple-700 dark:text-purple-300 font-semibold">SSE / HTTP Transport</span>
             </div>
-            <pre className="p-4 rounded-xl bg-[#0F061A] border border-purple-900/60 text-xs sm:text-sm font-mono text-purple-200 overflow-x-auto">
+            <pre className="p-4 rounded-xl bg-slate-900 dark:bg-[#0F061A] border border-slate-800 dark:border-purple-900/60 text-xs sm:text-sm font-mono text-purple-200 overflow-x-auto shadow-inner">
               <code>{mcpConfigJson}</code>
             </pre>
           </div>
@@ -98,49 +98,49 @@ export const MCPServerSection: React.FC = () => {
 
         {/* MCP Capabilities & Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#190B28] border border-purple-500/20 hover:border-purple-500/40 transition-all group space-y-4">
-            <div className="p-3 rounded-xl bg-purple-500/20 text-purple-300 w-fit">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#190B28] border border-purple-200 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-500/40 shadow-lg dark:shadow-none transition-all group space-y-4">
+            <div className="p-3 rounded-xl bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 w-fit">
               <Network className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold font-sora text-white group-hover:text-pink-300 transition-colors">
+            <h3 className="text-lg font-bold font-sora text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-pink-300 transition-colors">
               NOC Telemetry &amp; Fault Isolation
             </h3>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed font-inter">
               Exposes real-time tools for AI agents to query optical attenuation, BNG subscriber sessions, syslog CGNAT legal logs, and alarm correlation traps.
             </p>
-            <div className="pt-2 text-xs font-mono text-purple-400 flex items-center gap-1">
+            <div className="pt-2 text-xs font-mono text-purple-600 dark:text-purple-400 flex items-center gap-1 font-semibold">
               <span>tool: kashtrix_noc_fault_isolation</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#190B28] border border-purple-500/20 hover:border-purple-500/40 transition-all group space-y-4">
-            <div className="p-3 rounded-xl bg-pink-500/20 text-pink-300 w-fit">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#190B28] border border-purple-200 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-500/40 shadow-lg dark:shadow-none transition-all group space-y-4">
+            <div className="p-3 rounded-xl bg-pink-100 dark:bg-pink-500/20 text-pink-700 dark:text-pink-300 w-fit">
               <Cpu className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold font-sora text-white group-hover:text-pink-300 transition-colors">
+            <h3 className="text-lg font-bold font-sora text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
               Multi-Vendor Hardware Provisioning
             </h3>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed font-inter">
               Enables autonomous agents to activate subscriber ONTs on Nokia, Huawei, ZTE OLTs, and configure PPPoE queues on MikroTik &amp; Cisco vBNGs via NETCONF/gNMI.
             </p>
-            <div className="pt-2 text-xs font-mono text-pink-400 flex items-center gap-1">
+            <div className="pt-2 text-xs font-mono text-pink-600 dark:text-pink-400 flex items-center gap-1 font-semibold">
               <span>tool: kashtrix_olt_provision_ont</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
 
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#190B28] border border-purple-500/20 hover:border-purple-500/40 transition-all group space-y-4">
-            <div className="p-3 rounded-xl bg-amber-500/20 text-amber-300 w-fit">
+          <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#190B28] border border-purple-200 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-500/40 shadow-lg dark:shadow-none transition-all group space-y-4">
+            <div className="p-3 rounded-xl bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 w-fit">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold font-sora text-white group-hover:text-pink-300 transition-colors">
+            <h3 className="text-lg font-bold font-sora text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-pink-300 transition-colors">
               Billing &amp; Customer Care Actions
             </h3>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed font-inter">
               Allows AI care bots to inspect subscriber ledgers, process automatic dunning pauses, trigger RADIUS CoA speed changes, and resolve billing tickets safely.
             </p>
-            <div className="pt-2 text-xs font-mono text-amber-300 flex items-center gap-1">
+            <div className="pt-2 text-xs font-mono text-amber-700 dark:text-amber-300 flex items-center gap-1 font-semibold">
               <span>tool: kashtrix_subscriber_billing</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
