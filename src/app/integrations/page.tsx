@@ -1,20 +1,24 @@
 import React from "react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { APIAutomation } from "@/components/sections/APIAutomation";
+import { MCPServerSection } from "@/components/sections/MCPServerSection";
 import { MarketingDetailPage } from "@/components/marketing/DetailPageSystem";
 import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Integrations | MikroTik, Cisco, Huawei, FreeRADIUS & Payment Connectors",
+  title: "Kashtrix Integrations | Model Context Protocol (MCP) Server & Multi-Vendor Connectors",
   description:
-    "Pre-built hardware, billing, and network vendor connectors for Kashtrix OSS/BSS & Syslog Server. Connect MikroTik RouterOS, Cisco ASR, Huawei OLTs, Stripe, and FreeRADIUS.",
+    "Connect any AI agent or application using Kashtrix MCP Server at mcp.kashtrix.com/mcp. Pre-built hardware, billing, and network connectors for MikroTik, Cisco, Huawei, Stripe, and FreeRADIUS.",
   keywords: [
+    "Kashtrix MCP Server",
+    "mcp.kashtrix.com/mcp",
+    "Model Context Protocol telecom server",
+    "AI agent MCP integration endpoint",
     "MikroTik RADIUS integration",
     "Cisco vBNG integration",
     "Huawei OLT integration",
     "FreeRADIUS integration",
-    "payment gateway ISP integration",
     "Kashtrix Integrations",
   ],
   canonical: "https://kashtrix.com/integrations",
@@ -24,20 +28,8 @@ export default function IntegrationsPage() {
   return (
     <SiteShell>
       <MarketingDetailPage config={DETAIL_CONFIGS.integrations}>
-      <div hidden className="pt-12 pb-8 bg-gradient-to-b from-[#F4EEFF]/60 to-[#FFFFFF] border-b border-[var(--border-default)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)] mb-4">
-            Ecosystem Connectivity
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
-            Integrate With Every System You Own
-          </h1>
-          <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-4 leading-relaxed">
-            Bidirectional JSON webhooks with cryptographic HMAC signing connect Kashtrix to your existing payment gateways, ERP ledgers, and optical infrastructure.
-          </p>
-        </div>
-      </div>
-      <APIAutomation />
+        <MCPServerSection />
+        <APIAutomation />
       </MarketingDetailPage>
     </SiteShell>
   );
