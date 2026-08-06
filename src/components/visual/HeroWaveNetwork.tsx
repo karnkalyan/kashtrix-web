@@ -41,7 +41,8 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
 
     const createParticles = () => {
       const colors = isDark ? DARK_COLORS : LIGHT_COLORS;
-      const particleCount = Math.max(28, Math.min(72, Math.round(width / 24)));
+      const isMobile = width < 768;
+      const particleCount = isMobile ? 18 : Math.max(24, Math.min(50, Math.round(width / 32)));
 
       particles = Array.from({ length: particleCount }, (_, index) => {
         const y = index % 3 ? height * (0.48 + Math.random() * 0.48) : Math.random() * height;
@@ -50,19 +51,19 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
           x: Math.random() * width,
           y,
           baseY: y,
-          velocityX: (Math.random() - 0.5) * 0.18,
-          velocityY: (Math.random() - 0.5) * 0.12,
-          radius: Math.random() * 3.8 + 1.3,
+          velocityX: (Math.random() - 0.5) * (isMobile ? 0.12 : 0.18),
+          velocityY: (Math.random() - 0.5) * (isMobile ? 0.08 : 0.12),
+          radius: Math.random() * 3.2 + 1.2,
           color: colors[Math.floor(Math.random() * colors.length)],
           phase: Math.random() * Math.PI * 2,
-          amplitude: Math.random() * 16 + 4,
+          amplitude: Math.random() * 12 + 4,
         };
       });
     };
 
     const resize = () => {
       const bounds = container.getBoundingClientRect();
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
       width = bounds.width;
       height = bounds.height;
       canvas.width = Math.round(width * pixelRatio);
@@ -75,20 +76,20 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
 
     const drawWave = (time: number) => {
       context.save();
-      context.globalAlpha = isDark ? 0.28 : 0.18;
+      context.globalAlpha = isDark ? 0.24 : 0.14;
       context.lineWidth = 0.75;
-      const lineCount = width < 700 ? 18 : 28;
+      const lineCount = width < 700 ? 10 : 20;
 
       for (let line = 0; line < lineCount; line += 1) {
         context.strokeStyle = line / lineCount > 0.62 ? "#E11D72" : isDark ? "#C4A7E7" : "#76549A";
         context.beginPath();
 
-        for (let x = -40; x <= width + 40; x += 14) {
+        for (let x = -40; x <= width + 40; x += (width < 700 ? 24 : 16)) {
           const progress = x / Math.max(width, 1);
           const y =
             height * 0.72 +
-            Math.sin(progress * Math.PI * 2.3 + time * 0.00018 + line * 0.05) * 78 +
-            Math.sin(progress * Math.PI * 5.1 - time * 0.00012) * 22 +
+            Math.sin(progress * Math.PI * 2.3 + time * 0.00018 + line * 0.05) * 65 +
+            Math.sin(progress * Math.PI * 4.2 - time * 0.00012) * 18 +
             line * 4.8 -
             lineCount * 2.4;
 
@@ -102,10 +103,13 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
       context.restore();
     };
 
+    let isVisible = true;
+
     const draw = (time = 0) => {
+      if (!isVisible) return;
       context.clearRect(0, 0, width, height);
       drawWave(time);
-      const connectionLimit = width < 700 ? 112 : 148;
+      const connectionLimit = width < 700 ? 80 : 120;
 
       particles.forEach((particle, index) => {
         if (!reducedMotion.matches) {
@@ -125,11 +129,11 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
 
           if (distance < connectionLimit) {
             context.beginPath();
-            const alpha = (1 - distance / connectionLimit) * (isDark ? 0.2 : 0.12);
+            const alpha = (1 - distance / connectionLimit) * (isDark ? 0.18 : 0.1);
             context.strokeStyle = isDark
               ? `rgba(196,167,231,${alpha})`
               : `rgba(74,27,122,${alpha})`;
-            context.lineWidth = 0.7;
+            context.lineWidth = 0.6;
             context.moveTo(particle.x, particle.y);
             context.lineTo(nextParticle.x, nextParticle.y);
             context.stroke();
@@ -137,18 +141,10 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
         }
 
         context.beginPath();
-        context.globalAlpha = particle.color === "#E11D72" ? 0.72 : isDark ? 0.62 : 0.48;
+        context.globalAlpha = particle.color === "#E11D72" ? 0.65 : isDark ? 0.55 : 0.42;
         context.fillStyle = particle.color;
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         context.fill();
-
-        if (index % 7 === 0) {
-          context.beginPath();
-          context.globalAlpha = 0.32;
-          context.strokeStyle = particle.color;
-          context.arc(particle.x, particle.y, particle.radius + 5, 0, Math.PI * 2);
-          context.stroke();
-        }
       });
 
       context.globalAlpha = 1;
@@ -173,12 +169,23 @@ export const HeroWaveNetwork: React.FC<HeroWaveNetworkProps> = ({ className }) =
       renderFromStart();
     });
 
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry.isIntersecting;
+        if (isVisible) renderFromStart();
+      },
+      { threshold: 0.05 }
+    );
+
+    intersectionObserver.observe(canvas);
     resizeObserver.observe(container);
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     reducedMotion.addEventListener("change", handleMotionChange);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
+      intersectionObserver.disconnect();
       resizeObserver.disconnect();
       themeObserver.disconnect();
       reducedMotion.removeEventListener("change", handleMotionChange);
