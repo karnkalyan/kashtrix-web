@@ -806,10 +806,10 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
                   </div>
                 </div>
 
-                {/* Cropped Viewport Container */}
+                {/* Full Image Viewport Container */}
                 <div
                   onClick={() => setLightboxImage({ src: currentView.src, title: currentView.title })}
-                  className="group/viewport relative aspect-[16/10] w-full cursor-zoom-in overflow-hidden rounded-xl bg-[var(--surface-1)] dark:bg-slate-950"
+                  className="group/viewport relative w-full cursor-zoom-in overflow-hidden rounded-xl bg-[var(--surface-1)] dark:bg-slate-950"
                 >
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -818,14 +818,15 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.98 }}
                       transition={{ duration: 0.45, ease: "easeOut" }}
-                      className="absolute inset-0"
+                      className="relative w-full"
                     >
                       <Image
                         src={currentView.src}
                         alt={currentView.title}
-                        fill
+                        width={1920}
+                        height={1200}
                         sizes="(max-width: 1024px) 100vw, 60vw"
-                        className="object-cover object-top transition-transform duration-700 ease-out group-hover/viewport:scale-105"
+                        className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover/viewport:scale-105"
                         quality={92}
                         priority
                       />

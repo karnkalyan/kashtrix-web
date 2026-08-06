@@ -59,18 +59,19 @@ export function ProductScreenshotFrame({
             </div>
           </div>
 
-          {/* Cropped Viewport Frame */}
+          {/* Full Image Viewport Frame */}
           <div
             onClick={() => setIsOpen(true)}
-            className="group/img relative aspect-[16/10] w-full cursor-zoom-in overflow-hidden rounded-xl bg-[var(--surface-2)] dark:bg-slate-950 border border-[var(--border-default)] dark:border-transparent"
+            className="group/img relative w-full cursor-zoom-in overflow-hidden rounded-xl bg-[var(--surface-2)] dark:bg-slate-950 border border-[var(--border-default)] dark:border-transparent"
           >
             <Image
               src={src}
               alt={alt}
-              fill
+              width={1800}
+              height={1125}
               priority={priority}
               sizes="(max-width: 1024px) 100vw, 52vw"
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover/img:scale-105"
+              className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover/img:scale-105"
               quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 dark:from-slate-950/60 via-transparent to-transparent opacity-60 transition-opacity group-hover/img:opacity-30" />

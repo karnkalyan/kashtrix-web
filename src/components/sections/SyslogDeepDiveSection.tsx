@@ -140,13 +140,13 @@ nat log session enable`,
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group">
+            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group bg-slate-950">
               <Image
                 src="/assets/6ebf0249-bd4e-4c78-a3d1-b76566e7134c.png"
                 alt="Kashtrix CGNAT Syslog Ingestion Control Screen"
                 width={800}
                 height={500}
-                className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-102 transition-transform duration-300"
               />
             </div>
           </div>
@@ -155,13 +155,13 @@ nat log session enable`,
         {/* Tab Content 2: Subpoena Search Engine */}
         {activeTab === "subpoena" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group order-2 lg:order-1">
+            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group order-2 lg:order-1 bg-slate-950">
               <Image
                 src="/assets/7462371b-8c50-433b-8eff-de70b01e3479.png"
                 alt="Kashtrix Law Enforcement Subpoena IP Audit Search Screen"
                 width={800}
                 height={500}
-                className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-102 transition-transform duration-300"
               />
             </div>
 
@@ -221,13 +221,13 @@ nat log session enable`,
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group">
+            <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-purple-200 dark:border-purple-500/30 shadow-2xl group bg-slate-950">
               <Image
                 src="/assets/859d1238-8d99-4b82-b965-1b0abf16cfd7.png"
                 alt="Kashtrix Hot Cold Storage Tiering Management Interface"
                 width={800}
                 height={500}
-                className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-102 transition-transform duration-300"
               />
             </div>
           </div>
@@ -279,7 +279,7 @@ nat log session enable`,
                 alt="Kashtrix Live Log Ingestion Console"
                 width={400}
                 height={260}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4 space-y-1">
                 <span className="text-[11px] font-bold text-purple-600 dark:text-purple-400 uppercase font-mono">Real-Time Ingestion</span>
@@ -293,7 +293,7 @@ nat log session enable`,
                 alt="Kashtrix Legal Compliance Audit Search"
                 width={400}
                 height={260}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4 space-y-1">
                 <span className="text-[11px] font-bold text-pink-600 dark:text-pink-400 uppercase font-mono">Legal Compliance</span>
@@ -307,7 +307,7 @@ nat log session enable`,
                 alt="Kashtrix Storage Tiering Archiving"
                 width={400}
                 height={260}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4 space-y-1">
                 <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 uppercase font-mono">S3 / Glacier Tiering</span>
@@ -321,7 +321,7 @@ nat log session enable`,
                 alt="Kashtrix Alarm Correlation & Alerts"
                 width={400}
                 height={260}
-                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4 space-y-1">
                 <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase font-mono">Alarm Engine</span>

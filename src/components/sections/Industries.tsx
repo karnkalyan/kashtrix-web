@@ -94,7 +94,7 @@ function IndustrySection({ industry, index }: { industry: Industry; index: numbe
             <Link href="/request-demo" className="mt-7 inline-flex items-center gap-2 rounded-xl px-5 py-3 font-inter text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5" style={{ background: colors.gradient }}>Explore this solution <ArrowRight className="h-4 w-4" /></Link>
           </div>
           <div className={`lg:col-span-7 ${imageFirst ? "lg:order-1" : ""}`}>
-            <div className="relative overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--surface-2)] p-2 shadow-[var(--shadow-lg)] sm:p-3"><div className="relative aspect-[16/10] overflow-hidden rounded-2xl"><Image src={industry.image} alt={industry.imageAlt} fill sizes="(max-width: 1024px) 100vw, 56vw" className="object-cover object-top" /></div></div>
+            <div className="relative overflow-hidden rounded-3xl border border-[var(--border-default)] bg-[var(--surface-2)] p-2 shadow-[var(--shadow-lg)] sm:p-3"><div className="relative overflow-hidden rounded-2xl"><Image src={industry.image} alt={industry.imageAlt} width={1920} height={1200} sizes="(max-width: 1024px) 100vw, 56vw" className="w-full h-auto object-contain" /></div></div>
           </div>
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">

@@ -560,13 +560,13 @@ export const AllPlatformAssetsShowcase: React.FC = () => {
               onClick={() => setSelectedAsset(asset)}
               className="group rounded-2xl overflow-hidden bg-white dark:bg-[#190B28] border border-purple-200 dark:border-purple-500/20 hover:border-purple-400 dark:hover:border-purple-500/50 shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
-              <div className="relative w-full h-48 overflow-hidden bg-slate-900">
+              <div className="relative w-full overflow-hidden bg-slate-900">
                 <Image
                   src={`/assets/${asset.filename}`}
                   alt={asset.title}
                   width={600}
                   height={380}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-end p-3">
                   <span className="p-2 rounded-xl bg-purple-600 text-white shadow-lg">
