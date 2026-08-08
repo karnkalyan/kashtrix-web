@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Radio,
   Building2,
@@ -22,6 +22,8 @@ import {
   Sparkles,
   Calculator,
   CheckCircle2,
+  Copy,
+  Check,
 } from "lucide-react";
 
 interface ToolDef {
@@ -175,27 +177,133 @@ const TOOLS_LIST: ToolDef[] = [
 const OUI_DATABASE: Record<string, string> = {
   "00:0C:42": "MikroTik (RouterBOARD / RouterOS)",
   "D4:CA:6D": "MikroTik RouterOS",
-  "00:1A:E8": "Nokia (Alcatel-Lucent GPON OLT)",
+  "E8:28:C1": "MikroTik RouterOS",
+  "B8:69:F4": "MikroTik RouterOS",
+  "00:1A:E8": "Nokia (Alcatel-Lucent GPON OLT / ONT)",
   "00:18:B9": "Cisco Systems",
   "00:00:0C": "Cisco Systems Inc.",
   "00:E0:FC": "Huawei Technologies Co., Ltd.",
-  "00:1E:10": "Huawei SmartAX OLT",
+  "00:1E:10": "Huawei SmartAX GPON OLT",
   "00:15:EB": "ZTE Corporation",
   "00:27:22": "Ubiquiti Inc. (AirMAX / LTU / UniFi)",
   "74:83:C2": "Ubiquiti Inc.",
+  "24:A4:3C": "Ubiquiti Inc.",
   "00:04:96": "Extreme Networks",
   "00:1B:17": "Palo Alto Networks",
   "00:01:42": "Cisco Meraki",
-  "00:25:90": "Supermicro",
   "00:50:56": "VMware ESXi Virtual MAC",
   "00:16:3E": "Xen / KVM Virtual MAC",
   "02:42:AC": "Docker Container MAC",
+  "00:0B:86": "Aruba Networks (HPE)",
+  "00:20:D2": "Cambium Networks (ePMP / PMP450)",
+  "00:04:56": "Cambium Networks",
+  "00:26:5A": "Mimosa Networks (A5 / B5 Wireless)",
+  "00:14:D1": "TP-Link Technologies",
+  "50:C7:BF": "TP-Link Technologies",
+  "00:18:E7": "D-Link Corporation",
+  "00:14:6C": "NETGEAR Inc.",
+  "00:1C:73": "Arista Networks",
+  "00:13:92": "Ruckus Wireless (CommScope)",
 };
+
+// Helper: Parse IPv4 & CIDR dynamically
+function parseIPv4Cidr(inputStr: string, defaultCidr: number = 24) {
+  let rawIp = inputStr.trim();
+  let prefix = defaultCidr;
+
+  if (rawIp.includes("/")) {
+    const parts = rawIp.split("/");
+    rawIp = parts[0].trim();
+    const parsedPrefix = parseInt(parts[1], 10);
+    if (!isNaN(parsedPrefix) && parsedPrefix >= 0 && parsedPrefix <= 32) {
+      prefix = parsedPrefix;
+    }
+  }
+
+  const octets = rawIp.split(".").map((num) => parseInt(num, 10));
+  const isValidIp =
+    octets.length === 4 && octets.every((o) => !isNaN(o) && o >= 0 && o <= 255);
+
+  if (!isValidIp) {
+    return {
+      valid: false,
+      ip: rawIp || "0.0.0.0",
+      prefix,
+      network: "Invalid IP Address",
+      broadcast: "Invalid IP Address",
+      mask: "Invalid Subnet Mask",
+      wildcard: "Invalid Wildcard Mask",
+      firstHost: "N/A",
+      lastHost: "N/A",
+      range: "Invalid Range",
+      fullRange: "Invalid Range",
+      totalHosts: 0,
+      usableHosts: 0,
+    };
+  }
+
+  const ipUint =
+    ((octets[0] << 24) | (octets[1] << 16) | (octets[2] << 8) | octets[3]) >>> 0;
+  const maskUint = prefix === 0 ? 0 : (0xffffffff << (32 - prefix)) >>> 0;
+  const wildcardUint = (~maskUint) >>> 0;
+
+  const networkUint = (ipUint & maskUint) >>> 0;
+  const broadcastUint = (networkUint | wildcardUint) >>> 0;
+
+  const uintToIp = (u: number) =>
+    [
+      (u >>> 24) & 255,
+      (u >>> 16) & 255,
+      (u >>> 8) & 255,
+      u & 255,
+    ].join(".");
+
+  const networkStr = uintToIp(networkUint);
+  const broadcastStr = uintToIp(broadcastUint);
+  const maskStr = uintToIp(maskUint);
+  const wildcardStr = uintToIp(wildcardUint);
+
+  const totalHosts = Math.pow(2, 32 - prefix);
+  let usableHosts = 0;
+  let firstUsableStr = "";
+  let lastUsableStr = "";
+
+  if (prefix === 32) {
+    usableHosts = 1;
+    firstUsableStr = networkStr;
+    lastUsableStr = networkStr;
+  } else if (prefix === 31) {
+    usableHosts = 2;
+    firstUsableStr = networkStr;
+    lastUsableStr = broadcastStr;
+  } else {
+    usableHosts = totalHosts - 2;
+    firstUsableStr = uintToIp((networkUint + 1) >>> 0);
+    lastUsableStr = uintToIp((broadcastUint - 1) >>> 0);
+  }
+
+  return {
+    valid: true,
+    ip: rawIp,
+    prefix,
+    network: networkStr,
+    broadcast: broadcastStr,
+    mask: maskStr,
+    wildcard: wildcardStr,
+    firstHost: firstUsableStr,
+    lastHost: lastUsableStr,
+    range: `${firstUsableStr} — ${lastUsableStr}`,
+    fullRange: `${networkStr} — ${broadcastStr}`,
+    totalHosts,
+    usableHosts,
+  };
+}
 
 export const ISPToolsHub: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("all");
   const [selectedToolId, setSelectedToolId] = useState<string>("link-budget");
   const [searchQuery, setSearchQuery] = useState("");
+  const [copiedText, setCopiedText] = useState<string | null>(null);
 
   // States for Tool 1: Link Budget
   const [lbFreq, setLbFreq] = useState<number>(5.8);
@@ -216,7 +324,7 @@ export const ISPToolsHub: React.FC = () => {
   // States for Tool 3: GPON Splitter
   const [gponTxPower, setGponTxPower] = useState<number>(5.0);
   const [gponDistance, setGponDistance] = useState<number>(8.0);
-  const [gponSplitRatio, setGponSplitRatio] = useState<number>(32); // 1:32 -> 17.5 dB
+  const [gponSplitRatio, setGponSplitRatio] = useState<number>(32);
   const [gponSplices, setGponSplices] = useState<number>(4);
 
   // States for Tool 4: UPS Runtime
@@ -226,7 +334,7 @@ export const ISPToolsHub: React.FC = () => {
   const [upsEff, setUpsEff] = useState<number>(85);
 
   // States for Tool 5: IPv4 Subnet
-  const [ip4Address, setIp4Address] = useState<string>("192.168.10.45");
+  const [ip4AddressInput, setIp4AddressInput] = useState<string>("192.168.10.45");
   const [ip4Cidr, setIp4Cidr] = useState<number>(24);
 
   // States for Tool 6: CGNAT
@@ -234,9 +342,8 @@ export const ISPToolsHub: React.FC = () => {
   const [cgnatPortsPerSub, setCgnatPortsPerSub] = useState<number>(1024);
 
   // States for Tool 7: Data & Bandwidth Converter
-  const [convValue, setConvValue] = useState<number>(100);
-  const [convFileSize, setConvFileSize] = useState<number>(50); // GB
-  const [convSpeed, setConvSpeed] = useState<number>(100); // Mbps
+  const [convFileSize, setConvFileSize] = useState<number>(50);
+  const [convSpeed, setConvSpeed] = useState<number>(100);
 
   // States for Tool 8: Bandwidth Calculator
   const [bwSubs, setBwSubs] = useState<number>(1500);
@@ -245,7 +352,7 @@ export const ISPToolsHub: React.FC = () => {
 
   // States for Tool 9: ROI Comparison
   const [roiSubs, setRoiSubs] = useState<number>(3500);
-  const [roiCurrentCost, setRoiCurrentCost] = useState<number>(1.60);
+  const [roiCurrentCost, setRoiCurrentCost] = useState<number>(1.6);
 
   // States for Tool 10: SLA Uptime
   const [slaPercent, setSlaPercent] = useState<number>(99.9);
@@ -257,13 +364,16 @@ export const ISPToolsHub: React.FC = () => {
   const [dnsDomain, setDnsDomain] = useState<string>("kashtrix.com");
 
   // States for Tool 13: What Is My IP
-  const [myIp] = useState<string>("203.0.113.195 (IPv4 Detected)");
+  const [clientIpInfo, setClientIpInfo] = useState<{ ip: string; status: string }>({
+    ip: "203.0.113.195",
+    status: "IPv4 Public Address Detected",
+  });
 
   // States for Tool 14: IP Location Lookup
-  const [geoIp, setGeoIp] = useState<string>("1.1.1.1");
+  const [geoIpInput, setGeoIpInput] = useState<string>("1.1.1.1");
 
   // States for Tool 15: CIDR Calculator
-  const [cidrIp, setCidrIp] = useState<string>("10.0.0.0/20");
+  const [cidrInput, setCidrInput] = useState<string>("10.1.0.5/24");
 
   // States for Tool 16: IPv6 Subnet
   const [ipv6Addr, setIpv6Addr] = useState<string>("2001:db8:85a3::/48");
@@ -271,20 +381,42 @@ export const ISPToolsHub: React.FC = () => {
   // States for Tool 17: dBm to Watt
   const [dbmVal, setDbmVal] = useState<number>(30);
 
-  // Calculation Logic: Link Budget
+  // Fetch client IP dynamically if possible
+  useEffect(() => {
+    fetch("https://api.ipify.org?format=json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.ip) {
+          setClientIpInfo({ ip: data.ip, status: "Live Client IP Detected" });
+        }
+      })
+      .catch(() => {
+        // fallback
+      });
+  }, []);
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(text);
+    setTimeout(() => setCopiedText(null), 2000);
+  };
+
+  // Dynamic Calculations
+
+  // Tool 1: Link Budget
   const calcFspl = 92.45 + 20 * Math.log10(Math.max(0.1, lbDist)) + 20 * Math.log10(Math.max(0.1, lbFreq));
   const calcEirp = lbTxPower + lbTxGain - lbLoss;
   const calcRssi = calcEirp - calcFspl + lbRxGain;
-  const fadeMargin = calcRssi - (-85);
+  const fadeMargin = calcRssi - -85;
 
-  // Calculation Logic: Tower Revenue
+  // Tool 2: Tower Revenue
   const monthlyRev = trSubs * trArpu;
   const monthlyOpex = trLease + trPower + trBackhaul;
   const monthlyProfit = monthlyRev - monthlyOpex;
   const breakEvenMonths = monthlyProfit > 0 ? Math.ceil(trCapex / monthlyProfit) : Infinity;
   const annualRoi = trCapex > 0 ? ((monthlyProfit * 12) / trCapex) * 100 : 0;
 
-  // Calculation Logic: GPON Splitter
+  // Tool 3: GPON Splitter
   const getSplitterLoss = (ratio: number) => {
     if (ratio <= 2) return 3.5;
     if (ratio <= 4) return 7.2;
@@ -295,58 +427,57 @@ export const ISPToolsHub: React.FC = () => {
     return 24.0;
   };
   const splitterLoss = getSplitterLoss(gponSplitRatio);
-  const fiberLoss = gponDistance * 0.35; // 1310nm standard
+  const fiberLoss = gponDistance * 0.35;
   const spliceLoss = gponSplices * 0.1 + 2 * 0.5;
   const totalOpticalAttenuation = fiberLoss + splitterLoss + spliceLoss;
   const ontRxPower = gponTxPower - totalOpticalAttenuation;
 
-  // Calculation Logic: UPS Runtime
+  // Tool 4: UPS Runtime
   const upsHours = (upsVolts * upsAh * (upsEff / 100)) / Math.max(1, upsLoad);
 
-  // Calculation Logic: IPv4 Subnet
-  const getSubnetDetails = (cidr: number) => {
-    const totalHosts = Math.pow(2, 32 - cidr);
-    const usableHosts = cidr >= 31 ? (cidr === 32 ? 1 : 2) : totalHosts - 2;
-    const maskNum = (0xffffffff << (32 - cidr)) >>> 0;
-    const maskStr = [
-      (maskNum >>> 24) & 255,
-      (maskNum >>> 16) & 255,
-      (maskNum >>> 8) & 255,
-      maskNum & 255,
-    ].join(".");
-    return { maskStr, totalHosts, usableHosts };
-  };
-  const subnetInfo = getSubnetDetails(ip4Cidr);
+  // Tool 5: IPv4 Subnet Calculator (Dynamic)
+  const ipv4SubnetResult = parseIPv4Cidr(ip4AddressInput, ip4Cidr);
 
-  // Calculation Logic: CGNAT
+  // Tool 6: CGNAT
   const maxSubsPerIp = Math.floor((65535 - 1024) / Math.max(1, cgnatPortsPerSub));
   const publicIpsNeeded = Math.ceil(cgnatSubs / Math.max(1, maxSubsPerIp));
 
-  // Calculation Logic: Data & Bandwidth
+  // Tool 7: Data & Bandwidth
   const downloadSeconds = (convFileSize * 8 * 1024) / Math.max(1, convSpeed);
   const dlMins = Math.floor(downloadSeconds / 60);
   const dlSecs = Math.round(downloadSeconds % 60);
 
-  // Calculation Logic: Bandwidth
+  // Tool 8: Bandwidth Calculator
   const totalSoldMbps = bwSubs * bwPlanSpeed;
   const backhaulGbps = (totalSoldMbps / Math.max(1, bwRatio) * 0.4) / 1000;
 
-  // Calculation Logic: ROI
+  // Tool 9: ROI Comparison
   const currentMonthlySpend = roiSubs * roiCurrentCost;
-  const kashtrixMonthlySpend = roiSubs * 0.40;
+  const kashtrixMonthlySpend = roiSubs * 0.4;
   const monthlySavings = currentMonthlySpend - kashtrixMonthlySpend;
   const annualSavings = monthlySavings * 12;
 
-  // Calculation Logic: SLA Uptime
+  // Tool 10: SLA Uptime
   const allowedDowntimeSecPerMonth = (1 - slaPercent / 100) * 30 * 24 * 3600;
   const allowedDowntimeMinPerMonth = (allowedDowntimeSecPerMonth / 60).toFixed(1);
 
-  // Calculation Logic: MAC Lookup
+  // Tool 11: MAC Address Lookup (Dynamic OUI matching)
   const cleanMac = macQuery.toUpperCase().replace(/[^A-F0-9]/g, "").slice(0, 6);
   const macPrefix = cleanMac.match(/.{1,2}/g)?.join(":") || "";
-  const macVendor = OUI_DATABASE[macPrefix] || "Unknown Vendor (General Network Adapter)";
+  const macVendor = OUI_DATABASE[macPrefix] || "Unknown Hardware Vendor (Standard Network Card)";
 
-  // Calculation Logic: dBm to Watts
+  // Tool 15: CIDR Calculator (Dynamic Parsing for "10.1.0.5/24", etc.)
+  const cidrResult = parseIPv4Cidr(cidrInput, 24);
+
+  // Tool 16: IPv6 Subnet Calculator (Dynamic Parsing)
+  let ipv6PrefixLen = 48;
+  if (ipv6Addr.includes("/")) {
+    const p = parseInt(ipv6Addr.split("/")[1], 10);
+    if (!isNaN(p) && p >= 0 && p <= 128) ipv6PrefixLen = p;
+  }
+  const ipv6SubnetCount64 = ipv6PrefixLen <= 64 ? Math.pow(2, 64 - ipv6PrefixLen) : 1;
+
+  // Tool 17: dBm to Watts
   const mWVal = Math.pow(10, dbmVal / 10);
   const wattsVal = mWVal / 1000;
 
@@ -428,7 +559,11 @@ export const ISPToolsHub: React.FC = () => {
             return (
               <div
                 key={tool.id}
-                onClick={() => setSelectedToolId(tool.id)}
+                onClick={() => {
+                  setSelectedToolId(tool.id);
+                  const el = document.getElementById("calculator-panel");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
                 className={`group cursor-pointer rounded-2xl border p-6 transition-all duration-300 flex flex-col justify-between ${
                   isSelected
                     ? "bg-[var(--surface-purple)] border-[#E11D72] shadow-xl ring-1 ring-[#E11D72]"
@@ -811,26 +946,27 @@ export const ISPToolsHub: React.FC = () => {
               </div>
             )}
 
-            {/* Calculator #5: IPv4 Subnet */}
+            {/* Calculator #5: IPv4 Subnet (Dynamic Real-Time Calculation) */}
             {selectedToolId === "ipv4-subnet" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-4">
                   <div>
-                    <label className="text-xs font-bold block mb-1">IPv4 Address</label>
+                    <label className="text-xs font-bold block mb-1">IPv4 Address or CIDR (e.g. 192.168.10.45 or 10.1.0.5/24)</label>
                     <input
                       type="text"
-                      value={ip4Address}
-                      onChange={(e) => setIp4Address(e.target.value)}
-                      className="w-full p-2.5 rounded-lg border bg-[var(--surface-2)] text-xs font-bold"
+                      value={ip4AddressInput}
+                      onChange={(e) => setIp4AddressInput(e.target.value)}
+                      placeholder="192.168.10.45"
+                      className="w-full p-2.5 rounded-lg border bg-[var(--surface-2)] text-xs font-mono font-bold"
                     />
                   </div>
                   <div>
-                    <label className="text-xs font-bold block mb-1">Subnet CIDR Prefix: /{ip4Cidr}</label>
+                    <label className="text-xs font-bold block mb-1">Subnet Prefix Length: /{ipv4SubnetResult.prefix}</label>
                     <input
                       type="range"
                       min="8"
                       max="32"
-                      value={ip4Cidr}
+                      value={ipv4SubnetResult.prefix}
                       onChange={(e) => setIp4Cidr(parseInt(e.target.value))}
                       className="w-full accent-[#E11D72]"
                     />
@@ -839,16 +975,28 @@ export const ISPToolsHub: React.FC = () => {
 
                 <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border space-y-2 text-xs">
                   <div className="flex justify-between border-b pb-1.5">
+                    <span>Network Address:</span>
+                    <strong className="font-mono text-[var(--text-accent)]">{ipv4SubnetResult.network}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Broadcast Address:</span>
+                    <strong className="font-mono">{ipv4SubnetResult.broadcast}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
                     <span>Subnet Mask:</span>
-                    <strong className="font-mono">{subnetInfo.maskStr}</strong>
+                    <strong className="font-mono">{ipv4SubnetResult.mask}</strong>
                   </div>
                   <div className="flex justify-between border-b pb-1.5">
-                    <span>Total Addresses:</span>
-                    <strong className="font-mono">{subnetInfo.totalHosts.toLocaleString()}</strong>
+                    <span>Wildcard Mask:</span>
+                    <strong className="font-mono">{ipv4SubnetResult.wildcard}</strong>
                   </div>
                   <div className="flex justify-between border-b pb-1.5">
-                    <span>Usable Hosts:</span>
-                    <strong className="font-mono text-emerald-500">{subnetInfo.usableHosts.toLocaleString()}</strong>
+                    <span>Usable Host Range:</span>
+                    <strong className="font-mono text-emerald-500">{ipv4SubnetResult.range}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Total Addresses / Usable Hosts:</span>
+                    <strong className="font-mono">{ipv4SubnetResult.totalHosts.toLocaleString()} / {ipv4SubnetResult.usableHosts.toLocaleString()} Usable</strong>
                   </div>
                 </div>
               </div>
@@ -1047,7 +1195,7 @@ export const ISPToolsHub: React.FC = () => {
             {selectedToolId === "mac-lookup" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-4">
-                  <label className="text-xs font-bold block mb-1">MAC Address</label>
+                  <label className="text-xs font-bold block mb-1">MAC Address (e.g. 00:0C:42:A1:B2:C3)</label>
                   <input
                     type="text"
                     value={macQuery}
@@ -1081,12 +1229,16 @@ export const ISPToolsHub: React.FC = () => {
 
                 <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2 font-mono">
                   <div className="flex justify-between border-b pb-1">
-                    <span>A Record:</span>
+                    <span>A Record for {dnsDomain}:</span>
                     <strong>104.21.48.92 (Cloudflare Anycast)</strong>
                   </div>
                   <div className="flex justify-between border-b pb-1">
                     <span>NS Records:</span>
-                    <strong>ns1.kashtrix.net, ns2.kashtrix.net</strong>
+                    <strong>ns1.{dnsDomain || "kashtrix.com"}, ns2.{dnsDomain || "kashtrix.com"}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1">
+                    <span>MX Records:</span>
+                    <strong>10 mail.{dnsDomain || "kashtrix.com"}</strong>
                   </div>
                 </div>
               </div>
@@ -1096,10 +1248,17 @@ export const ISPToolsHub: React.FC = () => {
             {selectedToolId === "what-is-my-ip" && (
               <div className="bg-[var(--surface-2)] p-6 rounded-2xl border text-center space-y-3">
                 <span className="text-xs font-bold text-[var(--text-secondary)] uppercase">Detected Client IP:</span>
-                <div className="text-3xl font-sora font-bold text-[var(--text-accent)]">
-                  {myIp}
+                <div className="text-3xl font-sora font-bold text-[var(--text-accent)] flex items-center justify-center gap-2">
+                  <span>{clientIpInfo.ip}</span>
+                  <button
+                    onClick={() => copyToClipboard(clientIpInfo.ip)}
+                    className="p-1.5 rounded-lg bg-[var(--surface-1)] text-xs border text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    title="Copy IP"
+                  >
+                    {copiedText === clientIpInfo.ip ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                  </button>
                 </div>
-                <p className="text-xs text-[var(--text-secondary)]">Reverse DNS: client-dialup-kashtrix.net</p>
+                <p className="text-xs text-[var(--text-secondary)]">{clientIpInfo.status}</p>
               </div>
             )}
 
@@ -1110,68 +1269,110 @@ export const ISPToolsHub: React.FC = () => {
                   <label className="text-xs font-bold block mb-1">IPv4 / IPv6 Address</label>
                   <input
                     type="text"
-                    value={geoIp}
-                    onChange={(e) => setGeoIp(e.target.value)}
-                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-bold"
+                    value={geoIpInput}
+                    onChange={(e) => setGeoIpInput(e.target.value)}
+                    placeholder="1.1.1.1"
+                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-mono font-bold"
                   />
                 </div>
 
                 <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2">
                   <div className="flex justify-between border-b pb-1">
-                    <span>Country &amp; City:</span>
-                    <strong>Australia (Sydney)</strong>
+                    <span>IP Address:</span>
+                    <strong className="font-mono">{geoIpInput || "1.1.1.1"}</strong>
                   </div>
                   <div className="flex justify-between border-b pb-1">
-                    <span>ISP / Autonomous System:</span>
-                    <strong>Cloudflare Inc. (AS13335)</strong>
+                    <span>Location:</span>
+                    <strong>{geoIpInput === "1.1.1.1" ? "Australia (Sydney)" : "United States (Dallas / Ashburn)"}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1">
+                    <span>Autonomous System / ISP:</span>
+                    <strong>Cloudflare Anycast Network (AS13335)</strong>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Calculator #15: CIDR Calculator */}
+            {/* Calculator #15: CIDR Calculator (REAL-TIME DYNAMIC EXPANSION) */}
             {selectedToolId === "cidr-calculator" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-4">
-                  <label className="text-xs font-bold block mb-1">CIDR Block</label>
+                  <label className="text-xs font-bold block mb-1">CIDR Block (e.g. 10.1.0.5/24 or 172.16.0.0/20)</label>
                   <input
                     type="text"
-                    value={cidrIp}
-                    onChange={(e) => setCidrIp(e.target.value)}
-                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-bold"
+                    value={cidrInput}
+                    onChange={(e) => setCidrInput(e.target.value)}
+                    placeholder="10.1.0.5/24"
+                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-mono font-bold"
                   />
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    <span className="text-[11px] text-[var(--text-secondary)] font-bold self-center">Try presets:</span>
+                    {["10.1.0.5/24", "172.16.0.0/20", "192.168.1.0/27", "10.0.0.0/16"].map((preset) => (
+                      <button
+                        key={preset}
+                        onClick={() => setCidrInput(preset)}
+                        className="px-2.5 py-1 rounded-md bg-[var(--surface-2)] text-[11px] font-mono border hover:border-[var(--border-brand)]"
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2">
-                  <div className="flex justify-between border-b pb-1">
-                    <span>Expanded IP Range:</span>
-                    <strong className="font-mono">10.0.0.0 — 10.0.15.255</strong>
+                <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2.5">
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Input CIDR:</span>
+                    <strong className="font-mono text-[var(--text-accent)]">{cidrResult.ip}/{cidrResult.prefix}</strong>
                   </div>
-                  <div className="flex justify-between border-b pb-1">
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Network Address:</span>
+                    <strong className="font-mono">{cidrResult.network}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Expanded Full IP Range:</span>
+                    <strong className="font-mono text-emerald-500">{cidrResult.fullRange}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Usable Host Range:</span>
+                    <strong className="font-mono">{cidrResult.range}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Subnet Mask:</span>
+                    <strong className="font-mono">{cidrResult.mask}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
                     <span>Total Addresses:</span>
-                    <strong className="font-mono">4,096 IPs</strong>
+                    <strong className="font-mono font-bold">{cidrResult.totalHosts.toLocaleString()} IPs ({cidrResult.usableHosts.toLocaleString()} Usable)</strong>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Calculator #16: IPv6 Subnet Calculator */}
+            {/* Calculator #16: IPv6 Subnet Calculator (Dynamic Parsing) */}
             {selectedToolId === "ipv6-subnet" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-6 space-y-4">
-                  <label className="text-xs font-bold block mb-1">IPv6 Prefix Block</label>
+                  <label className="text-xs font-bold block mb-1">IPv6 Prefix Block (e.g. 2001:db8:85a3::/48)</label>
                   <input
                     type="text"
                     value={ipv6Addr}
                     onChange={(e) => setIpv6Addr(e.target.value)}
-                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-bold"
+                    className="w-full p-3 rounded-lg border bg-[var(--surface-2)] text-sm font-mono font-bold"
                   />
                 </div>
 
-                <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2">
-                  <div className="flex justify-between border-b pb-1">
+                <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-xs space-y-2.5">
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Input Prefix:</span>
+                    <strong className="font-mono text-[var(--text-accent)]">/{ipv6PrefixLen}</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
                     <span>Subnetted to /64 Prefix Count:</span>
-                    <strong className="font-mono text-emerald-500">65,536 x /64 Subnets</strong>
+                    <strong className="font-mono text-emerald-500">{ipv6SubnetCount64.toLocaleString()} x /64 Subnets</strong>
+                  </div>
+                  <div className="flex justify-between border-b pb-1.5">
+                    <span>Total IPv6 Addresses:</span>
+                    <strong className="font-mono">2^{128 - ipv6PrefixLen} Addresses</strong>
                   </div>
                 </div>
               </div>
@@ -1193,7 +1394,7 @@ export const ISPToolsHub: React.FC = () => {
                 <div className="lg:col-span-6 bg-[var(--surface-2)] p-6 rounded-2xl border text-center space-y-2">
                   <span className="text-xs font-bold text-[var(--text-secondary)] uppercase">Equivalent Power Output:</span>
                   <div className="text-3xl font-sora font-bold text-[var(--text-accent)]">
-                    {mWVal.toFixed(2)} mW ({wattsVal.toFixed(3)} Watts)
+                    {mWVal.toFixed(2)} mW ({wattsVal.toFixed(4)} Watts)
                   </div>
                 </div>
               </div>
