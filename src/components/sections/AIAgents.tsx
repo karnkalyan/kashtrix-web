@@ -41,7 +41,7 @@ export const AIAgents: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" /> Autonomous Workforce
           </span>
           <h2 className="section-heading text-[var(--text-primary)]">
-            AI employees for every telecom department.
+            AI Agents for ISP Network Operations, Billing &amp; Customer Support
           </h2>
           <p className="text-sm md:text-base text-[var(--text-secondary)]">
             Kashtrix AI Agents aren&apos;t generic chatbots. They are specialized domain experts trained on telecom RFC standards, optical engineering formulas, and real-time OSS/BSS schemas.

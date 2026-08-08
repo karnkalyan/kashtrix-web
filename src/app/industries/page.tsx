@@ -4,9 +4,9 @@ import { Industries } from "@/components/sections/Industries";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Industries | Solutions for WISPs, FTTH, Enterprise ISPs & Mobile Carriers",
+  title: "ISP Software for WISPs, FTTH Operators & Broadband Providers | Kashtrix",
   description:
-    "Tailored ISP business management & telecom OSS/BSS software for Wireless ISPs (WISPs), Fiber-to-the-Home (FTTH) operators, Enterprise ISPs, and Mobile Network Operators.",
+    "Kashtrix ISP management software for Wireless ISPs (WISPs), Fiber-to-the-Home (FTTH) operators, enterprise ISPs and broadband providers with tailored OSS/BSS, billing and network automation.",
   keywords: [
     "WISP management software",
     "FTTH OSS BSS",

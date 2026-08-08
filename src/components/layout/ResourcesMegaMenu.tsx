@@ -3,14 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Terminal, ListChecks, Cpu, Bot, Newspaper, FileChartColumn, Presentation, LifeBuoy, RefreshCcw, Shield, MessagesSquare, type LucideIcon } from "lucide-react";
+import { ArrowRight, Calculator, BookOpen, Terminal, ListChecks, Cpu, Bot, Newspaper, FileChartColumn, Presentation, LifeBuoy, RefreshCcw, Shield, MessagesSquare, type LucideIcon } from "lucide-react";
 import { RESOURCES_MEGA } from "@/lib/constants";
 
 interface ResourcesMegaMenuProps {
   onClose: () => void;
 }
-const RESOURCE_ICONS: LucideIcon[] = [BookOpen, Terminal, ListChecks, Cpu, Bot, Newspaper, FileChartColumn, Presentation, LifeBuoy, RefreshCcw, Shield, MessagesSquare];
-const RESOURCE_COLORS = ["#4A1B7A", "#2563EB", "#0891B2", "#0F9F8F", "#E11D72", "#D97706", "#6366F1", "#EA6A20", "#0EA5E9", "#168A5B", "#7C3A9E", "#F05298"];
+const RESOURCE_ICONS: LucideIcon[] = [Calculator, BookOpen, Terminal, ListChecks, Cpu, Bot, Newspaper, FileChartColumn, Presentation, LifeBuoy, RefreshCcw, Shield, MessagesSquare];
+const RESOURCE_COLORS = ["#E11D72", "#4A1B7A", "#2563EB", "#0891B2", "#0F9F8F", "#E11D72", "#D97706", "#6366F1", "#EA6A20", "#0EA5E9", "#168A5B", "#7C3A9E", "#F05298"];
 
 export const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({ onClose }) => {
   return (

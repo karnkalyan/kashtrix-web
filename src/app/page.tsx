@@ -1,43 +1,49 @@
 import React from "react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { HomeClient } from "./HomeClient";
-import { constructMetadata } from "@/lib/seo";
+import { constructMetadata, getFAQSchema } from "@/lib/seo";
+import { HOMEPAGE_FAQS } from "@/lib/faqs";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix | No.1 AI-Native Telecom OSS/BSS, Syslog Server & AI Agent Platform",
+  title: "AI-Powered ISP Management Software & OSS/BSS Platform | Kashtrix",
   description:
-    "Kashtrix is the premier AI-Native Telecom Operating System. Empowering ISPs and telecom carriers with Carrier-Grade Syslog CGNAT audit log storage, unified OSS/BSS, AI NOC Telemetry Server, AI Agents, MikroTik/FreeRADIUS billing, and end-to-end ISP business management.",
+    "Kashtrix is an AI-powered ISP management and OSS/BSS platform for ISPs, WISPs and fiber operators, combining billing, CRM, FreeRADIUS AAA, network operations, OLT and BNG automation, inventory, syslog and AI agents.",
   keywords: [
     "Kashtrix",
-    "Kashtrix OSS/BSS",
-    "Kashtrix Syslog",
-    "Kashtrix AI Server",
-    "Kashtrix AI Agent",
-    "syslog",
-    "syslog server",
-    "carrier-grade syslog",
-    "CGNAT syslog server",
-    "oss bss",
-    "telecom oss bss",
-    "ai server",
-    "telecom ai server",
-    "ai agent",
-    "telecom ai agent",
-    "isp business",
     "ISP management software",
+    "ISP management platform",
+    "AI-powered ISP management",
+    "telecom OSS BSS",
+    "ISP OSS BSS",
+    "AI OSS BSS",
+    "broadband management software",
     "ISP billing software",
-    "wisp software",
-    "FreeRADIUS AAA billing",
-    "MikroTik RADIUS software",
-    "GPON OLT management software",
-    "TR-069 ACS server",
+    "FreeRADIUS AAA",
+    "WISP management software",
+    "FTTH management software",
+    "MikroTik ISP management",
+    "subscriber management",
+    "ISP network management",
+    "network automation",
+    "AI agents for telecom",
+    "syslog server",
+    "CGNAT logging",
+    "OLT management software",
   ],
   canonical: "https://kashtrix.com/",
 });
 
 export default async function HomePage() {
+  const faqSchema = getFAQSchema(HOMEPAGE_FAQS);
+
   return (
     <SiteShell>
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <HomeClient />
     </SiteShell>
   );

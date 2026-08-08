@@ -5,21 +5,21 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getOSSBSSProductSchema } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix BSS | Telecom Business Support System & ISP Revenue Management",
+  title: "Telecom BSS Software for Billing, CRM & Revenue Management | Kashtrix",
   description:
-    "Next-generation Telecom Business Support System (BSS) featuring real-time rating engine, convergent prepaid/postpaid billing, automated dunning, product catalog, and subscriber CRM.",
+    "Unify subscriber billing, CRM, product catalog, order management, payments and revenue assurance with Kashtrix telecom BSS software for ISPs and broadband operators.",
   keywords: [
-    "bss",
-    "oss bss",
-    "telecom bss",
-    "Kashtrix BSS",
+    "telecom BSS software",
+    "telecom BSS",
+    "ISP BSS",
     "business support system",
-    "telecom business support system",
+    "subscriber lifecycle management",
+    "telecom revenue management",
     "ISP billing software",
-    "telecom revenue assurance",
-    "prepaid postpaid billing rating engine",
     "telecom product catalog",
     "subscriber CRM",
+    "prepaid postpaid billing",
+    "Kashtrix BSS",
   ],
   canonical: "https://kashtrix.com/bss",
 });

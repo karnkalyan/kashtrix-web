@@ -36,7 +36,7 @@ function detail(
 }
 
 export const DETAIL_CONFIGS = {
-  platform: detail("oss", "Unified telecom platform", "Every system.", "One operating platform.", "Connect network operations, subscriber journeys, revenue, field work, and automation in one composable telecom platform.", LayoutDashboard, OSS_BSS_ASSETS.ossOverview, "Kashtrix unified telecom operations dashboard", [
+  platform: detail("oss", "Unified telecom platform", "Unified ISP Platform.", "AI-powered telecom operating system.", "Connect ISP network operations, subscriber billing, CRM, FreeRADIUS AAA, field work, and automation in one composable telecom platform for ISPs, WISPs and FTTH operators.", LayoutDashboard, OSS_BSS_ASSETS.ossOverview, "Kashtrix unified ISP management and telecom OSS/BSS platform dashboard", [
     capability("Network operations", "Monitor topology, devices, alarms, and service health from one operational layer.", Network, "OSS"),
     capability("Subscriber operations", "Coordinate customer, service, support, and lifecycle context across teams.", UsersRound, "BSS"),
     capability("Revenue workflows", "Bring invoicing, collections, products, and financial events into connected flows.", CircleDollarSign),
@@ -44,7 +44,7 @@ export const DETAIL_CONFIGS = {
     capability("Field coordination", "Turn incidents and orders into accountable tasks with operational context.", MapPinned),
   ], ["Connect systems", "Normalize context", "Apply policy", "Coordinate action", "Measure outcomes"]),
 
-  oss: detail("oss", "Operations support system", "Control complex networks.", "Operate with clarity.", "Provision, observe, and automate multi-vendor broadband infrastructure without forcing operators through disconnected tools.", Network, OSS_BSS_ASSETS.ossOverview, "Real-time OSS network dashboard", [
+  oss: detail("oss", "Operations support system", "Telecom OSS Software.", "For ISP network operations & automation.", "Provision, observe and automate multi-vendor broadband infrastructure including FreeRADIUS AAA, GPON OLTs, BNG gateways and TR-069 CPE management from one ISP operations platform.", Network, OSS_BSS_ASSETS.ossOverview, "ISP network operations and telecom OSS dashboard showing device health and alarms", [
     capability("Real-time NOC", "Unify service health, network signals, and actionable alarms.", Activity, "Monitor"),
     capability("AAA control", "Coordinate subscriber sessions, authentication, authorization, and policy.", KeyRound),
     capability("Fiber operations", "Manage fiber networks, OLTs, topology, and service activation context.", Cable),
@@ -52,7 +52,7 @@ export const DETAIL_CONFIGS = {
     capability("Incident orchestration", "Convert correlated events into owned operational work.", BellRing),
   ], ["Ingest telemetry", "Correlate events", "Apply network policy", "Execute automation", "Confirm service health"], ["Multi-vendor", "Continuous", "Event-driven", "Operator-led"]),
 
-  bss: detail("bss", "Business support system", "Connect every subscriber moment.", "Protect every revenue event.", "Give commercial, care, finance, and operations teams one customer and service context from acquisition through renewal.", ContactRound, OSS_BSS_ASSETS.bssOverview, "Kashtrix customer management application", [
+  bss: detail("bss", "Business support system", "Telecom BSS Software.", "For billing, CRM & subscriber management.", "Give ISP commercial, care, finance and operations teams one customer and service context from subscriber acquisition through renewal and retention.", ContactRound, OSS_BSS_ASSETS.bssOverview, "ISP subscriber billing, CRM and telecom BSS management interface", [
     capability("Customer 360", "Unify identity, services, interactions, balances, and operational history.", ContactRound, "CRM"),
     capability("Product catalog", "Model plans, add-ons, eligibility, pricing, and service rules.", Boxes),
     capability("Order journeys", "Coordinate qualification, fulfillment, activation, and status communication.", ClipboardCheck),
@@ -60,7 +60,7 @@ export const DETAIL_CONFIGS = {
     capability("Customer care", "Resolve requests with service and network context available to agents.", Headset),
   ], ["Capture demand", "Qualify service", "Activate order", "Bill and collect", "Retain subscriber"], ["Customer-led", "Contextual", "Composable", "Auditable"]),
 
-  billing: detail("billing", "Telecom billing", "Turn service usage.", "Into dependable revenue.", "Coordinate plans, invoices, collections, adjustments, and payment events while keeping finance and customer teams aligned.", ReceiptText, OSS_BSS_ASSETS.billing, "Telecom invoices and billing application", [
+  billing: detail("billing", "Telecom billing", "ISP Billing Software.", "Automated collections & FreeRADIUS AAA.", "Coordinate subscriber plans, automated invoicing, payment collections, dunning, adjustments and FreeRADIUS AAA authentication while keeping ISP finance and customer teams aligned.", ReceiptText, OSS_BSS_ASSETS.billing, "ISP billing software dashboard showing invoices, payments and subscriber billing", [
     capability("Invoice operations", "Generate and track invoices with subscriber and service context.", ReceiptText, "Revenue"),
     capability("Payments", "Connect payment channels, status events, and reconciliation workflows.", CreditCard),
     capability("Collections", "Coordinate reminders, aging policy, and service actions.", CircleDollarSign),
@@ -68,7 +68,7 @@ export const DETAIL_CONFIGS = {
     capability("Revenue insights", "Surface trends that help teams act before leakage compounds.", ChartNoAxesCombined),
   ], ["Rate service", "Create invoice", "Notify customer", "Collect payment", "Reconcile revenue"], ["Convergent", "Event-aware", "Policy-driven", "Finance-ready"]),
 
-  crm: detail("bss", "Telecom CRM", "One customer context.", "Across every team.", "Connect commercial, support, billing, and service information around the subscriber journey.", UsersRound, OSS_BSS_ASSETS.customerManagement, "Telecom customer management records", [
+  crm: detail("bss", "Telecom CRM", "ISP CRM Software.", "Broadband subscriber management.", "Connect ISP subscriber profiles, support tickets, billing, RADIUS sessions and service information around the broadband customer journey from lead to retention.", UsersRound, OSS_BSS_ASSETS.customerManagement, "ISP CRM and broadband subscriber management interface showing customer profiles", [
     capability("Subscriber profile", "See identity, contacts, services, balances, and history together.", ContactRound),
     capability("Lifecycle journeys", "Coordinate onboarding, changes, renewal, and retention work.", RefreshCcw),
     capability("Case context", "Give customer teams relevant network and billing signals.", TicketCheck),
@@ -76,7 +76,7 @@ export const DETAIL_CONFIGS = {
     capability("Communication", "Orchestrate service messages across supported channels.", Smartphone),
   ], ["Capture lead", "Create subscriber", "Activate service", "Support lifecycle", "Grow relationship"]),
 
-  networkManagement: detail("noc", "Network management", "See network conditions.", "Act before impact spreads.", "Turn telemetry, topology, capacity, and alarms into a shared operational picture for broadband teams.", Gauge, OSS_BSS_ASSETS.nocMonitoring, "Real-time network monitoring dashboard", [
+  networkManagement: detail("noc", "Network management", "ISP Network Management.", "AI-powered NOC & fault detection.", "Turn ISP network telemetry, topology, capacity and alarms into a shared operational picture for broadband NOC teams with AI-powered fault detection and root cause analysis.", Gauge, OSS_BSS_ASSETS.nocMonitoring, "ISP network management dashboard showing real-time NOC monitoring and alarms", [
     capability("Service health", "Track network and service condition in one operational view.", Activity),
     capability("Alarm context", "Prioritize events using topology and subscriber impact.", BellRing),
     capability("Capacity insight", "Identify congestion and emerging resource pressure.", Gauge),
@@ -84,7 +84,7 @@ export const DETAIL_CONFIGS = {
     capability("Operational reports", "Share trends and evidence across technical teams.", FileChartColumn),
   ], ["Collect signals", "Map dependencies", "Prioritize impact", "Dispatch response", "Verify recovery"], ["Topology-aware", "Continuous", "Signal-led", "NOC-ready"]),
 
-  inventory: detail("inventory", "Inventory management", "Know every asset.", "Through its full lifecycle.", "Connect warehouses, field stock, serialized equipment, installations, and network resources with accountable movements.", Boxes, OSS_BSS_ASSETS.inventoryLifecycle, "Telecom inventory lifecycle application", [
+  inventory: detail("inventory", "Inventory management", "ISP & Telecom Inventory.", "Asset management software.", "Connect ISP warehouses, field stock, serialized CPE equipment, ONT installations and network resources with accountable asset lifecycle movements.", Boxes, OSS_BSS_ASSETS.inventoryLifecycle, "ISP inventory and telecom asset management software showing CPE and ONT tracking", [
     capability("Asset registry", "Maintain equipment identity, state, ownership, and location.", Boxes),
     capability("Stock operations", "Coordinate receipt, transfer, reservation, and issue.", PackageSearch),
     capability("Field custody", "Track technician assignments, returns, and consumption.", Wrench),
@@ -92,7 +92,7 @@ export const DETAIL_CONFIGS = {
     capability("Lifecycle controls", "Manage repair, recovery, retirement, and audit evidence.", RefreshCcw),
   ], ["Receive asset", "Register identity", "Reserve stock", "Deploy resource", "Recover or retire"], ["Serialized", "Traceable", "Workflow-led", "Multi-location"]),
 
-  aiAgents: detail("ai", "AI operations agents", "Give teams leverage.", "Keep people in control.", "Use context-aware agents to prepare, coordinate, and accelerate telecom work with explicit policy and human oversight.", Bot, OSS_BSS_ASSETS.fieldTasks, "Operational task workflow used by AI agents", [
+  aiAgents: detail("ai", "AI operations agents", "AI Agents for Telecom.", "OSS/BSS & autonomous network operations.", "Deploy AI agents that detect network faults, correlate alarms, assist NOC engineers, automate ISP billing workflows and accelerate subscriber support with policy-governed automation.", Bot, OSS_BSS_ASSETS.fieldTasks, "AI agents for telecom OSS/BSS showing autonomous network operations workflow", [
     capability("NOC copilot", "Summarize signals, dependencies, and likely next actions.", Sparkles),
     capability("Care assistant", "Prepare subscriber context and recommended responses.", Headset),
     capability("Revenue agent", "Coordinate follow-up around billing and collection events.", CircleDollarSign),
@@ -100,7 +100,7 @@ export const DETAIL_CONFIGS = {
     capability("Governed actions", "Apply permissions, approvals, and traceable execution paths.", ShieldCheck),
   ], ["Observe context", "Form recommendation", "Check policy", "Request approval", "Execute and learn"], ["Context-aware", "Assisted", "Policy-bound", "Human-approved"]),
 
-  networkAutomation: detail("oss", "Network automation", "Standardize network work.", "Across every vendor.", "Turn authentication, policy, provisioning, and remediation procedures into governed operational workflows.", Workflow, OSS_BSS_ASSETS.radiusControl, "Radius subscriber session control application", [
+  networkAutomation: detail("oss", "Network automation", "ISP Network Automation.", "For RADIUS, BNG, OLT & PPPoE.", "Turn FreeRADIUS authentication, PPPoE sessions, BNG policy, OLT provisioning and remediation procedures into governed ISP operational workflows.", Workflow, OSS_BSS_ASSETS.radiusControl, "ISP network automation showing FreeRADIUS session control and BNG provisioning", [
     capability("AAA workflows", "Coordinate sessions, authorization, accounting, and policy events.", KeyRound),
     capability("Provisioning", "Translate service intent into consistent network actions.", Router),
     capability("Policy control", "Apply bandwidth and service policies with clear ownership.", Gauge),
@@ -108,7 +108,7 @@ export const DETAIL_CONFIGS = {
     capability("Change evidence", "Record intent, execution, result, and responsible actor.", ClipboardCheck),
   ], ["Receive intent", "Validate policy", "Target resources", "Execute change", "Verify result"], ["Multi-vendor", "Repeatable", "Event-driven", "Governed"]),
 
-  hardwareAutomation: detail("fiber", "Hardware automation", "Provision infrastructure.", "Without repetitive CLI work.", "Coordinate OLT, CPE, gateway, and device lifecycle actions through reusable multi-vendor workflows.", ServerCog, OSS_BSS_ASSETS.oltManagement, "OLT hardware management application", [
+  hardwareAutomation: detail("fiber", "Hardware automation", "Multi-Vendor Device Automation.", "OLT, BNG & CPE management for ISPs.", "Coordinate MikroTik, Nokia, Cisco, Huawei and ZTE OLT, CPE and BNG device lifecycle actions through reusable multi-vendor ISP automation workflows.", ServerCog, OSS_BSS_ASSETS.oltManagement, "Multi-vendor OLT and BNG device automation for ISPs showing hardware management", [
     capability("OLT management", "Bring access hardware inventory and operational actions together.", Antenna),
     capability("CPE management", "Coordinate activation and remote configuration workflows.", Router),
     capability("Configuration templates", "Reuse validated intent across sites and vendors.", ClipboardCheck),
@@ -156,7 +156,7 @@ export const DETAIL_CONFIGS = {
     capability("Security visibility", "Surface relevant activity and exceptions for review.", Activity),
   ], ["Authenticate actor", "Evaluate policy", "Authorize action", "Record evidence", "Review exceptions"], ["Identity-led", "Policy-aware", "Auditable", "Defense-in-depth"]),
 
-  syslog: detail("noc", "Carrier-Grade Syslog", "Ingest syslog streams.", "Ensure 100% CGNAT audit compliance.", "Ingest high-frequency syslog streams across routers, OLTs, and RADIUS servers while maintaining encrypted CGNAT law enforcement audit archives.", Activity, OSS_BSS_ASSETS.nocMonitoring, "Carrier-grade syslog collector dashboard", [
+  syslog: detail("noc", "Carrier-Grade Syslog", "ISP Syslog Server.", "CGNAT compliance & high-throughput logging.", "Ingest high-frequency syslog streams from MikroTik routers, GPON OLTs, BNG gateways and RADIUS servers while maintaining encrypted CGNAT audit archives for law enforcement compliance.", Activity, OSS_BSS_ASSETS.nocMonitoring, "ISP syslog server dashboard showing CGNAT compliance logging and audit search", [
     capability("High-Throughput Ingestion", "Process over 100,000 syslog messages per second via UDP/TCP 514 and TLS.", Activity, "Syslog"),
     capability("CGNAT Audit Archiving", "Log public IP and port mappings to private subscriber profiles with 1-year compliance.", ShieldCheck, "CGNAT"),
     capability("Multi-Vendor Parsers", "Standardized syslog parsers for MikroTik, Cisco, Huawei, Nokia, and OLTs.", ServerCog),

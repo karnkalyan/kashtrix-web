@@ -5,18 +5,20 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Network Automation Tools | MikroTik, Cisco, Nokia & Juniper BNG Orchestration",
+  title: "ISP Network Automation for RADIUS, BNG, OLT & PPPoE | Kashtrix",
   description:
-    "Automate Broadband Network Gateways (BNG/vBNG), MikroTik RouterOS, Cisco ASR, Nokia BNG, Juniper MX, dynamic IP pool allocation, ISP subscriber order activation, and RADIUS Change of Authorization (CoA).",
+    "Automate ISP subscriber provisioning, FreeRADIUS CoA, PPPoE sessions, BNG policies and OLT configuration with Kashtrix multi-vendor network automation software.",
   keywords: [
-    "MikroTik network automation tool",
-    "Cisco vBNG subscriber provisioning",
-    "Nokia BNG automation tool",
-    "Juniper MX network automation tool",
-    "ISP order activation software",
-    "subscriber order management automation",
-    "RADIUS CoA automation tool",
-    "PPPoE dynamic IP pool management",
+    "ISP network automation software",
+    "telecom network automation",
+    "PPPoE automation",
+    "RADIUS automation",
+    "BNG automation",
+    "OLT automation",
+    "network orchestration",
+    "subscriber provisioning",
+    "RADIUS CoA",
+    "MikroTik network automation",
     "Kashtrix Network Automation",
   ],
   canonical: "https://kashtrix.com/network-automation",

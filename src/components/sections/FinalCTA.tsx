@@ -34,7 +34,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo }) => {
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold font-sora leading-tight tracking-tight">
-          Ready to unify your telecom with<br className="hidden sm:block" /> Kashtrix OSS/BSS &amp; Syslog?
+          Ready to modernize your ISP operations<br className="hidden sm:block" /> with AI-powered OSS/BSS?
         </h2>
 
         <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">

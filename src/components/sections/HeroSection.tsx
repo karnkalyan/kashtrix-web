@@ -82,8 +82,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
             </div>
 
             <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2rem,4.8vw,4.25rem)] font-extrabold leading-[1.1] tracking-[-0.04em] text-[var(--text-primary)]">
-              <span className="block">Where <span className="text-[#E11D72]">Networks</span>, <span className="text-[#E11D72]">Business</span>,</span>
-              <span className="block">and <span className="text-[#E11D72]">AI Work</span> Together.</span>
+              <span className="block">AI-Powered <span className="text-[#E11D72]">ISP Management</span></span>
+              <span className="block">Software & <span className="text-[#E11D72]">OSS/BSS</span> Platform</span>
               <span className="relative inline-block mt-2 min-h-[1.3em] align-top text-center lg:text-left">
                 <span className="font-poppins font-normal text-[#E11D72] inline-block whitespace-nowrap">
                   {displayText}
@@ -93,9 +93,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               </span>
             </h1>
 
+            {/* Brand Tagline */}
+            <p className="mt-3 font-poppins text-base sm:text-lg font-medium text-[var(--text-secondary)] lg:text-left text-center">
+              Where Networks, Business, and AI Work Together.
+            </p>
+
             {/* Description */}
             <p className="mx-auto mt-4 sm:mt-6 max-w-xl font-inter text-sm sm:text-base leading-6 sm:leading-7 text-[var(--text-secondary)] lg:mx-0">
-              <strong className="text-[var(--text-primary)]">Kashtrix OSS/BSS</strong> unifies NOC, billing, FreeRADIUS AAA, CRM, and AI agents. <strong className="text-[var(--text-primary)]">Kashtrix Syslog</strong> delivers carrier-grade log collection with CGNAT law compliance.
+              <strong className="text-[var(--text-primary)]">Kashtrix</strong> is an AI-powered ISP management and telecom OSS/BSS platform that unifies billing, CRM, FreeRADIUS AAA, subscriber management, network operations, OLT and BNG automation, inventory, field operations, syslog and AI agents for ISPs, WISPs and FTTH operators.
             </p>
 
             {/* Action Buttons */}
@@ -147,16 +152,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
           >
             <Image
               src="/assets/herosection.png"
-              alt="Kashtrix Telecom Operating System Platform"
+              alt="Kashtrix AI-powered ISP management and OSS/BSS platform dashboard"
               width={1920}
               height={1080}
               priority
               quality={95}
-              className="w-full lg:h-[100vh] lg:w-auto lg:max-w-none object-contain"
+              className="w-full lg:h-[100vh] lg:w-auto lg:max-w-none object-contain mix-blend-multiply dark:mix-blend-lighten transition-all duration-300"
             />
           </motion.div>
 
         </div>
+
+        {/* SEO-accessible semantic summary for search engines */}
+        <p className="sr-only">
+          ISP management software for internet service providers, wireless ISPs (WISPs), FTTH and fiber operators. Kashtrix provides broadband billing, FreeRADIUS AAA, PPPoE authentication, subscriber CRM, GPON OLT management, BNG and BRAS automation, TR-069 ACS, network monitoring, MikroTik integration, inventory management, field operations, syslog CGNAT compliance logging and AI-powered network automation.
+        </p>
       </div>
     </section>
   );

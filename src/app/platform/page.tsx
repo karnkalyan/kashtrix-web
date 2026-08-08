@@ -8,9 +8,9 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Platform | Unified AI Telecom Operating System & AI Server Architecture",
+  title: "Unified ISP Management Platform & AI Telecom Operating System | Kashtrix",
   description:
-    "Explore Kashtrix Unified Telecom Platform. Connecting Syslog server log collection, OSS/BSS core modules, AI Telemetry Server, FreeRADIUS AAA, MikroTik billing, and autonomous AI agents in one composable architecture.",
+    "Explore the Kashtrix unified ISP management platform connecting billing, CRM, FreeRADIUS AAA, network operations, syslog, device automation and AI agents in one composable telecom architecture.",
   keywords: [
     "Kashtrix platform",
     "telecom operating system",

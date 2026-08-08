@@ -591,13 +591,13 @@ export function OSSBSSShowcase({ mode = "all", ossImageSrc, bssImageSrc }: OSSBS
           </div>
           
           <h2 className="mt-4 font-sora text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] dark:text-white md:text-4xl lg:text-5xl">
-            Real OSS &amp; BSS Applications.{" "}
+            ISP OSS &amp; BSS Applications.{" "}
             <span className="bg-gradient-to-r from-[var(--text-primary)] via-purple-600 to-[var(--text-accent)] dark:from-white dark:via-slate-200 dark:to-white/60 bg-clip-text text-transparent block sm:inline">
-              One Operational Truth.
+              One Unified Platform.
             </span>
           </h2>
           <p className="mt-3 sm:mt-4 font-inter text-xs sm:text-sm leading-6 sm:leading-7 text-[var(--text-secondary)] dark:text-slate-300">
-            Explore live application screens from network NOC telemetry, TR-069 ACS, RADIUS AAA sessions, subscriber CRM, automated billing ledgers, and AI field dispatch.
+            Explore ISP application screens from network NOC telemetry, TR-069 ACS, FreeRADIUS AAA sessions, subscriber CRM, automated billing, MikroTik management and AI-powered field dispatch.
           </p>
         </div>
 

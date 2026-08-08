@@ -38,24 +38,24 @@ export const Footer: React.FC = () => {
     {
       title: "Products",
       links: [
-        { label: "Kashtrix OSS/BSS", href: "/platform" },
-        { label: "Kashtrix Syslog", href: "/syslog" },
-        { label: "Unified OSS Core", href: "/oss" },
-        { label: "Unified BSS & Rating", href: "/bss" },
-        { label: "AI Agents Grid", href: "/ai-agents" },
-        { label: "NOC Network Management", href: "/network-management" },
-        { label: "Billing & Revenue Assurance", href: "/billing" },
-        { label: "CRM & Customer Portal", href: "/crm" },
+        { label: "ISP Management Platform", href: "/platform" },
+        { label: "ISP Syslog Server", href: "/syslog" },
+        { label: "Telecom OSS Software", href: "/oss" },
+        { label: "Telecom BSS Software", href: "/bss" },
+        { label: "AI Agents for Telecom", href: "/ai-agents" },
+        { label: "ISP Network Management", href: "/network-management" },
+        { label: "ISP Billing Software", href: "/billing" },
+        { label: "ISP CRM & Subscriber Mgmt", href: "/crm" },
       ],
     },
     {
       title: "Automation Engines",
       links: [
-        { label: "Network Automation", href: "/network-automation" },
-        { label: "Hardware Orchestration", href: "/hardware-automation" },
+        { label: "ISP Network Automation", href: "/network-automation" },
+        { label: "OLT & BNG Device Automation", href: "/hardware-automation" },
         { label: "AI Voice Automation", href: "/voice-automation" },
         { label: "Field Operations & Dispatch", href: "/field-operations" },
-        { label: "Inventory Lifecycle", href: "/inventory" },
+        { label: "ISP Inventory & Asset Mgmt", href: "/inventory" },
         { label: "API Platform & SDKs", href: "/api-platform" },
         { label: "Integrations & Webhooks", href: "/integrations" },
       ],
@@ -75,6 +75,7 @@ export const Footer: React.FC = () => {
     {
       title: "Resources & Trust",
       links: [
+        { label: "Free ISP Tools (17 Calculators)", href: "/tools" },
         { label: "Documentation", href: "/documentation" },
         { label: "API Reference", href: "/api-platform" },
         { label: "Resources Hub & Blog", href: "/resources" },

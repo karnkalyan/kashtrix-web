@@ -5,9 +5,9 @@ import { GlobalReady } from "@/components/sections/GlobalReady";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "About Kashtrix | Creators of No. 1 AI-Native Telecom Operating System",
+  title: "About Kashtrix | AI-Powered ISP Management & Telecom OSS/BSS Company",
   description:
-    "Kashtrix Platform Inc. was founded by veteran telecom network architects to unify Syslog log collection, OSS/BSS core modules, AI Telemetry Servers, and AI Agents into one telecom platform.",
+    "Kashtrix Platform Inc. builds AI-powered ISP management and telecom OSS/BSS software, unifying billing, CRM, FreeRADIUS AAA, network automation, syslog and AI agents for ISPs worldwide.",
   keywords: [
     "Kashtrix Platform Inc",
     "About Kashtrix",

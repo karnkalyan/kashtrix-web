@@ -168,6 +168,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo }) => {
           >
             Pricing
           </Link>
+
+          {/* Free Tools Link */}
+          <Link
+            href="/tools"
+            className={cn(
+              "px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5",
+              pathname === "/tools" || pathname === "/free-isp-tools" ? "text-[var(--text-primary)] font-bold bg-[var(--surface-purple)]" : "hover:text-[var(--text-link)]"
+            )}
+          >
+            <span>Free Tools</span>
+            <span className="px-1.5 py-0.5 rounded-md bg-[#E11D72] text-[9px] font-extrabold text-white uppercase tracking-wider">17</span>
+          </Link>
         </nav>
 
         {/* Right Side: Login & Request Demo */}

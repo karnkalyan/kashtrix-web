@@ -193,6 +193,7 @@ export const AI_AGENTS_LIST = [
 ];
 
 export const RESOURCES_MEGA = [
+  { title: "Free ISP Tools", href: "/tools", desc: "17 Free WISP & fiber engineering calculators, subnet, link budget & CGNAT math." },
   { title: "Documentation", href: "/documentation", desc: "Comprehensive guides for OSS, BSS, and network integration." },
   { title: "API Reference", href: "/api-platform", desc: "REST, GraphQL, and Webhook OpenAPI specifications." },
   { title: "Automation Templates", href: "/network-automation#templates", desc: "Ready-to-run BNG, OLT, and TR-069 workflow blueprints." },

@@ -5,14 +5,17 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Inventory | Telecom Asset & Serialized CPE Inventory Management",
+  title: "ISP Inventory & Telecom Asset Management Software | Kashtrix",
   description:
-    "Track serialized CPE routers, ONTs, optical transceivers, fiber spools, and warehouse stock across locations with automated warranty tracking and asset recovery.",
+    "Track ISP equipment, CPE routers, ONTs, optical transceivers and warehouse stock with Kashtrix telecom inventory and asset management software.",
   keywords: [
-    "telecom inventory software",
+    "ISP inventory management software",
+    "telecom inventory",
+    "CPE inventory",
+    "network asset management",
+    "telecom asset management",
+    "serialized equipment tracking",
     "ISP CPE asset tracking",
-    "serialized equipment tracking telecom",
-    "optical transceiver inventory management",
     "Kashtrix Inventory",
   ],
   canonical: "https://kashtrix.com/inventory",

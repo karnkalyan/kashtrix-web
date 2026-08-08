@@ -2,31 +2,50 @@ import React from "react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { MarketingDetailPage } from "@/components/marketing/DetailPageSystem";
 import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
-import { constructMetadata } from "@/lib/seo";
+import { constructMetadata, getFAQSchema } from "@/lib/seo";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { BILLING_FAQS } from "@/lib/faqs";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Billing | ISP Billing Software, FreeRADIUS AAA & Dunning Engine",
+  title: "ISP Billing Software with FreeRADIUS & Automated Collections | Kashtrix",
   description:
-    "No. 1 ISP billing software & telecom revenue assurance engine. Real-time broadband subscriber rating, CDR mediation, automated dunning, payment gateway integration, and MikroTik RADIUS billing.",
+    "Automate ISP billing, FreeRADIUS AAA authentication, PPPoE subscriptions, invoicing, payments and collections with Kashtrix broadband billing software for ISPs and WISPs.",
   keywords: [
     "ISP billing software",
+    "broadband billing software",
+    "RADIUS billing software",
+    "FreeRADIUS billing",
+    "PPPoE billing",
     "telecom billing software",
-    "broadband subscriber billing",
-    "FreeRADIUS AAA billing",
+    "subscriber billing",
+    "automated ISP billing",
     "MikroTik ISP billing",
-    "wisp billing software",
+    "WISP billing software",
     "automated dunning engine",
-    "payment gateway reconciliation ISP",
+    "prepaid postpaid billing",
     "Kashtrix Billing",
-    "bss billing",
   ],
   canonical: "https://kashtrix.com/billing",
 });
 
 export default function BillingPage() {
+  const faqSchema = getFAQSchema(BILLING_FAQS);
+
   return (
     <SiteShell>
-      <MarketingDetailPage config={DETAIL_CONFIGS.billing} />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      <MarketingDetailPage config={DETAIL_CONFIGS.billing}>
+        <FAQSection
+          faqs={BILLING_FAQS}
+          heading="Frequently Asked Questions about Kashtrix Billing Software"
+          subheading="Everything you need to know about FreeRADIUS billing, payment gateways, and automated dunning for ISPs."
+        />
+      </MarketingDetailPage>
     </SiteShell>
   );
 }

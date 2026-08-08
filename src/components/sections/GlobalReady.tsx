@@ -32,7 +32,7 @@ export const GlobalReady: React.FC = () => {
             </span>
 
             <h2 className="section-heading text-[var(--text-primary)]">
-              Orchestrating telecom traffic globally.
+              Global ISP infrastructure for broadband operations.
             </h2>
 
             <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">

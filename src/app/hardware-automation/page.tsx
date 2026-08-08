@@ -5,21 +5,20 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getDeviceAutomationProductSchema } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Device Automation Tools | MikroTik, Nokia, Cisco, Huawei & ZTE OLT Automation",
+  title: "Multi-Vendor OLT & BNG Device Automation for ISPs | Kashtrix",
   description:
-    "No. 1 multi-vendor device automation tools for ISPs. Automate MikroTik RouterOS, Nokia ISAM OLTs, Cisco ASR BNGs, Huawei MA5800, ZTE C300, and Juniper MX routers via NETCONF, gNMI, and RESTCONF.",
+    "Automate MikroTik RouterOS, Nokia OLTs, Cisco ASR BNGs, Huawei MA5800 and ZTE GPON devices with Kashtrix multi-vendor ISP device automation platform.",
   keywords: [
-    "MikroTik device automation tool",
-    "Nokia OLT automation tool",
-    "Cisco BNG automation software",
-    "Huawei OLT automation tool",
-    "ZTE GPON OLT software",
-    "Juniper MX automation tool",
-    "FiberHome OLT management software",
-    "GPON XGS-PON OLT provisioning",
-    "TR-069 USP ACS server tool",
-    "multi vendor network device automation",
-    "ISP device management tools",
+    "OLT management software",
+    "BNG automation",
+    "MikroTik device automation",
+    "Nokia OLT automation",
+    "Cisco BNG automation",
+    "Huawei OLT automation",
+    "GPON OLT provisioning",
+    "TR-069 ACS server",
+    "multi-vendor network automation",
+    "ISP device management",
     "Kashtrix Hardware Automation",
   ],
   canonical: "https://kashtrix.com/hardware-automation",

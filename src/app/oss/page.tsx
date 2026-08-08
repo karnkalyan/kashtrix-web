@@ -5,24 +5,23 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getOSSBSSProductSchema } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix OSS | Telecom Operations Support System, Device Automation & Order Management",
+  title: "Telecom OSS Software for ISP Network Operations | Kashtrix",
   description:
-    "Next-generation Telecom Operations Support System (OSS) featuring ISP order management, 50,000 req/sec FreeRADIUS AAA authentication, MikroTik, Nokia, Cisco, Huawei, ZTE device automation tools, TR-069 ACS, and GPON OLT provisioning.",
+    "Manage ISP network operations, FreeRADIUS AAA, GPON OLT provisioning, TR-069 ACS, fault management and multi-vendor device automation with Kashtrix telecom OSS software.",
   keywords: [
-    "oss",
-    "oss bss",
-    "telecom oss",
-    "Kashtrix OSS",
-    "ISP order management software",
-    "telecom order management system",
+    "telecom OSS software",
+    "telecom OSS",
+    "ISP OSS",
     "operations support system",
-    "device automation tools ISP",
-    "MikroTik PPPoE server tool",
-    "Nokia OLT provisioning software",
-    "Cisco vBNG subscriber provisioning",
-    "Huawei ZTE GPON OLT management",
-    "TR-069 ACS server tool",
-    "telecom NOC software",
+    "network operations software",
+    "service assurance",
+    "network orchestration",
+    "telecom network automation",
+    "GPON OLT management",
+    "TR-069 ACS server",
+    "FreeRADIUS AAA",
+    "NOC software",
+    "Kashtrix OSS",
   ],
   canonical: "https://kashtrix.com/oss",
 });
