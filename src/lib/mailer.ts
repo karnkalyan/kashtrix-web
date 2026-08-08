@@ -37,6 +37,12 @@ export async function sendNotificationEmail(options: EmailOptions) {
           user: smtpUser,
           pass: smtpPass,
         },
+        tls: {
+          rejectUnauthorized: false,
+        },
+        connectionTimeout: 15000,
+        greetingTimeout: 15000,
+        socketTimeout: 15000,
       });
 
       // 1. Send notification to Kashtrix team (info@kashtrix.com)
