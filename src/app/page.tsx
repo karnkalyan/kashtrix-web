@@ -5,7 +5,7 @@ import { constructMetadata, getFAQSchema } from "@/lib/seo";
 import { HOMEPAGE_FAQS } from "@/lib/faqs";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix | AI-Native Telecom OSS/BSS Platform",
+  title: "Kashtrix | AI-Native Telecom OSS/BSS & ISP Software",
   description:
     "Kashtrix is the AI-native OSS/BSS platform for ISPs, WISPs, and FTTH operators, unifying billing, CRM, FreeRADIUS AAA, network automation, and AI agents.",
   keywords: [

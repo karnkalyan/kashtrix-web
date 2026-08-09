@@ -38,7 +38,7 @@ export const DEFAULT_KEYWORDS = [
 ];
 
 export function constructMetadata({
-  title = "AI-Powered ISP Management Software & Telecom OSS/BSS Platform | Kashtrix",
+  title = "Kashtrix | AI-Native Telecom OSS/BSS & ISP Software",
   description = "Kashtrix is an AI-native OSS/BSS platform for ISPs, WISPs and FTTH operators, unifying network management, billing, CRM, Syslog, RADIUS, Fiber GIS and AI agents.",
   keywords = DEFAULT_KEYWORDS,
   ogImage = "https://kashtrix.com/logo/logo.png",
@@ -128,6 +128,7 @@ export function getOrganizationSchema() {
     image: "https://kashtrix.com/logo/logo.png",
     description: "Kashtrix is an AI-powered ISP management and unified telecom OSS/BSS platform. It combines billing, CRM, FreeRADIUS AAA, network operations, OLT and BNG automation, carrier-grade syslog CGNAT compliance, and AI agents for ISPs, WISPs and FTTH operators.",
     sameAs: [
+      "https://facebook.com/kashtrix",
       "https://github.com/kashtrix",
       "https://linkedin.com/company/kashtrix",
       "https://twitter.com/kashtrix",

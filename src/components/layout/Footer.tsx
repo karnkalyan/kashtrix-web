@@ -167,6 +167,14 @@ export const Footer: React.FC = () => {
                 ISO 27001 Architecture
               </span>
             </div>
+
+            <div className="flex items-center gap-4 pt-2 text-xs font-semibold text-[var(--text-secondary)]">
+              <a href="https://facebook.com/kashtrix" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-primary)] transition-colors">Facebook</a>
+              <span>·</span>
+              <a href="https://twitter.com/kashtrix" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-primary)] transition-colors">Twitter / X</a>
+              <span>·</span>
+              <a href="https://linkedin.com/company/kashtrix" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text-primary)] transition-colors">LinkedIn</a>
+            </div>
           </div>
 
           {/* Links Grid */}
