@@ -28,9 +28,9 @@ export default function SecurityPage() {
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)] mb-4">
             SOC 2 Type II Certified
           </span>
-          <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
             Security Engineered Into Every Packet
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-4 leading-relaxed">
             Protecting national telecom infrastructure requires zero-trust isolation. Explore our role-based access controls, cryptographic token vaults, and immutable audit logs.
           </p>

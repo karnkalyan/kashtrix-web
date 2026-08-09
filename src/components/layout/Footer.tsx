@@ -61,14 +61,15 @@ export const Footer: React.FC = () => {
       ],
     },
     {
-      title: "Solutions & Industries",
+      title: "Solutions & Intent",
       links: [
-        { label: "Internet Service Providers (ISPs)", href: "/industries#isps" },
-        { label: "FTTH & GPON Operators", href: "/industries#ftth" },
-        { label: "Wireless Operators (WISPs)", href: "/industries#wireless" },
-        { label: "Cable & DOCSIS Networks", href: "/industries#cable" },
-        { label: "VoIP Providers", href: "/industries#voip" },
-        { label: "Managed IT & SD-WAN", href: "/industries#msp" },
+        { label: "Fiber GIS & Splitter Mapping", href: "/solutions/fiber-gis-olt-ont-splitter" },
+        { label: "Field Staff GPS & Dispatch", href: "/solutions/isp-field-staff-gps" },
+        { label: "Branch & Reseller Billing", href: "/solutions/isp-branch-reseller-management" },
+        { label: "Kashtrix vs Splynx", href: "/compare/kashtrix-vs-splynx" },
+        { label: "FreeRADIUS & MikroTik Billing", href: "/solutions/freeradius-mikrotik-billing" },
+        { label: "OLT Provisioning Software", href: "/solutions/olt-provisioning" },
+        { label: "CGNAT Syslog Logging", href: "/solutions/cgnat-syslog-compliance" },
         { label: "Enterprise Pricing Plans", href: "/pricing" },
       ],
     },
@@ -101,7 +102,7 @@ export const Footer: React.FC = () => {
               Where Networks, Business, and AI Work Together.
             </h3>
             <p className="text-xs md:text-sm text-[var(--text-secondary)]">
-              Join 15,000+ NOC engineers receiving weekly multi-vendor automation scripts and AI intelligence updates.
+              Join ISP engineers and operators receiving weekly multi-vendor automation scripts and AI intelligence updates.
             </p>
           </div>
 
@@ -160,10 +161,10 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-3 pt-2">
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--surface-2)] border border-[var(--border-default)] text-[11px] font-bold text-[var(--text-primary)]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[var(--text-link)]" /> SOC 2 Type II Certified
+                <ShieldCheck className="w-3.5 h-3.5 text-[var(--text-link)]" /> Enterprise Security
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--surface-2)] border border-[var(--border-default)] text-[11px] font-bold text-[var(--text-primary)]">
-                ISO 27001 Compliant
+                ISO 27001 Architecture
               </span>
             </div>
           </div>

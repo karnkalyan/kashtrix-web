@@ -6,6 +6,7 @@ interface MetadataProps {
   keywords?: string[];
   ogImage?: string;
   canonical?: string;
+  noindex?: boolean;
 }
 
 export const DEFAULT_KEYWORDS = [
@@ -38,10 +39,11 @@ export const DEFAULT_KEYWORDS = [
 
 export function constructMetadata({
   title = "AI-Powered ISP Management Software & Telecom OSS/BSS Platform | Kashtrix",
-  description = "Kashtrix is an AI-powered ISP management and telecom OSS/BSS platform combining billing, CRM, FreeRADIUS AAA, subscriber management, network operations, OLT and BNG automation, inventory, syslog and AI agents for ISPs, WISPs and FTTH operators.",
+  description = "Kashtrix is an AI-native OSS/BSS platform for ISPs, WISPs and FTTH operators, unifying network management, billing, CRM, Syslog, RADIUS, Fiber GIS and AI agents.",
   keywords = DEFAULT_KEYWORDS,
   ogImage = "https://kashtrix.com/logo/logo.png",
   canonical = "https://kashtrix.com/",
+  noindex = false,
 }: MetadataProps = {}): Metadata {
   return {
     title,
@@ -82,19 +84,23 @@ export function constructMetadata({
       images: [ogImage],
       creator: "@kashtrix",
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
+    robots: noindex
+      ? { index: false, follow: false }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        },
   };
 }
+
+// ─── Structured Data Helpers ─────────────────────────────────────
 
 export function getOrganizationSchema() {
   return {
@@ -103,7 +109,12 @@ export function getOrganizationSchema() {
     "@id": "https://kashtrix.com/#organization",
     name: "Kashtrix Platform Inc.",
     url: "https://kashtrix.com/",
-    logo: "https://kashtrix.com/logo/logo.png",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://kashtrix.com/logo/logo.png",
+      width: 512,
+      height: 512,
+    },
     image: "https://kashtrix.com/logo/logo.png",
     description: "Kashtrix is an AI-powered ISP management and unified telecom OSS/BSS platform. It combines billing, CRM, FreeRADIUS AAA, network operations, OLT and BNG automation, carrier-grade syslog CGNAT compliance, and AI agents for ISPs, WISPs and FTTH operators.",
     sameAs: [
@@ -152,16 +163,39 @@ export function getSoftwareApplicationSchema() {
     url: "https://kashtrix.com/platform",
     description: "AI-powered ISP management software and telecom OSS/BSS platform for subscriber billing, CRM, FreeRADIUS AAA, MikroTik and multi-vendor network automation, GPON OLT provisioning, TR-069 ACS, carrier-grade syslog CGNAT archiving, and AI agents for ISPs, WISPs and FTTH operators.",
     provider: { "@id": "https://kashtrix.com/#organization" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "USD",
-      price: "0.00",
-      priceValidUntil: "2028-12-31",
-      availability: "https://schema.org/InStock",
-      url: "https://kashtrix.com/pricing",
-    },
   };
 }
+
+// ─── BreadcrumbList Schema ────────────────────────────────────────
+
+export interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
+export function getBreadcrumbSchema(items: BreadcrumbItem[]) {
+  const baseUrl = "https://kashtrix.com";
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${baseUrl}/`,
+      },
+      ...items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: item.name,
+        item: `${baseUrl}${item.href}`,
+      })),
+    ],
+  };
+}
+
+// ─── Product Schemas (without fake pricing) ───────────────────────
 
 export function getSyslogProductSchema() {
   return {
@@ -172,14 +206,7 @@ export function getSyslogProductSchema() {
     image: "https://kashtrix.com/logo/logo.png",
     description: "High-throughput ISP syslog server and CGNAT audit logging platform. Ingest syslog streams from MikroTik, Cisco, Nokia, Huawei and GPON OLTs with subscriber IP-port mapping, encrypted archiving and law enforcement compliance search.",
     brand: { "@type": "Brand", name: "Kashtrix" },
-    offers: {
-      "@type": "Offer",
-      url: "https://kashtrix.com/syslog",
-      priceCurrency: "USD",
-      price: "0.00",
-      priceValidUntil: "2028-12-31",
-      availability: "https://schema.org/InStock",
-    },
+    url: "https://kashtrix.com/syslog",
   };
 }
 
@@ -192,14 +219,7 @@ export function getOSSBSSProductSchema() {
     image: "https://kashtrix.com/logo/logo.png",
     description: "Unified AI-powered telecom OSS/BSS and ISP management platform featuring subscriber billing, CRM, FreeRADIUS AAA, GPON OLT provisioning, TR-069 ACS, network automation, and multi-vendor device management for ISPs, WISPs and FTTH operators.",
     brand: { "@type": "Brand", name: "Kashtrix" },
-    offers: {
-      "@type": "Offer",
-      url: "https://kashtrix.com/oss",
-      priceCurrency: "USD",
-      price: "0.00",
-      priceValidUntil: "2028-12-31",
-      availability: "https://schema.org/InStock",
-    },
+    url: "https://kashtrix.com/oss",
   };
 }
 
@@ -212,14 +232,7 @@ export function getDeviceAutomationProductSchema() {
     image: "https://kashtrix.com/logo/logo.png",
     description: "Multi-vendor ISP device automation platform for MikroTik RouterOS, Nokia ISAM OLTs, Cisco ASR BNGs, Huawei MA5800, ZTE C300 and Juniper MX routers. Automate subscriber provisioning, OLT configuration and CPE management via NETCONF, gNMI and RESTCONF.",
     brand: { "@type": "Brand", name: "Kashtrix" },
-    offers: {
-      "@type": "Offer",
-      url: "https://kashtrix.com/hardware-automation",
-      priceCurrency: "USD",
-      price: "0.00",
-      priceValidUntil: "2028-12-31",
-      availability: "https://schema.org/InStock",
-    },
+    url: "https://kashtrix.com/hardware-automation",
   };
 }
 
@@ -232,14 +245,7 @@ export function getAIServerProductSchema() {
     image: "https://kashtrix.com/logo/logo.png",
     description: "AI agents for telecom OSS/BSS and ISP network operations. Detect network faults, correlate alarms, assist NOC engineers, automate billing workflows, accelerate customer support and orchestrate field operations with policy-governed AI automation.",
     brand: { "@type": "Brand", name: "Kashtrix" },
-    offers: {
-      "@type": "Offer",
-      url: "https://kashtrix.com/ai-agents",
-      priceCurrency: "USD",
-      price: "0.00",
-      priceValidUntil: "2028-12-31",
-      availability: "https://schema.org/InStock",
-    },
+    url: "https://kashtrix.com/ai-agents",
   };
 }
 

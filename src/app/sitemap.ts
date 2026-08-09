@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
-// Define route categories for precise SEO indexing priority and change frequencies
+// ─── Route Categories ─────────────────────────────────────────────
+// Categorized by business priority for sitemap priority values
+
 const FLAGSHIP_PRODUCT_ROUTES = [
   "syslog",
   "oss",
@@ -23,6 +25,21 @@ const SOLUTION_FEATURE_ROUTES = [
   "integrations",
   "pricing",
   "request-demo",
+  "tools",
+  "free-isp-tools",
+];
+
+const SOLUTION_LANDING_ROUTES = [
+  "solutions/ai-agent-isp-noc-automation",
+  "solutions/freeradius-mikrotik-billing",
+  "solutions/olt-provisioning",
+  "solutions/cgnat-syslog-compliance",
+  "solutions/isp-mcp-server-ai",
+  "solutions/wisp-billing-ai",
+  "solutions/pppoe-radius-billing",
+  "solutions/fiber-gis-olt-ont-splitter",
+  "solutions/isp-field-staff-gps",
+  "solutions/isp-branch-reseller-management",
 ];
 
 const RESOURCE_CORPORATE_ROUTES = [
@@ -33,51 +50,62 @@ const RESOURCE_CORPORATE_ROUTES = [
   "security",
 ];
 
+const COMPARISON_ROUTES = [
+  "compare/kashtrix-vs-splynx",
+];
+
 const LEGAL_ROUTES = ["privacy", "terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://kashtrix.com").replace(/\/$/, "");
-  const currentDate = new Date().toISOString().split("T")[0];
 
-  // Home Page
+  // NOTE: lastModified is intentionally omitted on most entries because
+  // we cannot determine a trustworthy content-modification timestamp from
+  // the filesystem alone. Google recommends omitting lastmod rather than
+  // fabricating today's date for every page.
+
   const homeEntry: MetadataRoute.Sitemap[number] = {
     url: `${baseUrl}/`,
-    lastModified: currentDate,
-    changeFrequency: "daily",
     priority: 1.0,
   };
 
-  // Flagship Products (Syslog, OSS, BSS, AI Agents, Platform, Billing, CRM)
   const flagshipEntries: MetadataRoute.Sitemap = FLAGSHIP_PRODUCT_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
-    lastModified: currentDate,
-    changeFrequency: "daily",
     priority: 0.95,
   }));
 
-  // Key Telecom Solutions & Feature Modules
   const solutionEntries: MetadataRoute.Sitemap = SOLUTION_FEATURE_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
     priority: 0.9,
   }));
 
-  // Corporate & Engineering Knowledge Resources
+  const solutionLandingEntries: MetadataRoute.Sitemap = SOLUTION_LANDING_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    priority: 0.85,
+  }));
+
   const resourceEntries: MetadataRoute.Sitemap = RESOURCE_CORPORATE_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
-    lastModified: currentDate,
-    changeFrequency: "weekly",
     priority: 0.8,
   }));
 
-  // Legal & Compliance Pages
+  const comparisonEntries: MetadataRoute.Sitemap = COMPARISON_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    priority: 0.75,
+  }));
+
   const legalEntries: MetadataRoute.Sitemap = LEGAL_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
-    lastModified: currentDate,
-    changeFrequency: "monthly",
     priority: 0.5,
   }));
 
-  return [homeEntry, ...flagshipEntries, ...solutionEntries, ...resourceEntries, ...legalEntries];
+  return [
+    homeEntry,
+    ...flagshipEntries,
+    ...solutionEntries,
+    ...solutionLandingEntries,
+    ...resourceEntries,
+    ...comparisonEntries,
+    ...legalEntries,
+  ];
 }

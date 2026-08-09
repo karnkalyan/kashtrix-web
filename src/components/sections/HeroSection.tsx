@@ -157,7 +157,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRequestDemo }) => {
               height={1080}
               priority
               quality={95}
-              className="w-full lg:h-[100vh] lg:w-auto lg:max-w-none object-contain mix-blend-multiply dark:mix-blend-lighten transition-all duration-300"
+              style={{
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 85%, transparent 100%), linear-gradient(to bottom, black 85%, transparent 100%)",
+                maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 85%, transparent 100%), linear-gradient(to bottom, black 85%, transparent 100%)",
+                WebkitMaskComposite: "source-in",
+                maskComposite: "intersect",
+              }}
+              className="w-full lg:h-[100vh] lg:w-auto lg:max-w-none object-contain drop-shadow-2xl transition-all duration-300"
             />
           </motion.div>
 

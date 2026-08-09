@@ -6,11 +6,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormValues } from "@/lib/validation";
 import { GlobalNetworkGlobe } from "@/components/visual/GlobalNetworkGlobe";
-import { Mail, Globe, CheckCircle2, Send } from "lucide-react";
+import { Mail, Globe, CheckCircle2, Send, FileText, Download, Eye, ExternalLink } from "lucide-react";
 
 export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showPdfPreview, setShowPdfPreview] = useState(false);
 
   const {
     register,
@@ -66,7 +67,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
             {/* Column 1: Contact Information */}
             <div className="lg:col-span-4 space-y-6">
               <div className="p-6 rounded-2xl bg-[var(--surface-2)] border border-[var(--border-default)] space-y-4">
@@ -184,6 +185,75 @@ export default function ContactPage() {
             </div>
           </div>
 
+          {/* Documentation PDF Download & Preview Section */}
+          <div className="mb-16 rounded-3xl border border-[var(--border-brand)] bg-[var(--surface-purple)] p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+              <div className="space-y-4 text-center lg:text-left max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-1)] text-[var(--text-link)] border border-[var(--border-default)]">
+                  <FileText className="w-3.5 h-3.5 text-[#E11D72]" /> Technical Architecture &amp; Capability Guide
+                </div>
+                <h2 className="font-sora text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
+                  Kashtrix Enterprise Telecom OS Documentation
+                </h2>
+                <p className="font-inter text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                  Download or preview the official 36.6 MB Kashtrix technical documentation — featuring full system architecture, multi-vendor GPON OLT provisioning, FreeRADIUS schemas, Syslog CGNAT compliance, and AI agent endpoints.
+                </p>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                  <span className="text-xs font-bold text-[var(--text-primary)] bg-[var(--surface-1)] px-3 py-1 rounded-lg border border-[var(--border-default)]">
+                    PDF Document · 36.6 MB
+                  </span>
+                  <span className="text-xs font-bold text-emerald-500 bg-[var(--surface-1)] px-3 py-1 rounded-lg border border-[var(--border-default)]">
+                    ✓ Full Production Specification
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
+                <button
+                  type="button"
+                  onClick={() => setShowPdfPreview(!showPdfPreview)}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[var(--surface-1)] border border-[var(--border-strong)] text-[var(--text-primary)] font-sora font-bold text-xs hover:border-[#E11D72] transition-all cursor-pointer shadow-md"
+                >
+                  <Eye className="w-4 h-4 text-[#E11D72]" />
+                  <span>{showPdfPreview ? "Hide PDF Viewer" : "Preview PDF Document"}</span>
+                </button>
+                
+                <a
+                  href="/documentation.pdf"
+                  download="Kashtrix-Enterprise-Telecom-OS-Documentation.pdf"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#E11D72] hover:bg-[#FF2E93] text-white font-sora font-bold text-xs transition-all shadow-lg shadow-[#E11D72]/25 cursor-pointer"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download PDF (36.6 MB)</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Embedded PDF Viewer Frame */}
+            {showPdfPreview && (
+              <div className="mt-8 pt-8 border-t border-[var(--border-default)] animate-fadeIn">
+                <div className="flex items-center justify-between mb-3 text-xs font-bold text-[var(--text-secondary)] font-mono">
+                  <span>Interactive PDF Viewer: public/documentation.pdf</span>
+                  <a
+                    href="/documentation.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--text-link)] hover:underline inline-flex items-center gap-1"
+                  >
+                    Open Fullscreen Tab <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+                <div className="w-full h-[650px] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[#11071F] shadow-2xl">
+                  <iframe
+                    src="/documentation.pdf"
+                    title="Kashtrix Enterprise Telecom OS Technical Documentation PDF"
+                    className="w-full h-full border-none"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Regional Globe Section */}
           <div className="mt-16 pt-16 border-t border-[var(--border-default)]">
             <h3 className="text-xl font-bold font-sora text-[var(--text-primary)] text-center mb-8">
@@ -196,3 +266,4 @@ export default function ContactPage() {
     </SiteShell>
   );
 }
+

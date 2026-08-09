@@ -124,7 +124,7 @@ export const DETAIL_CONFIGS = {
     capability("Service reporting", "Review patterns and outcomes across voice operations.", FileChartColumn),
   ], ["Connect voice system", "Capture call event", "Add subscriber context", "Trigger workflow", "Review outcome"]),
 
-  fieldOperations: detail("field", "Field operations", "Turn service demand.", "Into accountable field work.", "Coordinate installations, incidents, technicians, inventory, and customer communication through one operational workflow.", MapPinned, OSS_BSS_ASSETS.fieldTasks, "Telecom field task management application", [
+  fieldOperations: detail("field", "Field operations", "Turn service demand.", "Into accountable field work.", "Coordinate installations, incidents, technicians, inventory, and customer communication through one operational workflow.", MapPinned, "/mobile.png", "Kashtrix Field Operations Mobile App for iOS and Android technicians showing GPS dispatch and CPE scanning", [
     capability("Work orders", "Create clear tasks with service, customer, and network context.", ClipboardCheck),
     capability("Dispatch planning", "Assign and sequence work using skills and location context.", MapPinned),
     capability("Mobile execution", "Keep field progress and evidence connected to the operation.", Smartphone),

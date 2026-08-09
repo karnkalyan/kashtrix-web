@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start -p 3102",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:seo": "npx tsx scripts/test-seo.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

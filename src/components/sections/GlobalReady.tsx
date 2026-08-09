@@ -9,13 +9,13 @@ export const GlobalReady: React.FC = () => {
   const [activeRegion, setActiveRegion] = useState("North America");
 
   const regionSpecs: Record<string, { circuits: string; ping: string; sla: string; hubs: string[] }> = {
-    "North America": { circuits: "124,000 active circuits", ping: "4.2ms avg intra-region", sla: "99.999% SLA", hubs: ["New York (US-East)", "Ashburn (US-East-2)", "San Jose (US-West)"] },
-    "Europe": { circuits: "214,500 active circuits", ping: "5.1ms avg intra-region", sla: "99.999% SLA", hubs: ["London (EU-West)", "Frankfurt (EU-Central)", "Amsterdam (EU-West-2)"] },
-    "Asia Pacific": { circuits: "282,000 active circuits", ping: "6.4ms avg intra-region", sla: "99.999% SLA", hubs: ["Tokyo (AP-East)", "Singapore (AP-South)", "Sydney (AP-Southeast)"] },
-    "Middle East": { circuits: "41,000 active circuits", ping: "8.1ms avg intra-region", sla: "99.998% SLA", hubs: ["Dubai (ME-Central)", "Riyadh (ME-East)"] },
-    "South America": { circuits: "64,000 active circuits", ping: "11.2ms avg intra-region", sla: "99.997% SLA", hubs: ["São Paulo (SA-East)", "Bogotá (SA-North)"] },
-    "Australia": { circuits: "52,000 active circuits", ping: "7.8ms avg intra-region", sla: "99.999% SLA", hubs: ["Sydney (AP-Southeast)", "Melbourne (AP-South)"] },
-    "Africa": { circuits: "29,000 active circuits", ping: "14.5ms avg intra-region", sla: "99.996% SLA", hubs: ["Cape Town (AF-South)", "Johannesburg (AF-Central)"] },
+    "North America": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["New York (US-East)", "Ashburn (US-East-2)", "San Jose (US-West)"] },
+    "Europe": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["London (EU-West)", "Frankfurt (EU-Central)", "Amsterdam (EU-West-2)"] },
+    "Asia Pacific": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["Tokyo (AP-East)", "Singapore (AP-South)", "Sydney (AP-Southeast)"] },
+    "Middle East": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["Dubai (ME-Central)", "Riyadh (ME-East)"] },
+    "South America": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["São Paulo (SA-East)", "Bogotá (SA-North)"] },
+    "Australia": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["Sydney (AP-Southeast)", "Melbourne (AP-South)"] },
+    "Africa": { circuits: "Multi-tenant deployment", ping: "Low-latency intra-region", sla: "High Availability", hubs: ["Cape Town (AF-South)", "Johannesburg (AF-Central)"] },
   };
 
   const currentSpecs = regionSpecs[activeRegion] || regionSpecs["North America"];
@@ -36,7 +36,7 @@ export const GlobalReady: React.FC = () => {
             </h2>
 
             <p className="text-sm md:text-base text-[var(--text-secondary)] leading-relaxed">
-              Kashtrix operates across 9 global peering regions with automated geo-redundancy. If an optical terminal controller or BNG pool experiences hardware degradation, subscriber sessions instantly fail over to adjacent availability zones without session drop.
+              Kashtrix is designed for multi-region deployment with automated geo-redundancy. If an optical terminal controller or BNG pool experiences hardware degradation, subscriber sessions can fail over to adjacent availability zones.
             </p>
 
             {/* Active Region Highlights Box */}
@@ -53,7 +53,7 @@ export const GlobalReady: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <span className="text-[var(--text-secondary)] block">Active Circuits:</span>
+                  <span className="text-[var(--text-secondary)] block">Deployment:</span>
                   <strong className="text-[var(--text-primary)] text-sm">{currentSpecs.circuits}</strong>
                 </div>
                 <div>

@@ -7,7 +7,7 @@ import { HOMEPAGE_FAQS } from "@/lib/faqs";
 export const metadata = constructMetadata({
   title: "AI-Powered ISP Management Software & OSS/BSS Platform | Kashtrix",
   description:
-    "Kashtrix is an AI-powered ISP management and OSS/BSS platform for ISPs, WISPs and fiber operators, combining billing, CRM, FreeRADIUS AAA, network operations, OLT and BNG automation, inventory, syslog and AI agents.",
+    "Kashtrix is an AI-native OSS/BSS platform for ISPs, WISPs and FTTH operators, unifying network management, billing, CRM, Syslog, RADIUS, Fiber GIS and AI agents.",
   keywords: [
     "Kashtrix",
     "ISP management software",
@@ -29,6 +29,7 @@ export const metadata = constructMetadata({
     "syslog server",
     "CGNAT logging",
     "OLT management software",
+    "Fiber GIS mapping",
   ],
   canonical: "https://kashtrix.com/",
 });

@@ -4,7 +4,7 @@ import { Inter, Poppins, Roboto } from "next/font/google";
 import { constructMetadata } from "@/lib/seo";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
-import { getOrganizationSchema, getSoftwareApplicationSchema, getWebsiteSchema } from "@/lib/seo";
+import { getOrganizationSchema, getWebsiteSchema } from "@/lib/seo";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -35,7 +35,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-[var(--page-bg)] text-[var(--text-primary)] selection:bg-[var(--brand-pink)] selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getOrganizationSchema()) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getSoftwareApplicationSchema()) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebsiteSchema()) }} />
       </body>
     </html>

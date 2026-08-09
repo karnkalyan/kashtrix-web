@@ -33,9 +33,9 @@ export default function PlatformPage() {
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)] mb-4">
             Unified Operating System
           </span>
-          <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
             Every System. One Platform.
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-4 leading-relaxed">
             Eliminate silos by connecting your fiber switches, BNG routers, billing meters, and support CRM into one synchronized timeseries database.
           </p>

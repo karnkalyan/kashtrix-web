@@ -1,16 +1,16 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { constructMetadata } from "@/lib/seo";
 
-export const metadata = constructMetadata({
-  title: "Request a Kashtrix Live Demo | AI-Native Telecom OSS/BSS & Syslog",
+export const metadata: Metadata = constructMetadata({
+  title: "Request a Custom Kashtrix Demo | ISP Management & OSS/BSS Sandbox",
   description:
-    "Schedule a live platform demonstration of Kashtrix OSS/BSS, Carrier-Grade Syslog Server, AI Agents, FreeRADIUS AAA, and MikroTik billing with a lead solutions engineer.",
+    "Request a personalized Kashtrix demo tailored to your ISP network hardware. Test PPPoE sessions, OLT provisioning, billing workflows and AI agents in a safe sandbox environment.",
   keywords: [
     "Kashtrix demo",
-    "ISP billing software demo",
-    "telecom OSS BSS demo",
-    "carrier grade syslog demo",
-    "AI NOC demo",
+    "ISP management demo",
+    "OSS BSS demo",
+    "telecom platform trial",
   ],
   canonical: "https://kashtrix.com/request-demo",
 });

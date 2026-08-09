@@ -36,7 +36,7 @@ export default function DocumentationPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-2)] space-y-4">
               <div className="flex items-center gap-2 text-sm font-bold font-sora text-[var(--text-primary)]">
                 <Server className="w-5 h-5 text-[var(--text-link)]" /> 1. Core Platform Setup
@@ -68,6 +68,36 @@ export default function DocumentationPage() {
                 <li className="flex items-center gap-2 hover:text-[var(--text-link)]"><ArrowRight className="w-3.5 h-3.5 text-[var(--text-accent)]" /> SOC 2 Type II Immutable Audit Ledger</li>
                 <li className="flex items-center gap-2 hover:text-[var(--text-link)]"><ArrowRight className="w-3.5 h-3.5 text-[var(--text-accent)]" /> Role-Based Access Control (RBAC) Policies</li>
               </ul>
+            </div>
+          </div>
+
+          {/* Full Technical Documentation PDF Download Banner */}
+          <div className="p-8 rounded-3xl border border-[var(--border-brand)] bg-[var(--surface-purple)] shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center sm:text-left">
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-link)] block">Official Download</span>
+              <h3 className="text-xl font-bold font-sora text-[var(--text-primary)]">
+                Complete Kashtrix Architecture &amp; Capability Guide (PDF)
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)]">
+                Download the full 36.6 MB official technical documentation specification for offline reading or internal team distribution.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href="/documentation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-xl bg-[var(--surface-1)] border border-[var(--border-strong)] text-[var(--text-primary)] font-sora font-bold text-xs hover:border-[#E11D72] transition-all"
+              >
+                Preview PDF
+              </a>
+              <a
+                href="/documentation.pdf"
+                download="Kashtrix-Enterprise-Telecom-OS-Documentation.pdf"
+                className="px-5 py-3 rounded-xl bg-[#E11D72] hover:bg-[#FF2E93] text-white font-sora font-bold text-xs transition-all shadow-md"
+              >
+                Download PDF (36.6 MB)
+              </a>
             </div>
           </div>
         </div>

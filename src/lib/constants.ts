@@ -108,9 +108,9 @@ export const SOLUTIONS_MEGA = {
   ],
   businessNeed: [
     { title: "Reduce Operating Cost", href: "/solutions#cost", desc: "Replace 6+ legacy licenses with one unified Kashtrix core." },
-    { title: "Automate Billing", href: "/billing", desc: "Eliminate manual rating errors and speed up cash collection by 45%." },
+    { title: "Automate Billing", href: "/billing", desc: "Eliminate manual rating errors and accelerate cash collection." },
     { title: "Improve Network Visibility", href: "/network-management", desc: "Sub-second telemetry across fiber, core, and aggregation layers." },
-    { title: "Accelerate Support", href: "/ai-agents#support", desc: "Resolve 70% of tier-1 tickets instantly with autonomous AI agents." },
+    { title: "Accelerate Support", href: "/ai-agents#support", desc: "Resolve tier-1 tickets faster with autonomous AI agent diagnostics." },
     { title: "Improve Collections", href: "/billing#collections", desc: "Automated payment reminder voice calls and instant gateway retry." },
     { title: "Scale Field Teams", href: "/field-operations", desc: "Automate GPS dispatching, fiber drop verification, and inventory." },
   ],
@@ -132,7 +132,7 @@ export const AI_AGENTS_LIST = [
     role: "Autonomous Lead & Upsell Engine",
     description: "Analyzes subscriber bandwidth exhaustion to recommend dynamic speed upgrades and qualification.",
     icon: "TrendingUp",
-    metrics: "+28% ARPU Growth",
+    metrics: "ARPU Optimization",
   },
   {
     id: "support-ai",
@@ -140,7 +140,7 @@ export const AI_AGENTS_LIST = [
     role: "Tier-1 Autonomous Diagnostics",
     description: "Executes real-time Radius session checks, optical loss tests, and router reboots before human dispatch.",
     icon: "Headset",
-    metrics: "72% Instant Deflection",
+    metrics: "Instant Deflection",
   },
   {
     id: "billing-ai",
@@ -156,7 +156,7 @@ export const AI_AGENTS_LIST = [
     role: "Autonomous Network Self-Healing",
     description: "Correlates thousands of optical and BNG alarms into a single root-cause fiber cut or power event.",
     icon: "Activity",
-    metrics: "-82% MTTR",
+    metrics: "Reduced MTTR",
   },
   {
     id: "finance-ai",
@@ -180,7 +180,7 @@ export const AI_AGENTS_LIST = [
     role: "Conversational Telecom Call Assistant",
     description: "Conducts natural voice telephone calls to remind customers of past-due balances or scheduled fiber maintenance.",
     icon: "PhoneCall",
-    metrics: "4.8/5 Customer CSAT",
+    metrics: "High CSAT Scores",
   },
   {
     id: "automation-ai",
@@ -200,10 +200,10 @@ export const RESOURCES_MEGA = [
   { title: "Hardware Support Matrix", href: "/hardware-automation#matrix", desc: "Complete vendor compatibility list for Cisco, Huawei, Nokia, etc." },
   { title: "AI Agent Guides", href: "/ai-agents#guides", desc: "How to deploy and fine-tune Kashtrix AI employees for your ISP." },
   { title: "Blog & Insights", href: "/resources#blog", desc: "Latest trends in AI telecom architecture and fiber automation." },
-  { title: "Case Studies", href: "/resources#cases", desc: "How Tier-1 and regional ISPs scaled to 500,000+ subs with Kashtrix." },
+  { title: "Case Studies", href: "/resources#cases", desc: "How ISPs scale subscriber operations with Kashtrix." },
   { title: "Webinars", href: "/resources#webinars", desc: "Live technical deep dives with Kashtrix network architects." },
   { title: "Help Center", href: "/documentation#help", desc: "Searchable troubleshooting FAQs and ticketing support." },
   { title: "Release Notes", href: "/resources#releases", desc: "Weekly updates, new vendor drivers, and performance upgrades." },
   { title: "Security Center", href: "/security", desc: "SOC 2 Type II compliance, ISO 27001, and zero-trust architecture." },
-  { title: "Community Forum", href: "/resources#community", desc: "Connect with 15,000+ telecom engineers and automation architects." },
+  { title: "Community Forum", href: "/resources#community", desc: "Connect with telecom engineers and automation architects." },
 ];

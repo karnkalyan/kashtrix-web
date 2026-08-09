@@ -1,16 +1,16 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { constructMetadata } from "@/lib/seo";
 
-export const metadata = constructMetadata({
-  title: "Contact Kashtrix Sales & Support | Telecom OSS/BSS & Syslog Experts",
+export const metadata: Metadata = constructMetadata({
+  title: "Contact Kashtrix | Talk to ISP Management & Telecom OSS/BSS Architects",
   description:
-    "Speak with Kashtrix telecom solutions architects about OSS/BSS deployment, Carrier-Grade Syslog servers, AI Agents, MikroTik RADIUS billing, and custom integrations.",
+    "Reach out to Kashtrix telecom solutions architects. Get help with ISP management, OSS/BSS deployment, syslog integration, AI agent configuration and network automation.",
   keywords: [
-    "Contact Kashtrix",
+    "contact Kashtrix",
+    "ISP management consultation",
+    "telecom OSS BSS support",
     "Kashtrix sales",
-    "telecom OSS BSS sales",
-    "syslog server inquiry",
-    "ISP software contact",
   ],
   canonical: "https://kashtrix.com/contact",
 });
