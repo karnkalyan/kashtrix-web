@@ -233,7 +233,7 @@ export default function ContactPage() {
             {showPdfPreview && (
               <div className="mt-8 pt-8 border-t border-[var(--border-default)] animate-fadeIn">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 text-xs font-bold text-[var(--text-secondary)] font-mono">
-                  <span>Interactive PDF Document Viewer: documentation.pdf (36.6 MB)</span>
+                  <span>Interactive PDF Document Viewer: Documentation (36.6 MB)</span>
                   <a
                     href="/documentation.pdf"
                     target="_blank"
