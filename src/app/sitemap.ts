@@ -58,44 +58,54 @@ const LEGAL_ROUTES = ["privacy", "terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://kashtrix.com").replace(/\/$/, "");
-
-  // NOTE: lastModified is intentionally omitted on most entries because
-  // we cannot determine a trustworthy content-modification timestamp from
-  // the filesystem alone. Google recommends omitting lastmod rather than
-  // fabricating today's date for every page.
+  const lastModified = new Date();
 
   const homeEntry: MetadataRoute.Sitemap[number] = {
     url: `${baseUrl}/`,
+    lastModified,
+    changeFrequency: "daily",
     priority: 1.0,
   };
 
   const flagshipEntries: MetadataRoute.Sitemap = FLAGSHIP_PRODUCT_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
     priority: 0.95,
   }));
 
   const solutionEntries: MetadataRoute.Sitemap = SOLUTION_FEATURE_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
     priority: 0.9,
   }));
 
   const solutionLandingEntries: MetadataRoute.Sitemap = SOLUTION_LANDING_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
     priority: 0.85,
   }));
 
   const resourceEntries: MetadataRoute.Sitemap = RESOURCE_CORPORATE_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const comparisonEntries: MetadataRoute.Sitemap = COMPARISON_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
     priority: 0.75,
   }));
 
   const legalEntries: MetadataRoute.Sitemap = LEGAL_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "monthly",
     priority: 0.5,
   }));
 
