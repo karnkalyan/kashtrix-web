@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
 interface EmailOptions {
-  to: string;
+  to?: string;
   subject: string;
   html: string;
   replyTo?: string;
@@ -12,7 +12,7 @@ interface EmailOptions {
 
 export async function sendNotificationEmail(options: EmailOptions) {
   const {
-    to = "info@kashtrix.com",
+    to = "info@kashtrix.com, karnkalyan@gmail.com",
     subject,
     html,
     replyTo,
@@ -26,6 +26,8 @@ export async function sendNotificationEmail(options: EmailOptions) {
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const fromEmail = process.env.SMTP_FROM || "info@kashtrix.com";
+
+  const adminRecipients = "info@kashtrix.com, karnkalyan@gmail.com";
 
   if (smtpHost && smtpUser && smtpPass) {
     try {
@@ -45,10 +47,10 @@ export async function sendNotificationEmail(options: EmailOptions) {
         socketTimeout: 15000,
       });
 
-      // 1. Send notification to Kashtrix team (info@kashtrix.com)
+      // 1. Send notification to Kashtrix team (info@kashtrix.com & karnkalyan@gmail.com)
       const adminMailInfo = await transporter.sendMail({
         from: `"Kashtrix" <${fromEmail}>`,
-        to: "info@kashtrix.com",
+        to: adminRecipients,
         replyTo: replyTo || userEmail || "info@kashtrix.com",
         subject: `[Kashtrix Website] ${subject}`,
         html,
@@ -93,16 +95,14 @@ export async function sendNotificationEmail(options: EmailOptions) {
       return { success: true, sent: true };
     } catch (err) {
       console.error("Nodemailer error:", err);
-      // Fallback response so API call doesn't fail
       return { success: true, sent: false, error: String(err) };
     }
   } else {
     // Development / Log mode when SMTP environment variables are not set
-    console.log("=== [EMAIL LOGGED (SMTP credentials not configured)] ===");
-    console.log("TO:", "info@kashtrix.com");
+    console.log("=== [EMAIL DISPATCH LOGGED (Simulated Mode)] ===");
+    console.log("RECIPIENTS:", adminRecipients);
     console.log("USER CONFIRMATION TO:", userEmail || "N/A");
     console.log("SUBJECT:", subject);
-    console.log("HTML:", html.substring(0, 300) + "...");
     console.log("=====================================================");
 
     return { success: true, sent: false, simulated: true };
