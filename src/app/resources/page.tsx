@@ -6,7 +6,7 @@ import { constructMetadata } from "@/lib/seo";
 import { AllPlatformAssetsShowcase } from "@/components/sections/AllPlatformAssetsShowcase";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix Resources | 48 Product Application Screens, Guides & AI Blueprints",
+  title: "Kashtrix Resources | 6 Technical Engineering Blueprints & 48 Showcase Assets",
   description:
     "Explore Kashtrix technical resources, 48 high-definition live application screenshots, ISP case studies, CGNAT syslog compliance guides, FreeRADIUS AAA blueprints, and AI NOC whitepapers.",
   keywords: [
@@ -23,10 +23,10 @@ export const metadata = constructMetadata({
 const RESOURCE_ITEMS = [
   {
     category: "Technical Whitepaper",
-    title: "Sub-Second High-Concurrency Radius & BNG Re-balancing with AI",
+    title: "FreeRADIUS AAA & BNG Dynamic Session Rebalancing Guide",
     desc: "How Tier-1 ISPs eliminated prime-time streaming latency spikes by correlating optical alarms with dynamic PPPoE pool re-allocation.",
     date: "March 2026",
-    href: "/documentation",
+    href: "/resources/freeradius-bng-rebalancing-ai",
     icon: FileText,
   },
   {
@@ -34,23 +34,39 @@ const RESOURCE_ITEMS = [
     title: "Zero-Touch GPON OLT Provisioning for Huawei MA5800 & Nokia ISAM",
     desc: "Ready-to-run NETCONF/YANG and CLI script templates verified across 15,000 active optical terminal deployments.",
     date: "February 2026",
-    href: "/network-automation",
+    href: "/resources/huawei-ma5800-nokia-olt-provisioning",
     icon: Terminal,
   },
   {
-    category: "AI Agent Guide",
-    title: "Fine-Tuning Autonomous Support AI for Optical Loss Deflection",
-    desc: "A step-by-step architectural guide on configuring gNMI telemetry triggers to reboot CPE routers and resolve tier-1 tickets automatically.",
+    category: "Regulatory Compliance",
+    title: "Carrier-Grade Syslog & CGNAT Subpoena Compliance Guide",
+    desc: "Managing high-throughput 100k+ EPS CGNAT log streams, SHA-256 HMAC tamper verification, and subsecond subpoena log lookup.",
+    date: "February 2026",
+    href: "/resources/cgnat-logging-compliance-guide",
+    icon: FileText,
+  },
+  {
+    category: "RouterOS Integration",
+    title: "MikroTik RouterOS & FreeRADIUS Billing Integration Guide",
+    desc: "Step-by-step configuration manual for connecting MikroTik CCR routers to central FreeRADIUS AAA and incoming CoA ports.",
     date: "January 2026",
-    href: "/ai-agents",
+    href: "/resources/mikrotik-freeradius-billing-guide",
+    icon: Terminal,
+  },
+  {
+    category: "FTTH Diagnostics",
+    title: "GPON Optical Loss & Splitter Attenuation Troubleshooting",
+    desc: "Field diagnostic reference for FTTH engineers on identifying optical attenuation anomalies, OTDR traces, and low ONT signals.",
+    date: "January 2026",
+    href: "/resources/gpon-optical-loss-troubleshooting",
     icon: Sparkles,
   },
   {
-    category: "On-Demand Webinar",
-    title: "Replacing Disconnected Legacy Billing & Rating Engines with One Core",
-    desc: "Technical deep dive with Senior NOC Architects on migrating 250,000 active subscriber circuits without service interruption.",
+    category: "Platform Migration",
+    title: "Legacy ISP Billing to Cloud OSS/BSS Migration Guide",
+    desc: "Technical migration blueprint for exporting subscriber data, preserving RADIUS passwords, and transitioning operations.",
     date: "December 2025",
-    href: "/billing",
+    href: "/resources/isp-oss-bss-migration-guide",
     icon: Video,
   },
 ];
@@ -65,14 +81,14 @@ export default function ResourcesPage() {
               Knowledge &amp; Blueprint Center
             </span>
             <h1 className="text-3xl sm:text-5xl font-bold font-sora text-[var(--text-primary)] tracking-tight">
-              Resources, Templates &amp; Engineering Insights
+              Resources, Technical Guides &amp; Blueprints
             </h1>
             <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-4 leading-relaxed">
               Explore production-verified multi-vendor automation scripts, AI reasoning architectures, and technical blueprints written by veteran NOC engineers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {RESOURCE_ITEMS.map((res) => {
               const Icon = res.icon;
               return (
@@ -86,22 +102,22 @@ export default function ResourcesPage() {
                       <div className="p-3 rounded-xl bg-[var(--surface-purple)] text-[var(--text-link)] group-hover:bg-[#2B0D3A] group-hover:text-white transition-colors">
                         <Icon className="w-5 h-5 stroke-[1.75]" />
                       </div>
-                      <span className="text-xs font-bold text-[var(--text-secondary)]">{res.date}</span>
+                      <span className="text-xs font-bold text-[var(--text-secondary)] font-mono">{res.date}</span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-link)] block">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-link)] block font-mono">
                       {res.category}
                     </span>
-                    <h3 className="text-lg md:text-xl font-bold font-sora text-[var(--text-primary)] group-hover:text-[var(--text-link)] transition-colors">
+                    <h3 className="text-lg font-bold font-sora text-[var(--text-primary)] group-hover:text-[#E11D72] transition-colors">
                       {res.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed font-inter">
                       {res.desc}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-[var(--border-default)] flex items-center gap-2 text-xs font-bold text-[var(--text-link)] group-hover:text-[var(--text-primary)]">
+                  <div className="pt-6 mt-6 border-t border-[var(--border-default)] flex items-center gap-2 text-xs font-bold text-[var(--text-link)] group-hover:text-[#E11D72]">
                     <span>Read Technical Blueprint</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[var(--text-accent)]" />
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#E11D72]" />
                   </div>
                 </Link>
               );

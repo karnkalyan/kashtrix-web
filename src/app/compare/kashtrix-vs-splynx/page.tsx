@@ -133,23 +133,27 @@ export default function KashtrixVsSplynxPage() {
                       </td>
                       <td className="p-4 text-center">
                         {row.kashtrix ? (
-                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold">
-                            <Check className="w-4 h-4" />
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs font-mono">
+                            <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                            <span>Yes</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-500/20 text-rose-400">
-                            <X className="w-4 h-4" />
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xs font-mono">
+                            <X className="w-3.5 h-3.5" aria-hidden="true" />
+                            <span>No</span>
                           </span>
                         )}
                       </td>
                       <td className="p-4 text-center">
                         {row.splynx ? (
-                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold">
-                            <Check className="w-4 h-4" />
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs font-mono">
+                            <Check className="w-3.5 h-3.5" aria-hidden="true" />
+                            <span>Yes</span>
                           </span>
                         ) : (
-                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-rose-500/20 text-rose-400">
-                            <X className="w-4 h-4" />
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xs font-mono">
+                            <X className="w-3.5 h-3.5" aria-hidden="true" />
+                            <span>No</span>
                           </span>
                         )}
                       </td>

@@ -14,6 +14,7 @@ export const metadata = constructMetadata({
 export default function FreeIspToolsPage() {
   return (
     <SiteShell>
+      <h1 className="sr-only">Free WISP &amp; Fiber Engineering Calculators</h1>
       <ISPToolsHub />
       <TellUsWhatYouNeed />
     </SiteShell>

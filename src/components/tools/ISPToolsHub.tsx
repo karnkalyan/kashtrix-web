@@ -353,9 +353,9 @@ function parseIPv4Cidr(inputStr: string, defaultCidr: number = 24) {
   };
 }
 
-export const ISPToolsHub: React.FC = () => {
+export const ISPToolsHub: React.FC<{ initialToolId?: string }> = ({ initialToolId }) => {
   const [activeTab, setActiveTab] = useState<string>("all");
-  const [selectedToolId, setSelectedToolId] = useState<string>("link-budget");
+  const [selectedToolId, setSelectedToolId] = useState<string>(initialToolId || "link-budget");
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
@@ -672,9 +672,9 @@ export const ISPToolsHub: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--surface-purple)] border border-[var(--border-brand)] text-xs font-bold text-[var(--text-link)] uppercase tracking-wider mb-4">
             <Sparkles className="w-4 h-4" /> 17 Interactive Engineering Calculators
           </div>
-          <h1 className="font-sora text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          <h2 className="font-sora text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
             Free ISP Engineering &amp; Planning Tools
-          </h1>
+          </h2>
           <p className="mt-4 font-inter text-sm sm:text-base text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
             Precision planning tools for WISPs and fiber operators — RF, optical, power, addressing, and business math. No sign-up required.
           </p>

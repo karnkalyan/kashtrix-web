@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
+import { ALL_TOOL_SLUGS } from "@/lib/toolsData";
 
 // ─── Route Categories ─────────────────────────────────────────────
-// Categorized by business priority for sitemap priority values
 
 const FLAGSHIP_PRODUCT_ROUTES = [
   "syslog",
@@ -42,12 +42,24 @@ const SOLUTION_LANDING_ROUTES = [
   "solutions/isp-branch-reseller-management",
 ];
 
+const RESOURCE_GUIDE_ROUTES = [
+  "resources/freeradius-bng-rebalancing-ai",
+  "resources/huawei-ma5800-nokia-olt-provisioning",
+  "resources/cgnat-logging-compliance-guide",
+  "resources/mikrotik-freeradius-billing-guide",
+  "resources/gpon-optical-loss-troubleshooting",
+  "resources/isp-oss-bss-migration-guide",
+];
+
+const INDIVIDUAL_TOOL_ROUTES = ALL_TOOL_SLUGS.map((slug) => `tools/${slug}`);
+
 const RESOURCE_CORPORATE_ROUTES = [
   "about",
   "contact",
   "documentation",
   "resources",
   "security",
+  "compliance",
 ];
 
 const COMPARISON_ROUTES = [
@@ -88,6 +100,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const toolLandingEntries: MetadataRoute.Sitemap = INDIVIDUAL_TOOL_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
+  const resourceGuideEntries: MetadataRoute.Sitemap = RESOURCE_GUIDE_ROUTES.map((route) => ({
+    url: `${baseUrl}/${route}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
   const resourceEntries: MetadataRoute.Sitemap = RESOURCE_CORPORATE_ROUTES.map((route) => ({
     url: `${baseUrl}/${route}`,
     lastModified,
@@ -114,6 +140,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...flagshipEntries,
     ...solutionEntries,
     ...solutionLandingEntries,
+    ...toolLandingEntries,
+    ...resourceGuideEntries,
     ...resourceEntries,
     ...comparisonEntries,
     ...legalEntries,
