@@ -56,6 +56,16 @@ export function constructMetadata({
     authors: [{ name: "Kashtrix Platform Inc." }],
     creator: "Kashtrix Platform Inc.",
     publisher: "Kashtrix Platform Inc.",
+    icons: {
+      icon: [
+        { url: "/logo/logo.png", type: "image/png" },
+        { url: "/favicon.ico" },
+      ],
+      apple: [
+        { url: "/logo/logo.png" },
+      ],
+      shortcut: ["/logo/logo.png"],
+    },
     formatDetection: {
       email: false,
       address: false,

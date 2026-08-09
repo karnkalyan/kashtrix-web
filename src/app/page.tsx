@@ -5,9 +5,9 @@ import { constructMetadata, getFAQSchema } from "@/lib/seo";
 import { HOMEPAGE_FAQS } from "@/lib/faqs";
 
 export const metadata = constructMetadata({
-  title: "Kashtrix | AI-Native Telecom OSS/BSS & ISP Management Platform",
+  title: "Kashtrix | AI-Native Telecom OSS/BSS Platform",
   description:
-    "Kashtrix is the unified AI-native OSS/BSS platform for ISPs, WISPs and FTTH operators, unifying network operations, billing, CRM, Syslog, FreeRADIUS AAA, Fiber GIS and AI agents.",
+    "Kashtrix is the AI-native OSS/BSS platform for ISPs, WISPs, and FTTH operators, unifying billing, CRM, FreeRADIUS AAA, network automation, and AI agents.",
   keywords: [
     "Kashtrix",
     "Kashtrix OSS BSS",

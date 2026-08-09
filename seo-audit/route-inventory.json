@@ -4,13 +4,13 @@
     "routePath": "/",
     "indexable": true,
     "status": 200,
-    "title": "Kashtrix | AI-Native Telecom OSS/BSS & ISP Management Platform",
-    "description": "Kashtrix is the unified AI-native OSS/BSS platform for ISPs, WISPs and FTTH operators, unifying network operations, billing, CRM, Syslog, FreeRADIUS AAA, Fiber GIS and AI agents.",
+    "title": "Kashtrix | AI-Native Telecom OSS/BSS Platform",
+    "description": "Kashtrix is the AI-native OSS/BSS platform for ISPs, WISPs, and FTTH operators, unifying billing, CRM, FreeRADIUS AAA, network automation, and AI agents.",
     "canonical": "https://kashtrix.com/",
     "h1Count": 1,
     "h1Text": "AI-Powered ISP Management\r\n              Software & OSS/BSS Platform\r\n              \r\n                \r\n                  {displayText}",
     "h2Count": 6,
-    "wordCount": 8937,
+    "wordCount": 8944,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -37,7 +37,7 @@
     "h1Count": 1,
     "h1Text": "Replacing Disconnected Systems With One Intelligent Core",
     "h2Count": 1,
-    "wordCount": 4156,
+    "wordCount": 4169,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -64,7 +64,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 6,
-    "wordCount": 6666,
+    "wordCount": 6679,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -91,7 +91,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 6,
-    "wordCount": 6672,
+    "wordCount": 6685,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -118,7 +118,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5757,
+    "wordCount": 5770,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -145,7 +145,7 @@
     "h1Count": 1,
     "h1Text": "Kashtrix vs Splynx: ISP OSS/BSS Platform Comparison",
     "h2Count": 4,
-    "wordCount": 3671,
+    "wordCount": 3684,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -172,7 +172,7 @@
     "h1Count": 1,
     "h1Text": "Talk to Our Experts.",
     "h2Count": 1,
-    "wordCount": 4093,
+    "wordCount": 4106,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -199,7 +199,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5745,
+    "wordCount": 5758,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -226,7 +226,7 @@
     "h1Count": 1,
     "h1Text": "Kashtrix Architecture &amp; Integration Guides",
     "h2Count": 0,
-    "wordCount": 3362,
+    "wordCount": 3375,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -253,7 +253,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 6,
-    "wordCount": 5830,
+    "wordCount": 5843,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -280,7 +280,7 @@
     "h1Count": 1,
     "h1Text": "Free ISP Engineering &amp; Planning Tools",
     "h2Count": 2,
-    "wordCount": 6308,
+    "wordCount": 6321,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -307,7 +307,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5755,
+    "wordCount": 5768,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -334,7 +334,7 @@
     "h1Count": 1,
     "h1Text": "Tailored for Every Telecom Provider Type",
     "h2Count": 2,
-    "wordCount": 4251,
+    "wordCount": 4264,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -361,7 +361,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 7,
-    "wordCount": 6343,
+    "wordCount": 6356,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -388,7 +388,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5742,
+    "wordCount": 5755,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -414,7 +414,7 @@
     "canonical": "https://kashtrix.com/login",
     "h1Count": 0,
     "h2Count": 1,
-    "wordCount": 3367,
+    "wordCount": 3380,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -441,7 +441,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5748,
+    "wordCount": 5761,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -468,7 +468,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 6,
-    "wordCount": 6663,
+    "wordCount": 6676,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -495,7 +495,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5760,
+    "wordCount": 5773,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -522,7 +522,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 9,
-    "wordCount": 7237,
+    "wordCount": 7250,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -549,7 +549,7 @@
     "h1Count": 1,
     "h1Text": "Let’s build the right commercial plan.",
     "h2Count": 3,
-    "wordCount": 3489,
+    "wordCount": 3502,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -576,7 +576,7 @@
     "h1Count": 1,
     "h1Text": "Privacy Policy",
     "h2Count": 4,
-    "wordCount": 3426,
+    "wordCount": 3439,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -603,7 +603,7 @@
     "h1Count": 1,
     "h1Text": "Request Your Custom Kashtrix Demo",
     "h2Count": 0,
-    "wordCount": 3613,
+    "wordCount": 3626,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -630,7 +630,7 @@
     "h1Count": 1,
     "h1Text": "Resources, Templates &amp; Engineering Insights",
     "h2Count": 1,
-    "wordCount": 5454,
+    "wordCount": 5467,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -657,7 +657,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 7,
-    "wordCount": 6009,
+    "wordCount": 6022,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -684,7 +684,7 @@
     "h1Count": 1,
     "h1Text": "AI Agent for ISP NOC Automation",
     "h2Count": 7,
-    "wordCount": 3928,
+    "wordCount": 3941,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -711,7 +711,7 @@
     "h1Count": 1,
     "h1Text": "CGNAT Syslog Compliance Logging Platform",
     "h2Count": 5,
-    "wordCount": 3699,
+    "wordCount": 3712,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -738,7 +738,7 @@
     "h1Count": 1,
     "h1Text": "Fiber GIS & OLT Splitter ONT Mapping Software",
     "h2Count": 5,
-    "wordCount": 3764,
+    "wordCount": 3777,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -765,7 +765,7 @@
     "h1Count": 1,
     "h1Text": "FreeRADIUS Billing with MikroTik Integration",
     "h2Count": 5,
-    "wordCount": 3688,
+    "wordCount": 3701,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -792,7 +792,7 @@
     "h1Count": 1,
     "h1Text": "ISP Branch & Reseller Multi-Tenant Platform",
     "h2Count": 5,
-    "wordCount": 3663,
+    "wordCount": 3676,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -819,7 +819,7 @@
     "h1Count": 1,
     "h1Text": "ISP Field Staff GPS Tracking & Work Order Software",
     "h2Count": 6,
-    "wordCount": 3723,
+    "wordCount": 3736,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -846,7 +846,7 @@
     "h1Count": 1,
     "h1Text": "ISP MCP Server for AI Integration",
     "h2Count": 4,
-    "wordCount": 3568,
+    "wordCount": 3581,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -873,7 +873,7 @@
     "h1Count": 1,
     "h1Text": "OLT Provisioning Software for ISPs",
     "h2Count": 5,
-    "wordCount": 3664,
+    "wordCount": 3677,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -900,7 +900,7 @@
     "h1Count": 1,
     "h1Text": "PPPoE Authentication &amp; Billing Platform",
     "h2Count": 3,
-    "wordCount": 3449,
+    "wordCount": 3462,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -927,7 +927,7 @@
     "h1Count": 1,
     "h1Text": "WISP Billing Software with AI Automation",
     "h2Count": 4,
-    "wordCount": 3525,
+    "wordCount": 3538,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -954,7 +954,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 7,
-    "wordCount": 7364,
+    "wordCount": 7377,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -981,7 +981,7 @@
     "h1Count": 1,
     "h1Text": "Terms of Service",
     "h2Count": 3,
-    "wordCount": 3353,
+    "wordCount": 3366,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -1008,7 +1008,7 @@
     "h1Count": 1,
     "h1Text": "Free ISP Engineering &amp; Planning Tools",
     "h2Count": 2,
-    "wordCount": 6347,
+    "wordCount": 6360,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",
@@ -1035,7 +1035,7 @@
     "h1Count": 1,
     "h1Text": "{config.title} {config.highlight}",
     "h2Count": 5,
-    "wordCount": 5741,
+    "wordCount": 5754,
     "structuredDataTypes": [
       "BreadcrumbList",
       "FAQPage",

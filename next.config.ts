@@ -9,6 +9,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Disable X-Powered-By header for security & server compliance
+  poweredByHeader: false,
+
   // Enforce consistent trailing-slash behavior (no trailing slash)
   trailingSlash: false,
 
