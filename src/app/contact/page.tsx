@@ -217,7 +217,7 @@ export default function ContactPage() {
                   <Eye className="w-4 h-4 text-[#E11D72]" />
                   <span>{showPdfPreview ? "Hide PDF Viewer" : "Preview PDF Document"}</span>
                 </button>
-                
+
                 <a
                   href="/documentation.pdf"
                   download="Kashtrix-Enterprise-Telecom-OS-Documentation.pdf"
@@ -232,23 +232,50 @@ export default function ContactPage() {
             {/* Embedded PDF Viewer Frame */}
             {showPdfPreview && (
               <div className="mt-8 pt-8 border-t border-[var(--border-default)] animate-fadeIn">
-                <div className="flex items-center justify-between mb-3 text-xs font-bold text-[var(--text-secondary)] font-mono">
-                  <span>Interactive PDF Viewer: public/documentation.pdf</span>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 text-xs font-bold text-[var(--text-secondary)] font-mono">
+                  <span>Interactive PDF Document Viewer: documentation.pdf (36.6 MB)</span>
                   <a
                     href="/documentation.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--text-link)] hover:underline inline-flex items-center gap-1"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#E11D72] text-white font-sora font-semibold text-xs shadow-md hover:bg-[#FF2E93] transition-all"
                   >
-                    Open Fullscreen Tab <ExternalLink className="w-3 h-3" />
+                    Open PDF in Fullscreen Tab <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
-                <div className="w-full h-[650px] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[#11071F] shadow-2xl">
-                  <iframe
-                    src="/documentation.pdf"
-                    title="Kashtrix Enterprise Telecom OS Technical Documentation PDF"
-                    className="w-full h-full border-none"
-                  />
+                <div className="w-full h-[700px] rounded-2xl overflow-hidden border border-[var(--border-default)] bg-[#11071F] shadow-2xl relative">
+                  <object
+                    data="/documentation.pdf#toolbar=1&view=FitH"
+                    type="application/pdf"
+                    className="w-full h-full rounded-2xl"
+                  >
+                    <div className="p-8 sm:p-12 text-center space-y-4 bg-[var(--surface-2)] h-full flex flex-col items-center justify-center">
+                      <FileText className="w-16 h-16 text-[#E11D72] mx-auto" />
+                      <h4 className="text-xl font-bold font-sora text-[var(--text-primary)]">
+                        Kashtrix Technical Architecture Documentation
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
+                        Your browser plugin or mobile view restricts inline PDF rendering. Open the full 36.6 MB document directly in a browser tab or download it to your device.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a
+                          href="/documentation.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-6 py-3 rounded-xl bg-[#E11D72] text-white text-xs font-bold font-sora shadow-md hover:bg-[#FF2E93] transition-all"
+                        >
+                          Open PDF in New Tab
+                        </a>
+                        <a
+                          href="/documentation.pdf"
+                          download="Kashtrix-Enterprise-Telecom-OS-Documentation.pdf"
+                          className="px-6 py-3 rounded-xl bg-[var(--surface-1)] border border-[var(--border-strong)] text-xs font-bold font-sora text-[var(--text-primary)] hover:border-[#E11D72] transition-all"
+                        >
+                          Download PDF (36.6 MB)
+                        </a>
+                      </div>
+                    </div>
+                  </object>
                 </div>
               </div>
             )}
