@@ -5,10 +5,12 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getOSSBSSProductSchema } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Telecom BSS Software for Billing, CRM & Revenue Management | Kashtrix",
+  title: "Kashtrix BSS | Telecom BSS Software for Billing, CRM & Revenue",
   description:
     "Unify subscriber billing, CRM, product catalog, order management, payments and revenue assurance with Kashtrix telecom BSS software for ISPs and broadband operators.",
   keywords: [
+    "Kashtrix BSS",
+    "Kashtrix OSS BSS",
     "telecom BSS software",
     "telecom BSS",
     "ISP BSS",
@@ -19,7 +21,6 @@ export const metadata = constructMetadata({
     "telecom product catalog",
     "subscriber CRM",
     "prepaid postpaid billing",
-    "Kashtrix BSS",
   ],
   canonical: "https://kashtrix.com/bss",
 });

@@ -5,10 +5,12 @@ import { DETAIL_CONFIGS } from "@/lib/detailConfigs";
 import { constructMetadata, getOSSBSSProductSchema } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Telecom OSS Software for ISP Network Operations | Kashtrix",
+  title: "Kashtrix OSS | Telecom OSS Software for ISP Network Operations",
   description:
     "Manage ISP network operations, FreeRADIUS AAA, GPON OLT provisioning, TR-069 ACS, fault management and multi-vendor device automation with Kashtrix telecom OSS software.",
   keywords: [
+    "Kashtrix OSS",
+    "Kashtrix OSS BSS",
     "telecom OSS software",
     "telecom OSS",
     "ISP OSS",
@@ -21,7 +23,6 @@ export const metadata = constructMetadata({
     "TR-069 ACS server",
     "FreeRADIUS AAA",
     "NOC software",
-    "Kashtrix OSS",
   ],
   canonical: "https://kashtrix.com/oss",
 });
