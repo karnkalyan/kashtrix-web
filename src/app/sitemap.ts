@@ -30,6 +30,11 @@ const SOLUTION_FEATURE_ROUTES = [
 ];
 
 const SOLUTION_LANDING_ROUTES = [
+  "solutions/zero-touch-provisioning",
+  "solutions/multi-vendor-device-management-nms",
+  "solutions/ai-driven-syslog-fault-analyzer",
+  "solutions/closed-loop-fault-ticketing",
+  "solutions/convergent-billing-dunning",
   "solutions/ai-agent-isp-noc-automation",
   "solutions/freeradius-mikrotik-billing",
   "solutions/olt-provisioning",

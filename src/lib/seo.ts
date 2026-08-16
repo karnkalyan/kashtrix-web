@@ -35,6 +35,32 @@ export const DEFAULT_KEYWORDS = [
   "RADIUS billing software",
   "TR-069 ACS",
   "BNG automation",
+  "Zero touch ISP provisioning",
+  "ONT file upload auto configuration",
+  "Automated TR069 ACS server",
+  "Self provisioning FTTH software",
+  "Automated ONU provisioning engine Huawei ZTE Nokia BDCOM",
+  "Model Context Protocol MCP AI agents telecom NOC",
+  "Automated voice AI customer service bot ISP",
+  "Autonomous customer care agentic AI",
+  "AI driven syslog log analyzer multi vendor network faults",
+  "Integrated strand level fiber GIS mapping software",
+  "ODN splitters fiber optic path visualization",
+  "Geospatial fiber cable network tracking OSS BSS",
+  "Reseller prepaid wallet architecture cable operators",
+  "Multi tenant branch local sub dealer ISP billing",
+  "Hierarchical member management system local loop operators",
+  "Multi tier distributor margin wallet ledger",
+  "Automated SLA tracking ticket escalation engine ISPs",
+  "Field technician dispatch task management inside BSS",
+  "Subscriber ticketing panel automatic network ping diagnosis",
+  "Closed loop fault ticketing system broadband operators",
+  "Digital wallet integrated ISP billing automated dunning",
+  "Automated bandwidth throttling unpaid invoices",
+  "Convergent billing ledger multi branch broadband",
+  "Single dashboard all device management system",
+  "SNMP SSH Telnet device management ISP NMS",
+  "MikroTik Nokia Cisco Juniper Huawei BDCOM ZTE FiberHome",
 ];
 
 export function constructMetadata({
@@ -206,7 +232,7 @@ export function getBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-// ─── Product Schemas (without fake pricing) ───────────────────────
+// ─── Product Schemas ──────────────────────────────────────────────
 
 export function getSyslogProductSchema() {
   return {
@@ -218,6 +244,71 @@ export function getSyslogProductSchema() {
     description: "High-throughput ISP syslog server and CGNAT audit logging platform. Ingest syslog streams from MikroTik, Cisco, Nokia, Huawei and GPON OLTs with subscriber IP-port mapping, encrypted archiving and law enforcement compliance search.",
     brand: { "@type": "Brand", name: "Kashtrix" },
     url: "https://kashtrix.com/syslog",
+  };
+}
+
+export function getZeroTouchProvisioningProductSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://kashtrix.com/solutions/zero-touch-provisioning#product",
+    name: "Kashtrix Zero-Touch Provisioning & Auto-Configuration Engine",
+    image: "https://kashtrix.com/logo/logo.png",
+    description: "Zero-touch ISP zero configuration provisioning software with ONT batch file upload, automated TR-069 ACS server, self-provisioning FTTH workflows, and automated ONU provisioning engine for Huawei, ZTE, Nokia, BDCOM, MikroTik, Cisco, and Juniper.",
+    brand: { "@type": "Brand", name: "Kashtrix" },
+    url: "https://kashtrix.com/solutions/zero-touch-provisioning",
+  };
+}
+
+export function getMultiVendorNMSSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://kashtrix.com/solutions/multi-vendor-device-management-nms#product",
+    name: "Kashtrix Unified Multi-Vendor NMS & Device Management System",
+    image: "https://kashtrix.com/logo/logo.png",
+    description: "Single dashboard ISP network management system supporting SNMP v2c/v3, SSH, Telnet, TR-069, and NetFlow across MikroTik, Nokia ISAM, Cisco ASR, Juniper MX, Huawei MA5800, BDCOM, ZTE, and VSOL hardware.",
+    brand: { "@type": "Brand", name: "Kashtrix" },
+    url: "https://kashtrix.com/solutions/multi-vendor-device-management-nms",
+  };
+}
+
+export function getAISyslogAnalyzerSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://kashtrix.com/solutions/ai-driven-syslog-fault-analyzer#product",
+    name: "Kashtrix AI-Driven Syslog Log Analyzer & Telecom MCP Agents",
+    image: "https://kashtrix.com/logo/logo.png",
+    description: "Model Context Protocol (MCP) AI agents for telecom NOCs, AI-driven syslog log analyzer for multi-vendor network faults, and autonomous customer care agentic AI for ISP ticketing.",
+    brand: { "@type": "Brand", name: "Kashtrix" },
+    url: "https://kashtrix.com/solutions/ai-driven-syslog-fault-analyzer",
+  };
+}
+
+export function getClosedLoopTicketingSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://kashtrix.com/solutions/closed-loop-fault-ticketing#product",
+    name: "Kashtrix Closed-Loop Fault Ticketing & SLA Escalation Engine",
+    image: "https://kashtrix.com/logo/logo.png",
+    description: "Automated SLA tracking and ticket escalation engine with real-time subscriber ONT ping diagnosis, mobile field technician dispatch, and automated closed-loop ticket resolution.",
+    brand: { "@type": "Brand", name: "Kashtrix" },
+    url: "https://kashtrix.com/solutions/closed-loop-fault-ticketing",
+  };
+}
+
+export function getConvergentBillingSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": "https://kashtrix.com/solutions/convergent-billing-dunning#product",
+    name: "Kashtrix Convergent Billing, Digital Wallets & Automated Dunning",
+    image: "https://kashtrix.com/logo/logo.png",
+    description: "Digital wallet integrated ISP billing with automated dunning, automated bandwidth throttling (CoA/PoD), convergent multi-branch ledgers, and automated invoice reconciliation.",
+    brand: { "@type": "Brand", name: "Kashtrix" },
+    url: "https://kashtrix.com/solutions/convergent-billing-dunning",
   };
 }
 

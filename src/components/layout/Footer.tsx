@@ -63,14 +63,16 @@ export const Footer: React.FC = () => {
     {
       title: "Solutions & Intent",
       links: [
+        { label: "Zero-Touch ISP Provisioning", href: "/solutions/zero-touch-provisioning" },
+        { label: "Multi-Vendor Device NMS", href: "/solutions/multi-vendor-device-management-nms" },
+        { label: "AI Syslog & MCP Agents", href: "/solutions/ai-driven-syslog-fault-analyzer" },
+        { label: "Closed-Loop Fault Ticketing", href: "/solutions/closed-loop-fault-ticketing" },
+        { label: "Convergent Billing & Dunning", href: "/solutions/convergent-billing-dunning" },
         { label: "Fiber GIS & Splitter Mapping", href: "/solutions/fiber-gis-olt-ont-splitter" },
         { label: "Field Staff GPS & Dispatch", href: "/solutions/isp-field-staff-gps" },
         { label: "Branch & Reseller Billing", href: "/solutions/isp-branch-reseller-management" },
         { label: "Kashtrix vs Splynx", href: "/compare/kashtrix-vs-splynx" },
         { label: "FreeRADIUS & MikroTik Billing", href: "/solutions/freeradius-mikrotik-billing" },
-        { label: "OLT Provisioning Software", href: "/solutions/olt-provisioning" },
-        { label: "CGNAT Syslog Logging", href: "/solutions/cgnat-syslog-compliance" },
-        { label: "Enterprise Pricing Plans", href: "/pricing" },
       ],
     },
     {

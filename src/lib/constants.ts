@@ -74,10 +74,10 @@ export const AUTOMATION_SUBSECTIONS = {
     { title: "Safe Configuration Deployment", href: "/network-automation#config", desc: "Validate, deploy and roll back network changes." },
   ],
   hardware: [
+    { title: "Zero-Touch ONT Provisioning", href: "/solutions/zero-touch-provisioning", desc: "Batch ONT file upload, auto-discovery & TR-069 ACS bootstrap." },
+    { title: "Multi-Vendor NMS & SNMP", href: "/solutions/multi-vendor-device-management-nms", desc: "Unified dashboard for MikroTik, Nokia, Cisco, Juniper & Huawei." },
     { title: "Multi-Vendor Device Automation", href: "/hardware-automation", desc: "One workflow across your router, switch, OLT and firewall estate." },
-    { title: "Device Onboarding", href: "/hardware-automation#onboarding", desc: "Discover, validate and bring equipment under management." },
-    { title: "Configuration Automation", href: "/hardware-automation#configuration", desc: "Deploy approved changes consistently at any scale." },
-    { title: "Monitoring & Telemetry", href: "/hardware-automation#telemetry", desc: "Turn device health signals into actionable operations." },
+    { title: "OLT & ONT Provisioning", href: "/solutions/olt-provisioning", desc: "Huawei MA5800, Nokia ISAM and ZTE C300 activation." },
     { title: "Compliance & Recovery", href: "/hardware-automation#compliance", desc: "Detect drift and restore known-good configurations." },
   ],
   voice: [

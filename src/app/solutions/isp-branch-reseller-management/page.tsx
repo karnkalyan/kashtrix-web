@@ -2,164 +2,320 @@ import React from "react";
 import Link from "next/link";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { constructMetadata, getBreadcrumbSchema, getFAQSchema } from "@/lib/seo";
-import { Building2, Users, CreditCard, ShieldCheck, Layers, ArrowRight } from "lucide-react";
+import {
+  Building2,
+  Users,
+  CreditCard,
+  ShieldCheck,
+  Layers,
+  ArrowRight,
+  Wallet,
+  Coins,
+  ReceiptText,
+  Network,
+  Split,
+} from "lucide-react";
 
 export const metadata = constructMetadata({
-  title: "ISP Branch & Reseller Multi-Tenant Management Platform | Kashtrix",
-  description: "Multi-branch ISP management software for regional operators, franchisees, and sub-dealers. Isolate billing, delegate IP pools, manage reseller prepaid wallets, and track multi-level commission payouts.",
+  title: "Reseller Prepaid Wallet & Multi-Tenant ISP Branch Software | Kashtrix",
+  description:
+    "Multi-tenant branch and local sub-dealer ISP billing software with reseller prepaid wallet architecture, hierarchical member management, multi-tier distributor margin ledgers, and franchise settlement.",
   keywords: [
-    "ISP branch management software",
-    "ISP reseller management platform",
-    "multi-tenant ISP billing",
-    "franchisee ISP software",
-    "sub-dealer billing platform",
-    "reseller wallet management ISP",
-    "telecom reseller portal",
-    "regional ISP management"
+    "Reseller prepaid wallet architecture for cable operators",
+    "Multi tenant branch and local sub dealer ISP billing software",
+    "Hierarchical member management system for local loop operators",
+    "Multi tier distributor margin wallet ledger for telecom",
+    "ISP branch level permission and franchise settlement software",
+    "LCO local cable operator billing system",
+    "Telecom reseller commission split",
+    "Franchisee ISP management platform",
   ],
   canonical: "https://kashtrix.com/solutions/isp-branch-reseller-management",
 });
 
 const FAQS = [
   {
-    question: "Can branch managers view only their assigned subscribers and revenue?",
-    answer: "Yes. Kashtrix provides strict multi-tenant role-based access control (RBAC). Branch managers and regional admins see only their assigned territory, subscribers, billing reports, and network devices."
+    question: "How does the reseller prepaid wallet architecture work for local loop operators?",
+    answer:
+      "Resellers and Local Cable Operators (LCOs) maintain a prepaid balance wallet. When an LCO activates or renews a subscriber plan, the wholesale margin is immediately deducted from the LCO wallet, while the customer invoice is generated at retail price. If the wallet drops below the minimum balance threshold, automatic top-up reminders or service creation pauses are triggered.",
   },
   {
-    question: "How does the reseller prepaid wallet system function?",
-    answer: "Resellers top up a prepaid balance via online payment gateways or bank transfer. When creating or renewing a subscriber service, the wholesale plan cost is automatically deducted from the reseller's wallet while the end-user receives their invoice."
+    question: "How does hierarchical member and distributor margin management operate?",
+    answer:
+      "Kashtrix supports unlimited hierarchical tiers (e.g. Master Telco -> State Distributor -> City Branch -> Local Sub-Dealer/LCO). Each tier can have custom wholesale pricing, margin percentages, and automated commission splitting recorded directly into an auditable double-entry ledger.",
   },
   {
-    question: "Can different branches have custom service plans and pricing?",
-    answer: "Yes. Head office admins can define global plan templates or grant branch managers permission to configure localized pricing tiers, bandwidth limits, and promotional offers."
-  }
+    question: "Can branch managers view only their assigned territory and subscribers?",
+    answer:
+      "Yes. Kashtrix provides strict multi-tenant role-based access control (RBAC). Branch managers and regional franchisees see only their assigned territory, customer profiles, payment receipts, and NAS routers with zero visibility into neighbor branch data.",
+  },
+  {
+    question: "How are franchise settlements and tax withholdings handled?",
+    answer:
+      "Kashtrix generates automated daily, weekly, or monthly settlement statements showing gross collections, wholesale network charges, VAT/service tax withholdings, and net profit transfers to bank accounts or digital wallets.",
+  },
 ];
 
 export default function BranchResellerManagementPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Solutions", href: "/solutions" },
-    { name: "ISP Branch & Reseller Management", href: "/solutions/isp-branch-reseller-management" }
+    {
+      name: "Reseller Wallet & Multi-Tenant Branch Management",
+      href: "/solutions/isp-branch-reseller-management",
+    },
   ]);
   const faqSchema = getFAQSchema(FAQS);
 
   return (
     <SiteShell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       <main className="bg-[var(--page-bg)] text-[var(--text-primary)]">
         <section className="pt-20 pb-16 border-b border-[var(--border-default)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-xs text-[var(--text-secondary)] mb-6">
-              <Link href="/" className="hover:text-[var(--text-primary)]">Home</Link>
+              <Link href="/" className="hover:text-[var(--text-primary)]">
+                Home
+              </Link>
               <span>/</span>
-              <Link href="/bss" className="hover:text-[var(--text-primary)]">BSS & Billing</Link>
+              <Link href="/solutions" className="hover:text-[var(--text-primary)]">
+                Solutions
+              </Link>
               <span>/</span>
-              <span className="text-[var(--text-primary)] font-semibold">Branch & Reseller Management</span>
+              <span className="text-[var(--text-primary)] font-semibold">
+                Branch & Reseller Management
+              </span>
             </nav>
+
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface-purple)] text-[var(--text-link)] mb-4">
-              <Building2 className="w-3.5 h-3.5" /> Multi-Tenant Operations
+              <Building2 className="w-3.5 h-3.5" /> Multi-Tenant Reseller & Franchise Architecture
             </span>
+
             <h1 className="text-3xl sm:text-5xl font-bold font-sora tracking-tight">
-              ISP Branch & Reseller Multi-Tenant Platform
+              Reseller Prepaid Wallet & Multi-Tenant Branch Billing Software
             </h1>
+
             <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-3xl">
-              Scale your telecom business across multiple cities, regional branches, and third-party reseller networks. Maintain centralized network policy enforcement while granting local branches isolated billing, CRM management, and self-service reseller portals.
+              Scale your telecom operation through local sub-dealers, cable operators (LCOs), and
+              regional branch franchises. Automate wholesale distributor margin ledgers, prepaid wallet
+              deductions, territory permissions, and daily commission settlements from one master BSS
+              platform.
             </p>
+
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link href="/request-demo" className="inline-flex items-center gap-2 rounded-xl bg-[#E11D72] px-6 py-3 font-sora text-sm font-semibold text-white shadow-lg shadow-[#E11D72]/25 hover:-translate-y-0.5 transition-all">
+              <Link
+                href="/request-demo"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#E11D72] px-6 py-3 font-sora text-sm font-semibold text-white shadow-lg shadow-[#E11D72]/25 hover:-translate-y-0.5 transition-all"
+              >
                 Request Reseller Demo <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/bss" className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-strong)] bg-[var(--surface-1)] px-6 py-3 font-inter text-sm font-semibold hover:-translate-y-0.5 transition-all">
-                Explore Telecom BSS <ArrowRight className="w-4 h-4" />
+              <Link
+                href="/solutions/convergent-billing-dunning"
+                className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-strong)] bg-[var(--surface-1)] px-6 py-3 font-inter text-sm font-semibold hover:-translate-y-0.5 transition-all"
+              >
+                Convergent Billing <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </section>
 
+        {/* 4-Tier Hierarchy Diagram */}
         <section className="py-16 bg-[var(--surface-1)] border-b border-[var(--border-default)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 className="text-2xl font-bold font-sora">The Multi-Branch Growth Bottleneck</h2>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-              Expanding an ISP through regional branch offices and local sub-dealers often leads to fragmented data. Using separate billing software per branch causes accounting chaos, while giving external resellers full admin access creates severe security and data privacy risks.
-            </p>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-              Kashtrix solves this with native multi-tenancy. Central headquarters retains master control over network infrastructure, RADIUS authentication, and wholesale IP bandwidth, while regional branches and franchisees operate independently within their own secure tenant boundaries.
-            </p>
-          </div>
-        </section>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl font-bold font-sora">
+                Hierarchical Margin & Settlement Structure
+              </h2>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                Automated revenue splitting across every level of your distribution chain.
+              </p>
+            </div>
 
-        <section className="py-16 border-b border-[var(--border-default)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <h2 className="text-2xl font-bold font-sora">Core Multi-Tenant Capabilities</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {[
                 {
+                  tier: "Tier 1: Master Telco",
+                  role: "Central Infrastructure & Wholesale Bandwidth",
+                  desc: "Sets global rate cards, manages core BNGs/OLTs, and controls credit limits.",
+                  icon: Network,
+                },
+                {
+                  tier: "Tier 2: Regional Distributor",
+                  role: "State/Regional Hub Operations",
+                  desc: "Allocates bulk bandwidth quotas and manages master regional wallet balances.",
                   icon: Building2,
-                  title: "Hierarchical Multi-Tenancy",
-                  desc: "Structure your business into Head Office > Regional Branches > Franchisees > Sub-Dealers with granular permissions."
                 },
                 {
-                  icon: CreditCard,
-                  title: "Reseller Wallet & Billing",
-                  desc: "Automate prepaid wallet top-ups, commission splits, wholesale margin calculations, and real-time balance enforcement."
-                },
-                {
+                  tier: "Tier 3: Local Branch / Franchise",
+                  role: "City & District Administration",
+                  desc: "Coordinates local field technicians, resolves local tickets, and audits collections.",
                   icon: Users,
-                  title: "Branded Reseller Portals",
-                  desc: "Provide sub-dealers with custom white-labeled portals to register subscribers, issue vouchers, and process invoice payments."
                 },
                 {
-                  icon: Layers,
-                  title: "Delegated Subnet & NAS Management",
-                  desc: "Assign dedicated IP subnets, VLAN ranges, and NAS routers to specific branches while maintaining centralized RADIUS AAA control."
-                }
-              ].map((item) => (
-                <div key={item.title} className="p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] space-y-3">
-                  <item.icon className="w-6 h-6 text-[var(--text-link)]" />
-                  <h3 className="text-base font-bold font-sora">{item.title}</h3>
-                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
+                  tier: "Tier 4: Sub-Dealer / LCO",
+                  role: "Last-Mile Subscriber Sales",
+                  desc: "Recharges prepaid wallet, creates subscribers, and earns real-time retail margins.",
+                  icon: Wallet,
+                },
+              ].map((t) => (
+                <div
+                  key={t.tier}
+                  className="p-5 rounded-2xl border border-[var(--border-default)] bg-[var(--page-bg)] space-y-3"
+                >
+                  <div className="flex items-center justify-between">
+                    <t.icon className="w-5 h-5 text-[#E11D72]" />
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--text-secondary)]">
+                      Ledger Synced
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-bold font-sora">{t.tier}</h3>
+                  <p className="text-xs font-semibold text-[var(--text-link)]">{t.role}</p>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{t.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-[var(--surface-1)] border-b border-[var(--border-default)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <h2 className="text-2xl font-bold font-sora">Frequently Asked Questions</h2>
-            {FAQS.map((faq) => (
-              <div key={faq.question} className="space-y-2 pb-6 border-b border-[var(--border-default)] last:border-0">
-                <h3 className="text-sm font-bold text-[var(--text-primary)]">{faq.question}</h3>
-                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
+        {/* Feature Grid */}
+        <section className="py-16 border-b border-[var(--border-default)]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold font-sora">
+                Enterprise Multi-Tenant Capabilities
+              </h2>
+              <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                Built to support 10 to 5,000+ independent reseller networks with zero cross-tenant data leakage.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Wallet,
+                  title: "Prepaid Wholesale Reseller Wallets",
+                  desc: "Resellers top-up balances via payment gateway, bank transfer, or corporate vouchers. Service provisioning is automatically gated by wallet credit.",
+                },
+                {
+                  icon: Split,
+                  title: "Multi-Tier Margin Ledgers",
+                  desc: "Define custom revenue share ratios (e.g., 70% ISP / 30% LCO) with automated real-time transaction postings on every subscription renewal.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Strict Branch-Level Permissions (RBAC)",
+                  desc: "Isolate customer personal data, phone numbers, and payment records per branch or dealer to ensure strict compliance with telecom privacy regulations.",
+                },
+                {
+                  icon: Coins,
+                  title: "Automated Franchise Settlement",
+                  desc: "Generate monthly tax invoices, calculate VAT/GST withholdings, and schedule automated bank payouts to franchise partners.",
+                },
+                {
+                  icon: Layers,
+                  title: "White-Label Dealer Portals",
+                  desc: "Give sub-dealers branded self-service portals to register subscribers, run optical signal checks, issue speed tests, and print receipts.",
+                },
+                {
+                  icon: ReceiptText,
+                  title: "Delegated IP Pool & NAS Control",
+                  desc: "Assign dedicated public IPv4/IPv6 subnets, MikroTik PPPoE servers, and OLT PON ports directly to specific local franchisees.",
+                },
+              ].map((f) => (
+                <div
+                  key={f.title}
+                  className="p-6 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] space-y-3"
+                >
+                  <f.icon className="w-6 h-6 text-[#E11D72]" />
+                  <h3 className="text-base font-bold font-sora">{f.title}</h3>
+                  <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{f.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
+        {/* FAQs */}
         <section className="py-16 border-b border-[var(--border-default)]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 className="text-2xl font-bold font-sora">Explore Related Solutions</h2>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 className="text-2xl font-bold font-sora">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {FAQS.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="p-5 rounded-2xl border border-[var(--border-default)] bg-[var(--surface-1)] space-y-2"
+                >
+                  <h3 className="text-sm font-bold text-[var(--text-primary)]">{faq.question}</h3>
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Related Solutions */}
+        <section className="py-16 bg-[var(--surface-1)] border-b border-[var(--border-default)]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <h2 className="text-2xl font-bold font-sora">Explore Related Systems</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: "BSS & Billing Hub", href: "/bss", desc: "Subscriber billing & revenue" },
-                { label: "ISP CRM Software", href: "/crm", desc: "Subscriber management & portal" },
-                { label: "FreeRADIUS Billing", href: "/solutions/freeradius-mikrotik-billing", desc: "AAA subscriber authentication" }
+                {
+                  label: "Convergent Billing & Dunning",
+                  href: "/solutions/convergent-billing-dunning",
+                  desc: "Digital wallets & dynamic CoA throttling",
+                },
+                {
+                  label: "PPPoE RADIUS Billing",
+                  href: "/solutions/pppoe-radius-billing",
+                  desc: "AAA subscriber authentication",
+                },
+                {
+                  label: "Field Staff GPS Dispatch",
+                  href: "/solutions/isp-field-staff-gps",
+                  desc: "Mobile technician dispatch & tracking",
+                },
               ].map((link) => (
-                <Link key={link.href} href={link.href} className="p-4 rounded-xl border border-[var(--border-default)] bg-[var(--surface-1)] hover:border-purple-500/40 hover:-translate-y-0.5 transition-all">
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="p-4 rounded-xl border border-[var(--border-default)] bg-[var(--page-bg)] hover:border-purple-500/40 hover:-translate-y-0.5 transition-all"
+                >
                   <span className="text-sm font-bold block">{link.label}</span>
-                  <span className="text-xs text-[var(--text-secondary)] mt-0.5 block">{link.desc}</span>
+                  <span className="text-xs text-[var(--text-secondary)] mt-0.5 block">
+                    {link.desc}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
+        {/* CTA Banner */}
         <section className="py-20 text-center">
           <div className="max-w-2xl mx-auto px-4 space-y-4">
-            <h2 className="text-2xl font-bold font-sora">Scale Your Reseller Network Today</h2>
-            <p className="text-sm text-[var(--text-secondary)]">Request a live demonstration of Kashtrix multi-tenant branch and reseller management.</p>
-            <Link href="/request-demo" className="inline-flex items-center gap-2 rounded-xl bg-[#E11D72] px-8 py-3.5 font-sora text-sm font-semibold text-white shadow-lg shadow-[#E11D72]/25 hover:-translate-y-0.5 transition-all">
-              Request Demo <ArrowRight className="w-4 h-4" />
+            <h2 className="text-2xl sm:text-3xl font-bold font-sora">
+              Supercharge Your Reseller & Franchise Channel
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)]">
+              Discover how Kashtrix Reseller Wallets and Multi-Tenant Branch Software streamline your
+              partner operations.
+            </p>
+            <Link
+              href="/request-demo"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#E11D72] px-8 py-3.5 font-sora text-sm font-semibold text-white shadow-lg shadow-[#E11D72]/25 hover:-translate-y-0.5 transition-all"
+            >
+              Request Partner Demo <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </section>
